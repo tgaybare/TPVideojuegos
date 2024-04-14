@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Strategy.Strategy___Shooting;
 using UnityEngine;
 
-public interface IDistanceWeapon
+public interface IDistanceWeapon : IWeapon
 {
     GameObject ProjectilePrefab { get; }
-    int Damage { get; }
     int MaxProjectileCount { get; }
-    void Attack();
     void Reload();
 }
