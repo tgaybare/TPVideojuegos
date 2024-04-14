@@ -22,18 +22,14 @@ public class CharacterInputManager : MonoBehaviour
     private CmdMovement _cmdMoveLeft;
     private CmdMovement _cmdMoveRight;
 
-    private void InitCommands()
-    {
-        _cmdMoveBackward = new CmdMovement(Vector3.back, GetComponent<IMoveable>());
-        _cmdMoveForward = new CmdMovement(Vector3.forward, GetComponent<IMoveable>());
-        _cmdMoveLeft = new CmdMovement(Vector3.left, GetComponent<IMoveable>());
-        _cmdMoveRight = new CmdMovement(Vector3.right, GetComponent<IMoveable>());
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        InitCommands();
+        _cmdMoveBackward = new CmdMovement(-transform.forward, GetComponent<IMoveable>());
+        _cmdMoveForward = new CmdMovement(transform.forward, GetComponent<IMoveable>());
+        _cmdMoveLeft = new CmdMovement(-transform.right, GetComponent<IMoveable>());
+        _cmdMoveRight = new CmdMovement(transform.right, GetComponent<IMoveable>());
+        
     }
 
     // Update is called once per frame
