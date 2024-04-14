@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentProjectileCount: 12
-  _projectilePrefab: {fileID: 182122, guid: a7ef2398046494d0cadc6b5c28cfa84f, type: 3}
+  _projectilePrefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
