@@ -8,10 +8,10 @@ using UnityEngine;
 
 public class CharacterInputManager : MonoBehaviour
 {
-    
+
     // [SerializeField] private Sword _sword;
     // [SerializeField] private Bow _bow;
-    
+
     private IWeapon _currentAttackStrategy;
     [SerializeField] private IDistanceWeapon _distanceWeapon;
     // [SerializeField] private IMeleeWeapon _meleeWeapon;
@@ -45,15 +45,26 @@ public class CharacterInputManager : MonoBehaviour
         _currentAttackStrategy = _distanceWeapon;
         Debug.Log(_currentAttackStrategy);
 
-        // Movement
-        _cmdMoveBackward = new CmdMovement(-transform.forward, GetComponent<IMoveable>());
-        _cmdMoveForward = new CmdMovement(transform.forward, GetComponent<IMoveable>());
-        _cmdMoveLeft = new CmdMovement(-transform.right, GetComponent<IMoveable>());
-        _cmdMoveRight = new CmdMovement(transform.right, GetComponent<IMoveable>());
-        _cmdMoveForwardLeft = new CmdMovement(0.75f * (transform.forward - transform.right), GetComponent<IMoveable>());
-        _cmdMoveForwardRight = new CmdMovement(0.75f * (transform.forward + transform.right), GetComponent<IMoveable>());
-        _cmdMoveBackwardLeft = new CmdMovement(0.75f * (-transform.forward - transform.right), GetComponent<IMoveable>());
-        _cmdMoveBackwardRight = new CmdMovement(0.75f * (-transform.forward + transform.right), GetComponent<IMoveable>());
+        // Movement directions
+        Vector3 backward = -transform.forward;
+        Vector3 forward = transform.forward;
+        Vector3 left = -transform.right;
+        Vector3 right = transform.right;
+        Vector3 forwardLeft = 0.75f * (forward + left);
+        Vector3 forwardRight = 0.75f * (forward + right);
+        Vector3 backwardLeft = 0.75f * (backward + left);
+        Vector3 backwardRight = 0.75f * (backward + right);
+
+
+        // Movement Commands
+        _cmdMoveBackward = new CmdMovement(backward, GetComponent<IMoveable>());
+        _cmdMoveForward = new CmdMovement(forward, GetComponent<IMoveable>());
+        _cmdMoveLeft = new CmdMovement(left, GetComponent<IMoveable>());
+        _cmdMoveRight = new CmdMovement(right, GetComponent<IMoveable>());
+        _cmdMoveForwardLeft = new CmdMovement(forwardLeft, GetComponent<IMoveable>());
+        _cmdMoveForwardRight = new CmdMovement(forwardRight, GetComponent<IMoveable>());
+        _cmdMoveBackwardLeft = new CmdMovement(backwardLeft, GetComponent<IMoveable>());
+        _cmdMoveBackwardRight = new CmdMovement(backwardRight, GetComponent<IMoveable>());
 
         // Attack
         _cmdAttack = new CmdAttack(_currentAttackStrategy);
