@@ -46,10 +46,10 @@ public class CharacterInputManager : MonoBehaviour
         Debug.Log(_currentAttackStrategy);
 
         // Movement directions
-        Vector3 backward = -transform.forward;
-        Vector3 forward = transform.forward;
-        Vector3 left = -transform.right;
-        Vector3 right = transform.right;
+        Vector3 backward = new Vector3(0, 0, -1);
+        Vector3 forward = new Vector3(0, 0, 1);
+        Vector3 left = new Vector3(-1, 0, 0);
+        Vector3 right = new Vector3(1, 0, 0);
         Vector3 forwardLeft = 0.75f * (forward + left);
         Vector3 forwardRight = 0.75f * (forward + right);
         Vector3 backwardLeft = 0.75f * (backward + left);
