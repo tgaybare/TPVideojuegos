@@ -30,6 +30,10 @@ public class CharacterInputManager : MonoBehaviour
     private CmdMovement _cmdMoveBackward;
     private CmdMovement _cmdMoveLeft;
     private CmdMovement _cmdMoveRight;
+    private CmdMovement _cmdMoveForwardLeft;
+    private CmdMovement _cmdMoveBackwardLeft;
+    private CmdMovement _cmdMoveForwardRight;
+    private CmdMovement _cmdMoveBackwardRight;
     private CmdAttack _cmdAttack;
 
     // Start is called before the first frame update
@@ -41,11 +45,17 @@ public class CharacterInputManager : MonoBehaviour
         _currentAttackStrategy = _distanceWeapon;
         Debug.Log(_currentAttackStrategy);
 
-        
+        // Movement
         _cmdMoveBackward = new CmdMovement(-transform.forward, GetComponent<IMoveable>());
         _cmdMoveForward = new CmdMovement(transform.forward, GetComponent<IMoveable>());
         _cmdMoveLeft = new CmdMovement(-transform.right, GetComponent<IMoveable>());
         _cmdMoveRight = new CmdMovement(transform.right, GetComponent<IMoveable>());
+        _cmdMoveForwardLeft = new CmdMovement(0.75f * (transform.forward - transform.right), GetComponent<IMoveable>());
+        _cmdMoveForwardRight = new CmdMovement(0.75f * (transform.forward + transform.right), GetComponent<IMoveable>());
+        _cmdMoveBackwardLeft = new CmdMovement(0.75f * (-transform.forward - transform.right), GetComponent<IMoveable>());
+        _cmdMoveBackwardRight = new CmdMovement(0.75f * (-transform.forward + transform.right), GetComponent<IMoveable>());
+
+        // Attack
         _cmdAttack = new CmdAttack(_currentAttackStrategy);
     }
 
@@ -54,11 +64,29 @@ public class CharacterInputManager : MonoBehaviour
     {
         
         //Movement 
-        if (Input.GetKey(_moveForward)) EventQueueManager.instance.AddEventToQueue(_cmdMoveForward);
-        if (Input.GetKey(_moveBackward)) EventQueueManager.instance.AddEventToQueue(_cmdMoveBackward);
-        if (Input.GetKey(_moveLeft)) EventQueueManager.instance.AddEventToQueue(_cmdMoveLeft);
-        if (Input.GetKey(_moveRight)) EventQueueManager.instance.AddEventToQueue(_cmdMoveRight);
+        if (Input.GetKey(_moveForward)) 
+        {
+            if(Input.GetKey(_moveLeft))
+                EventQueueManager.instance.AddEventToQueue(_cmdMoveForwardLeft);
+            else if(Input.GetKey(_moveRight))
+                EventQueueManager.instance.AddEventToQueue(_cmdMoveForwardRight);
+            else
+                EventQueueManager.instance.AddEventToQueue(_cmdMoveForward);
+        }
+        else if (Input.GetKey(_moveBackward))
+        {
+            if (Input.GetKey(_moveLeft))
+                EventQueueManager.instance.AddEventToQueue(_cmdMoveBackwardLeft);
+            else if (Input.GetKey(_moveRight))
+                EventQueueManager.instance.AddEventToQueue(_cmdMoveBackwardRight);
+            else
+                EventQueueManager.instance.AddEventToQueue(_cmdMoveBackward);
+        }
+        else if (Input.GetKey(_moveLeft)) EventQueueManager.instance.AddEventToQueue(_cmdMoveLeft);
+        else if (Input.GetKey(_moveRight)) EventQueueManager.instance.AddEventToQueue(_cmdMoveRight);
         
+
+
         //Change weapon
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
