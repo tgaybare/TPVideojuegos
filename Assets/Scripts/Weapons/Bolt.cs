@@ -42,7 +42,7 @@ namespace Weapons
         {
             if (_layerMasks.Contains(collision.gameObject.layer))
             {
-                IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
+                IDamageable damagable = collision.gameObject.GetComponent<IDamageable>();
                 damagable?.TakeDamage(Damage);
 
                 Destroy(this.gameObject);
