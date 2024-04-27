@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ActorStats", menuName = "Stats/Actors", order = 0)]
 public class ActorStats: ScriptableObject
 {
-    [SerializeField] private Enemy1StatsValues stats;
+    [SerializeField] private ActorStatValues stats;
 
     public int MaxLife => stats.MaxLife;
     public int Damage => stats.Damage;
@@ -13,7 +13,7 @@ public class ActorStats: ScriptableObject
 }
 
 [System.Serializable]
-public struct Enemy1StatsValues
+public struct ActorStatValues
 {
     public int MaxLife;
     public int Damage;
