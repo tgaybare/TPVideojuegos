@@ -5,6 +5,7 @@ using Controllers;
 using Strategy.Strategy___Shooting;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class CharacterInputManager : MonoBehaviour
 {
@@ -73,7 +74,11 @@ public class CharacterInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        IMoveable Player = GetComponent<IMoveable>();
+        Ray mouseProjectionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Player.RotateTowards(mouseProjectionRay);
+
         //Movement 
         if (Input.GetKey(_moveForward)) 
         {
