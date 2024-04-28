@@ -576,10 +576,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1295971217958465800, guid: 3fe2b5f2f7e70e24ab096387924f51f9, type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: 4c6c1f122a14848408d06c764872d95e, type: 2}
+    - target: {fileID: 1029461984975855897, guid: 3fe2b5f2f7e70e24ab096387924f51f9, type: 3}
+      propertyPath: m_TagString
+      value: Crossbow
+      objectReference: {fileID: 0}
     - target: {fileID: 4494552956000126888, guid: 3fe2b5f2f7e70e24ab096387924f51f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
