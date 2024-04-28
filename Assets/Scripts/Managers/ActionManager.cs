@@ -36,7 +36,7 @@ namespace Managers
         #region HUD_UI_ACTIONS
 
         public event Action<float,float> OnCharacterLifeChange;
-        public event Action<int, int> OnWeaponChange;
+        // public event Action<int, int> OnWeaponChange;
         
         public void CharacterLifeChange(float currentLife, float maxLife)
         {
