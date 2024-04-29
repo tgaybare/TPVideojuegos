@@ -15,6 +15,11 @@ namespace Commands
             _direction = direction;
         }
 
+        public void ChangeDirection(Vector3 direction)
+        {
+            _direction = direction;
+        }
+
         public void Do()
         {
             _moveable.Move(_direction);

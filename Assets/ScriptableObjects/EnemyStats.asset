@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     MaxLife: 50
-    Speed: 2
+    Speed: 5
   enemyStats:
     Damage: 20

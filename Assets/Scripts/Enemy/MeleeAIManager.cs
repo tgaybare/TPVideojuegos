@@ -6,6 +6,7 @@ using UnityEngine;
 using Commands;
 using Strategy.Strategy___Weapon;
 using Strategy.Strategy___Movement;
+using Weapons;
 
 public class MeleeAIManager : MonoBehaviour
 {
@@ -15,9 +16,9 @@ public class MeleeAIManager : MonoBehaviour
     [SerializeField] private IWeapon _meleeWeapon;
 
     [SerializeField] private GameObject player;
-    [SerializeField] private float attackRange = 0.5f;
+    [SerializeField] private float attackRange = 2f;
     
-    private CmdMovement _cmdMoveForward;
+    private CmdMovement _cmdMoveDirection;
     private CmdAttack _cmdAttack;
     
     private void Awake()
@@ -25,9 +26,10 @@ public class MeleeAIManager : MonoBehaviour
         // Movement directions
         Vector3 forward = new Vector3(0, 0, 1);
 
+        _meleeWeapon = GetComponent<MeleeWeapon>();
 
         // Movement Commands
-        _cmdMoveForward = new CmdMovement(forward, GetComponent<IMoveable>());
+        _cmdMoveDirection = new CmdMovement(forward, GetComponent<IMoveable>());
         
         // Attack
         _cmdAttack = new CmdAttack(_meleeWeapon);
@@ -48,7 +50,8 @@ public class MeleeAIManager : MonoBehaviour
         }
         else
         {
-            _cmdMoveForward.Do();
+            _cmdMoveDirection.ChangeDirection(playerDirection.direction);
+            _cmdMoveDirection.Do();
         }
     }
 

@@ -13,7 +13,7 @@ namespace Weapons
         #region I_WEAPON_PROPERTIES
         
         public int Damage => _damage;
-        private int _damage; 
+        private int _damage = 10; 
         
         #endregion
 
@@ -23,7 +23,7 @@ namespace Weapons
         public virtual void Attack()
         {
             Vector3 defaultPosition = transform.position;
-            transform.position = transform.forward + transform.position;
+            transform.position = transform.forward * 5 + transform.position;
             transform.position = defaultPosition; //TODO: hacer con una animacion
         }
 
