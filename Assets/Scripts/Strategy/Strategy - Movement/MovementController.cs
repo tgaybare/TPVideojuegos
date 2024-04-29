@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using Controllers;
+using Strategy.Strategy___Movement;
 using UnityEngine;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class MovementController : MonoBehaviour, IMoveable
 {
+    
     #region IMOVEABLE_PROPERTIES
-    public float Speed => _speed;
-    private float _speed = 10;
+
+    public ActorStats Stats => stats;
+    [SerializeField] private ActorStats stats;
+    
+    public float Speed => stats.Speed;
+    
     #endregion
+    
 
     #region IMOVEABLE_METHODS
     public void Move(Vector3 direction)

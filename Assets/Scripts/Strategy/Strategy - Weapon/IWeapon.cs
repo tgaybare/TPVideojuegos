@@ -1,4 +1,4 @@
-﻿namespace Strategy.Strategy___Shooting
+﻿namespace Strategy.Strategy___Weapon
 {
     public interface IWeapon
     {
