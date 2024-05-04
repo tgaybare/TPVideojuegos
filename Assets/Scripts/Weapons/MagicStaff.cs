@@ -7,7 +7,7 @@ namespace Weapons
         
         public override void Attack()
         {
-            Vector3 staffBarrelPosition = GameObject.FindWithTag("MagicStaff").GetComponent<Collider>().transform.position;
+            Vector3 staffBarrelPosition = GameObject.FindWithTag("MagicStaff").GetComponent<Collider>().bounds.center;
             Vector3 position = staffBarrelPosition;
             Instantiate(
                 ProjectilePrefab, 
