@@ -8,7 +8,8 @@ namespace Weapons
         public override void Attack()
         {
             Vector3 staffBarrelPosition = GameObject.FindWithTag("MagicStaff").GetComponent<Collider>().bounds.center;
-            Vector3 playerPosition = GameObject.FindWithTag("Player").transform.position;
+            GameObject player = GameObject.FindWithTag("Player");
+            Vector3 playerPosition = player.transform.position + new Vector3(0, 1, 0);
             Vector3 position = staffBarrelPosition;
             
             // Calculate direction from spawn point to target position

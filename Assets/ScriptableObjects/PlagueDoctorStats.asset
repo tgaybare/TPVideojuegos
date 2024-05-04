@@ -18,4 +18,4 @@ MonoBehaviour:
     AttackRate: 1
   enemyStats:
     Damage: 60
-    AttackRange: 7
+    AttackRange: 20
