@@ -23,7 +23,7 @@ namespace Weapons
         public virtual void Attack()
         {
             Vector3 defaultPosition = transform.position;
-            transform.position = transform.forward * 5 + transform.position;
+            transform.position = transform.forward * 2 + transform.position;
             transform.position = defaultPosition; //TODO: hacer con una animacion
         }
 

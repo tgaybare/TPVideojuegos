@@ -8,12 +8,13 @@ namespace Managers
 
         public static ActionManager instance;
         
-        private void Awake()
+        private void Start()
         {
             if (instance == null)
             {
                 instance = this;
             }
+            Debug.Log("created instance of ActionManager");
         }
 
         #region GAME_MANAGER_ACTIONS
@@ -54,7 +55,7 @@ namespace Managers
             // }
             throw new NotImplementedException();
         }
-        
+         
         #endregion
 
         #region GAME_ACTIONS

@@ -30,6 +30,7 @@ namespace Strategy.Strategy___Weapon
                 }
                 
                 Destroy(gameObject);
+                Debug.Log("debo destruir");
                 
                 Invoke(nameof(LoadMenuScreen),6f);
             }
