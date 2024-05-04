@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Commands;
-using Controllers;
-using Strategy.Strategy___Shooting;
+using Strategy.Strategy___Movement;
+using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
@@ -44,7 +44,6 @@ public class CharacterInputManager : MonoBehaviour
         _distanceWeapon = GetComponent<Crossbow>();
         _isMelee = false;
         _currentAttackStrategy = _distanceWeapon;
-        Debug.Log(_currentAttackStrategy);
 
         // Movement directions
         Vector3 backward = new Vector3(0, 0, -1);

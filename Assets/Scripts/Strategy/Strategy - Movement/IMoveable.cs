@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Controllers
+namespace Strategy.Strategy___Movement
 {
     public interface IMoveable
     {

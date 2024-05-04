@@ -1,4 +1,4 @@
-﻿using Strategy.Strategy___Shooting;
+﻿using Strategy.Strategy___Weapon;
 
 namespace Commands
 {

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Strategy.Strategy___Shooting;
+using Strategy.Strategy___Weapon;
 using UnityEngine;
 
 public interface IDistanceWeapon : IWeapon

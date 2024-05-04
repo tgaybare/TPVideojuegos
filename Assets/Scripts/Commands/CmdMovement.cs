@@ -1,4 +1,4 @@
-﻿using Controllers;
+﻿using Strategy.Strategy___Movement;
 using UnityEngine;
 
 namespace Commands
@@ -12,6 +12,11 @@ namespace Commands
         public CmdMovement(Vector3 direction, IMoveable moveable)
         {
             _moveable = moveable;
+            _direction = direction;
+        }
+
+        public void ChangeDirection(Vector3 direction)
+        {
             _direction = direction;
         }
 
