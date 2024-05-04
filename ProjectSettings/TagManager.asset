@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MeleeSkeleton
   - Crossbow
+  - MagicStaff
   layers:
   - Default
   - TransparentFX
