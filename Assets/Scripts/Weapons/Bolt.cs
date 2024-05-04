@@ -44,6 +44,7 @@ namespace Weapons
             {
                 IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
+                Debug.Log("Se deberia haber llamado a take damage");
 
                 Destroy(this.gameObject);
             }
