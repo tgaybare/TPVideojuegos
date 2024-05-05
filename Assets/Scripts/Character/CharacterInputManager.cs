@@ -5,6 +5,7 @@ using Strategy.Strategy___Movement;
 using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class CharacterInputManager : MonoBehaviour
@@ -45,11 +46,14 @@ public class CharacterInputManager : MonoBehaviour
         _isMelee = false;
         _currentAttackStrategy = _distanceWeapon;
 
+        //45 degree view
+        Quaternion rotation = Quaternion.AngleAxis(-45, Vector3.up);
+
         // Movement directions
-        Vector3 backward = new Vector3(0, 0, -1);
-        Vector3 forward = new Vector3(0, 0, 1);
-        Vector3 left = new Vector3(-1, 0, 0);
-        Vector3 right = new Vector3(1, 0, 0);
+        Vector3 backward = rotation * new Vector3(0, 0, -1);
+        Vector3 forward = rotation * new Vector3(0, 0, 1);
+        Vector3 left = rotation * new Vector3(-1, 0, 0);
+        Vector3 right = rotation * new Vector3(1, 0, 0);
         Vector3 forwardLeft = 0.75f * (forward + left);
         Vector3 forwardRight = 0.75f * (forward + right);
         Vector3 backwardLeft = 0.75f * (backward + left);
