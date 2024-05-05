@@ -8,6 +8,7 @@ public class ActorStats: ScriptableObject
 
     public int MaxLife => stats.MaxLife;
     public float Speed => stats.Speed;
+    public float AttackRate => stats.AttackRate;
 
 }
 
@@ -16,4 +17,5 @@ public struct ActorStatValues
 {
     public int MaxLife;
     public float Speed;
+    public float AttackRate;
 }

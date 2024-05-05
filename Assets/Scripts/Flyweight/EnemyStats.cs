@@ -6,6 +6,7 @@ public class EnemyStats : ActorStats
     [SerializeField] private EnemyStatValues enemyStats;
 
     public int Damage => enemyStats.Damage;
+    public int AttackRange => enemyStats.AttackRange;
     
 }
 
@@ -13,4 +14,5 @@ public class EnemyStats : ActorStats
 public struct EnemyStatValues
 {
     public int Damage;
+    public int AttackRange;
 }

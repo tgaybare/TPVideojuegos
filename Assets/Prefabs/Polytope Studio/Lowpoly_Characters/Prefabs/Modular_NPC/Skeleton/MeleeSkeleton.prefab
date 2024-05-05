@@ -301,16 +301,16 @@ GameObject:
   - component: {fileID: 7556791954580782308}
   - component: {fileID: 2536824146348612490}
   - component: {fileID: 2035248133976126747}
-  - component: {fileID: 676587042328581595}
   - component: {fileID: 7237200189924479705}
   - component: {fileID: 6698960034011001713}
+  - component: {fileID: 1213189639692746787}
   m_Layer: 3
   m_Name: MeleeSkeleton
   m_TagString: MeleeSkeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1929787907488324609
 Transform:
   m_ObjectHideFlags: 0
@@ -321,7 +321,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7236, y: 2.7236, z: 2.7236}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3961850473943869110}
@@ -416,20 +416,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &676587042328581595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264433200921298619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52402e36b01d89248a53ef7794eca4e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  attackRange: 2
 --- !u!114 &7237200189924479705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +442,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cf8a7d4b2cc87584a9f57bfdc7de8ed7, type: 2}
+--- !u!114 &1213189639692746787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264433200921298619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc78d037cce49de85265bbdba1e4fe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: cf8a7d4b2cc87584a9f57bfdc7de8ed7, type: 2}
+  player: {fileID: 0}
 --- !u!1 &1334277327535426561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,7 +3482,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4489677676252728369, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
       propertyPath: m_Name
-      value: PT_Sword_01_a
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 4489677676252728369, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
       propertyPath: m_Layer
