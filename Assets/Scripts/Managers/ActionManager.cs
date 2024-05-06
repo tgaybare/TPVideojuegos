@@ -8,7 +8,7 @@ namespace Managers
 
         public static ActionManager instance;
         
-        private void Start()
+        private void Awake()
         {
             if (instance == null)
             {
@@ -28,6 +28,12 @@ namespace Managers
                 OnGameOver(isVictory);
                 Invoke(nameof(LoadMenuScreen),6f);
             }
+        }
+        
+        public event Action<bool> OnGameStart;
+        public void ActionGameStart()
+        {
+          throw new NotImplementedException();
         }
 
         private void LoadMenuScreen() => UnitySceneManager.instance.Load_MenuScreen();
@@ -60,7 +66,33 @@ namespace Managers
 
         #region GAME_ACTIONS
 
-        // ejemplo muere un enemigo
+        public event Action OnBoltHit;
+        public event Action OnCrossbowShot;
+        public event Action OnSwordSlash;
+        
+        public void BoltHit()
+        {
+            if (OnBoltHit != null)
+            {
+                OnBoltHit();
+            }
+        }
+        
+        public void CrossbowShot()
+        {
+            if (OnCrossbowShot != null)
+            {
+                OnCrossbowShot();
+            }
+        }
+        
+        public void SwordSlash()
+        {
+            if (OnSwordSlash != null)
+            {
+                OnSwordSlash();
+            }
+        }
 
         #endregion
 

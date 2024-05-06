@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 namespace Weapons
@@ -44,8 +45,8 @@ namespace Weapons
             {
                 IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
-                Debug.Log("Se deberia haber llamado a take damage");
-
+                ActionManager.instance.BoltHit();
+                
                 Destroy(this.gameObject);
             }
         }
