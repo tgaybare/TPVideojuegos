@@ -10,7 +10,7 @@ public enum Direction
     Right
 }
 
-public class DungeonCrawlerController : MonoBehaviour
+public class DungeonCrawlerController
 {
     public static HashSet<Vector2Int> positionsVisited = new HashSet<Vector2Int>();
 
@@ -34,6 +34,9 @@ public class DungeonCrawlerController : MonoBehaviour
             crawlers.Add(new DungeonCrawler(i, Vector2Int.zero));
             Debug.Log($"[DungeonCrawlerController] Added Crawler {i} (Total = {crawlers.Count})");
         }
+
+        // The center (0, 0) is always visited
+        positionsVisited.Add(Vector2Int.zero);
 
         for (int i = 0; i < Random.Range(data.IterationMin, data.IterationMax); i++)
         {
