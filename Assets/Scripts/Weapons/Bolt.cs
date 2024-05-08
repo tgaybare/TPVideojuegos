@@ -9,7 +9,7 @@ namespace Weapons
     {
 
         [SerializeField] private int _damage = 10;
-        [SerializeField] private float _speed = 50;
+        [SerializeField] private float _speed = 10;
         [SerializeField] private float _lifetime = 5;
         [SerializeField] private List<int> _layerMasks;
 
@@ -19,9 +19,9 @@ namespace Weapons
 
         private Vector3 _direction;
 
-        private void Start()
+        private void Awake()
         {
-           // _direction = transform.forward;
+            transform.position += transform.forward * 3.5f;
         }
 
         private void Update()
@@ -37,6 +37,19 @@ namespace Weapons
         public void Travel()
         {
             transform.position += transform.forward * Time.deltaTime * Speed;
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Hubo colision con " + gameObject.name);
+            if (_layerMasks.Contains(other.gameObject.layer))
+            {
+                IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+                damageable?.TakeDamage(Damage);
+                ActionManager.instance.BoltHit();
+                
+                Destroy(this.gameObject);
+            }
         }
 
         public void OnCollisionEnter(Collision collision)

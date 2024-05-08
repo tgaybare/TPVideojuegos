@@ -10,4 +10,6 @@ public interface IProjectile
 
     void Travel();
     void OnCollisionEnter(Collision collision);
+    
+    void OnTriggerEnter(Collider other);
 }
