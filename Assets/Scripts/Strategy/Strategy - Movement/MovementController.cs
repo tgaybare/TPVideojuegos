@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Strategy.Strategy___Movement;
 using UnityEngine;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
@@ -31,5 +33,22 @@ public class MovementController : MonoBehaviour, IMoveable
             transform.LookAt(new Vector3(raycastHit.point.x, transform.position.y, raycastHit.point.z));
         }
     }
+
+    public void Dodge(int duration)
+    {
+        transform.position += 25 * Time.deltaTime * Speed * transform.forward;
+        StartCoroutine(SetInvulnerable(duration));
+
+    }
+
+    private IEnumerator SetInvulnerable(int duration)
+    {
+        int layer = gameObject.layer;
+        gameObject.layer = 2;
+        yield return new WaitForSeconds(duration / 1000); //ms to s
+        Debug.Log("FUI INVULNERABLE Y YA ME LEVANTE");
+        gameObject.layer = layer;
+    }
+
     #endregion
 }

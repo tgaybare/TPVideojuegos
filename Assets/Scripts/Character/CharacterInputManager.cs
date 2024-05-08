@@ -23,6 +23,7 @@ public class CharacterInputManager : MonoBehaviour
     private KeyCode _moveLeft = KeyCode.A;
     private KeyCode _moveRight = KeyCode.D;
     private KeyCode _attack = KeyCode.Mouse0;
+    private KeyCode _dodge = KeyCode.LeftShift;
 
     private KeyCode _chooseMelee = KeyCode.Alpha1;
     private KeyCode _chooseDistance = KeyCode.Alpha2;
@@ -37,6 +38,11 @@ public class CharacterInputManager : MonoBehaviour
     private CmdMovement _cmdMoveForwardRight;
     private CmdMovement _cmdMoveBackwardRight;
     private CmdAttack _cmdAttack;
+    private CmdDodge _cmdDodge;
+    
+    [SerializeField] private int dodgeDuration = 1500; // in ms
+    [SerializeField] private int dodgeCooldown = 2000; // in ms
+    private int _dodgeCooldownTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +78,9 @@ public class CharacterInputManager : MonoBehaviour
 
         // Attack
         _cmdAttack = new CmdAttack(_currentAttackStrategy);
+        
+        // Dodge
+        _cmdDodge = new CmdDodge(GetComponent<IMoveable>(), dodgeDuration);
     }
 
     // Update is called once per frame
@@ -104,6 +113,17 @@ public class CharacterInputManager : MonoBehaviour
         else if (Input.GetKey(_moveLeft)) EventQueueManager.instance.AddEventToQueue(_cmdMoveLeft);
         else if (Input.GetKey(_moveRight)) EventQueueManager.instance.AddEventToQueue(_cmdMoveRight);
         
+        if (Input.GetKeyDown(_dodge) && _dodgeCooldownTimer >= dodgeCooldown)
+        {
+            EventQueueManager.instance.AddEventToQueue(_cmdDodge);
+            _dodgeCooldownTimer = 0;
+        }
+        else
+        {
+            _dodgeCooldownTimer += (int)(Time.deltaTime * 1000);
+        }
+
+
 
 
         //Change weapon
@@ -134,7 +154,7 @@ public class CharacterInputManager : MonoBehaviour
 
         //Attacks
         if (Input.GetKeyDown(_attack)) EventQueueManager.instance.AddEventToQueue(_cmdAttack);
-        
+
 
     }
 }
