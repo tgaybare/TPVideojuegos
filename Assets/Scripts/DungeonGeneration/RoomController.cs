@@ -23,13 +23,15 @@ public class RoomController : MonoBehaviour
 {
     public static RoomController instance;
 
+    [SerializeField] private List<Room> _loadedRooms = new List<Room>();
+
     private string _currentWorldName = "Level 1";
 
     private RoomInfo _currentLoadRoomData;
 
     private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
 
-    private List<Room> _loadedRooms = new List<Room>();
+    
 
     private bool _isLoadingRoom = false;
 
@@ -43,14 +45,6 @@ public class RoomController : MonoBehaviour
         {
             Destroy(this);
         }
-    }
-
-    // Just for testing
-    private void Start()
-    {
-        LoadRoom("Room1", 0, 0);
-        LoadRoom("Room2", 1, 0);
-        LoadRoom("Room3", 1, 1);
     }
 
     private void Update()
@@ -85,6 +79,8 @@ public class RoomController : MonoBehaviour
 
         if(DoesRoomExist(_currentLoadRoomData.X, _currentLoadRoomData.Z))
         {
+            Destroy(room.gameObject);
+            _isLoadingRoom = false;
             return;
         }
 
