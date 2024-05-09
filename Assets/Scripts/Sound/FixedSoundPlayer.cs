@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Sound
 {
@@ -12,6 +13,7 @@ namespace Sound
         {
             _audioSource = gameObject.GetComponent<AudioSource>();   
             _audioSource.clip = audioClip;
+            _audioSource.maxDistance = 5000000000000;
         }
 
         public void Play()
@@ -24,6 +26,11 @@ namespace Sound
         public void Stop()
         {
             _audioSource.Stop();
+        }
+
+        public bool IsPlaying()
+        {
+            return _audioSource.isPlaying;
         }
     }
 }

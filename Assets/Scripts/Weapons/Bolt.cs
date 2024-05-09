@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using Sound;
@@ -52,7 +53,7 @@ namespace Weapons
                 damageable?.TakeDamage(Damage);
                 _soundPlayer.Play();
                 
-                Destroy(this.gameObject);
+                // Destroy(this.gameObject);
             }
         }
 
@@ -63,9 +64,20 @@ namespace Weapons
                 IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
                 _soundPlayer.Play();
-                
-                Destroy(this.gameObject);
+                StartCoroutine(WaitForSound());
             }
+        }
+
+        IEnumerator WaitForSound()
+        {
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.isStatic = true;
+            while (_soundPlayer.IsPlaying())
+            {
+                yield return null;
+            }
+            
+            Destroy(gameObject);
         }
     }
 }
