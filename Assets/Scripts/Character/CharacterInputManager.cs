@@ -56,11 +56,12 @@ public class CharacterInputManager : MonoBehaviour
         _currentAttackStrategy = _distanceWeapon;
 
         //45 degree view
-        Quaternion rotation = Quaternion.AngleAxis(-45, Vector3.up);
+        Quaternion rotation = Quaternion.AngleAxis(0, Vector3.up);
 
         // Movement directions
         Vector3 backward = rotation * new Vector3(0, 0, -1);
         Vector3 forward = rotation * new Vector3(0, 0, 1);
+        Debug.Log("my forward is " + forward);
         Vector3 left = rotation * new Vector3(-1, 0, 0);
         Vector3 right = rotation * new Vector3(1, 0, 0);
         Vector3 forwardLeft = 0.75f * (forward + left);
@@ -97,8 +98,10 @@ public class CharacterInputManager : MonoBehaviour
         //Movement 
         if (Input.GetKey(_moveForward)) 
         {
-            if(Input.GetKey(_moveLeft))
-                EventQueueManager.instance.AddEventToQueue(_cmdMoveForwardLeft);
+            if (Input.GetKey(_moveLeft))
+            {
+                EventQueueManager.instance.AddEventToQueue(_cmdMoveForwardLeft); ;
+            }
             else if(Input.GetKey(_moveRight))
                 EventQueueManager.instance.AddEventToQueue(_cmdMoveForwardRight);
             else
