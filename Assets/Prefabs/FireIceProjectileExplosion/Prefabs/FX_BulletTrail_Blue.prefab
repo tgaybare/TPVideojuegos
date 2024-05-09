@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2140854298081857786}
   - component: {fileID: 2140854298081857732}
   - component: {fileID: 2140854298081857733}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flare_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4853,7 +4853,7 @@ GameObject:
   - component: {fileID: 2140854298265806262}
   - component: {fileID: 2140854298265806256}
   - component: {fileID: 2140854298265806257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TrailAlpha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9696,7 +9696,7 @@ GameObject:
   - component: {fileID: 2140854298828979771}
   - component: {fileID: 2140854298828979717}
   - component: {fileID: 2140854298828979770}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OutlineStars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14538,7 +14538,7 @@ GameObject:
   - component: {fileID: 2140854298884001465}
   - component: {fileID: 2140854298884001467}
   - component: {fileID: 2140854298884001464}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TrailAlpha_Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19381,7 +19381,7 @@ GameObject:
   - component: {fileID: 2140854299015492749}
   - component: {fileID: 2140854299015492751}
   - component: {fileID: 2140854299015492748}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24281,7 +24281,7 @@ GameObject:
   - component: {fileID: 4868999187517079738}
   - component: {fileID: 4937383938287778934}
   - component: {fileID: 4969768578634497384}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FX_BulletTrail_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

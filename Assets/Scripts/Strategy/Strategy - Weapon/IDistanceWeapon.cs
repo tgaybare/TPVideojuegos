@@ -7,7 +7,6 @@ public interface IDistanceWeapon : IWeapon
 {
     
     GameObject ProjectilePrefab { get; }
-    // GameObject ProjectilePlayerPrefab { get; }
     int MaxProjectileCount { get; }
     void Reload();
 }
