@@ -61,7 +61,6 @@ public class CharacterInputManager : MonoBehaviour
         // Movement directions
         Vector3 backward = rotation * new Vector3(0, 0, -1);
         Vector3 forward = rotation * new Vector3(0, 0, 1);
-        Debug.Log("my forward is " + forward);
         Vector3 left = rotation * new Vector3(-1, 0, 0);
         Vector3 right = rotation * new Vector3(1, 0, 0);
         Vector3 forwardLeft = 0.75f * (forward + left);

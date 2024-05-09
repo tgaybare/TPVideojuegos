@@ -22,7 +22,6 @@ public class MovementController : MonoBehaviour, IMoveable
     #region IMOVEABLE_METHODS
     public void Move(Vector3 direction)
     {
-        Debug.Log(direction);
         transform.position +=  Time.deltaTime * Speed * direction;
     }
 

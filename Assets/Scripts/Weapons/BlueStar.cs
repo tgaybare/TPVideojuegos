@@ -42,7 +42,7 @@ namespace Weapons
             {
                 IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
-                ActionManager.instance.BoltHit();
+                // ActionManager.instance.BoltHit();
                 
                 Destroy(this.gameObject);
             }
@@ -54,7 +54,7 @@ namespace Weapons
             {
                 IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
-                ActionManager.instance.BoltHit();
+                // ActionManager.instance.BoltHit();
                 
                 Destroy(this.gameObject);
             }
