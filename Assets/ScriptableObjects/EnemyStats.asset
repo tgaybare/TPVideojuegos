@@ -15,5 +15,8 @@ MonoBehaviour:
   stats:
     MaxLife: 50
     Speed: 5
+    AttackRate: 1
   enemyStats:
     Damage: 20
+    AttackRange: 0
+    RestAfterAttack: 0

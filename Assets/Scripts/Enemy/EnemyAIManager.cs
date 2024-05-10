@@ -1,4 +1,5 @@
-﻿using Commands;
+﻿using System.Collections;
+using Commands;
 using Strategy.Strategy___Movement;
 using Strategy.Strategy___Weapon;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Enemy
         [SerializeField] private GameObject player;
         private float AttackRange => stats.AttackRange;
         private float AttackRate => stats.AttackRate;
+        private float RestAfterAttack => stats.RestAfterAttack;
     
         private CmdMovement _cmdMoveDirection;
         private CmdAttack _cmdAttack;
@@ -47,9 +49,13 @@ namespace Enemy
                 if (timeSinceLastAttack > AttackRate)
                 {
                     _cmdAttack.Do();
+                    StartCoroutine(WaitAfterAttack());
                     timeSinceLastAttack = 0;
                 }
-                timeSinceLastAttack += Time.deltaTime;
+                else
+                {
+                    timeSinceLastAttack += Time.deltaTime;
+                }
             }
             else
             {
@@ -59,5 +65,10 @@ namespace Enemy
             }
         }
         
+        private IEnumerator WaitAfterAttack()
+        {
+            yield return new WaitForSeconds(RestAfterAttack);
+        }
+
     }
 }

@@ -7,7 +7,9 @@ public class EnemyStats : ActorStats
 
     public int Damage => enemyStats.Damage;
     public int AttackRange => enemyStats.AttackRange;
-    
+
+    public float RestAfterAttack => enemyStats.RestAfterAttack;
+
 }
 
 [System.Serializable]
@@ -15,4 +17,5 @@ public struct EnemyStatValues
 {
     public int Damage;
     public int AttackRange;
+    public float RestAfterAttack;
 }
