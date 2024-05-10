@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Managers;
+using Sound;
 using UnityEngine;
 
 namespace Weapons
@@ -11,6 +13,8 @@ namespace Weapons
         [SerializeField] private float _speed = 10;
         [SerializeField] private float _lifetime = 5;
         [SerializeField] private List<int> _layerMasks;
+        
+        private FixedSoundPlayer _soundPlayer;
 
         public int Damage => _damage;
         public float Speed => _speed;
@@ -21,6 +25,7 @@ namespace Weapons
         private void Awake()
         {
             transform.position += transform.forward * 4f;
+            _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();
         }
 
         private void Update()
@@ -54,10 +59,22 @@ namespace Weapons
             {
                 IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
-                // ActionManager.instance.BoltHit();
-                
-                Destroy(this.gameObject);
+                _soundPlayer.Play();
+                StartCoroutine(WaitForSound());
             }
+        }
+        
+
+        IEnumerator WaitForSound()
+        {
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.isStatic = true;
+            while (_soundPlayer.IsPlaying())
+            {
+                yield return null;
+            }
+            
+            Destroy(gameObject);
         }
         
     }

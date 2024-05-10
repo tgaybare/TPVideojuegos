@@ -44,19 +44,6 @@ namespace Weapons
             transform.position += transform.forward * Time.deltaTime * Speed;
         }
 
-        public void OnTriggerEnter(Collider other)
-        {
-            Debug.Log("Hubo colision con " + gameObject.name);
-            if (_layerMasks.Contains(other.gameObject.layer))
-            {
-                IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
-                damageable?.TakeDamage(Damage);
-                _soundPlayer.Play();
-                
-                // Destroy(this.gameObject);
-            }
-        }
-
         public void OnCollisionEnter(Collision collision)
         {
             if (_layerMasks.Contains(collision.gameObject.layer))
@@ -67,6 +54,7 @@ namespace Weapons
                 StartCoroutine(WaitForSound());
             }
         }
+        
 
         IEnumerator WaitForSound()
         {
