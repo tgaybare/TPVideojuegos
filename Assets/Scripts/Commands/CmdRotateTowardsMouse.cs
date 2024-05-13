@@ -6,21 +6,19 @@ using UnityEngine.UIElements;
 // FIXME: No se esta usando porque llena la EventQueue
 namespace Commands
 {
-    public class CmdRotateTowards : ICommand
+    public class CmdRotateTowardsMouse : ICommand
     {
-
-        private Ray _rayDirection;
         private IMoveable _moveable;
 
-        public CmdRotateTowards(Ray rayDirection, IMoveable moveable)
+        public CmdRotateTowardsMouse(IMoveable moveable)
         {
             _moveable = moveable;
-            _rayDirection = rayDirection;
         }
 
         public void Do()
         {
-            _moveable.RotateTowards(_rayDirection);
+            Ray mouseProjectionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            _moveable.RotateTowards(mouseProjectionRay);
         }
     }
 }

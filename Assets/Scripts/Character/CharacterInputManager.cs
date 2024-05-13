@@ -32,6 +32,7 @@ public class CharacterInputManager : MonoBehaviour
     private KeyCode _chooseDistance = KeyCode.Alpha2;
     private bool _isMelee;
     
+    private CmdRotateTowardsMouse _cmdRotateTowardsMouse;
     private CmdMovement _cmdMoveForward;
     private CmdMovement _cmdMoveBackward;
     private CmdMovement _cmdMoveLeft;
@@ -75,6 +76,7 @@ public class CharacterInputManager : MonoBehaviour
 
 
         // Movement Commands
+        _cmdRotateTowardsMouse = new CmdRotateTowardsMouse(_player);
         _cmdMoveBackward = new CmdMovement(backward, _player);
         _cmdMoveForward = new CmdMovement(forward, _player);
         _cmdMoveLeft = new CmdMovement(left, _player);
@@ -151,9 +153,8 @@ public class CharacterInputManager : MonoBehaviour
     // We use FixedUpdate for movement because it's physics related
     private void FixedUpdate()
     {
-        IMoveable player = GetComponent<IMoveable>();
-        Ray mouseProjectionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        _player.RotateTowards(mouseProjectionRay);
+        //Rotation
+        _cmdRotateTowardsMouse.Do();
         
         //Movement 
         if (Input.GetKey(_moveForward))
