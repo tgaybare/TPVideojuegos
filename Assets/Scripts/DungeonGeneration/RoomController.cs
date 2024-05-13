@@ -54,7 +54,12 @@ public class RoomController : MonoBehaviour
 
     public bool DoesRoomExist(int x, int z)
     {
-        return _loadedRooms.Find(room => room.X == x && room.Z == z) != null;
+        return FindRoom(x,z) != null;
+    }
+
+    public Room FindRoom(int x, int z)
+    {
+        return _loadedRooms.Find(room => room.X == x && room.Z == z);
     }
 
     public void LoadRoom(string name, int x, int z)
@@ -96,6 +101,7 @@ public class RoomController : MonoBehaviour
 
         _isLoadingRoom = false;
 
+        room.RemoveUnconnectedDoors();
         _loadedRooms.Add(room);
     }
 

@@ -39,7 +39,7 @@ public class CharacterInputManager : MonoBehaviour
     private CmdMovement _cmdMoveBackwardRight;
     private CmdAttack _cmdAttack;
     private CmdDodge _cmdDodge;
-    
+
     [SerializeField] private int dodgeDuration = 1500; // in ms
     [SerializeField] private int dodgeCooldown = 2000; // in ms
     private int _dodgeCooldownTimer = 0;
@@ -60,10 +60,10 @@ public class CharacterInputManager : MonoBehaviour
         Vector3 forward = rotation * new Vector3(0, 0, 1);
         Vector3 left = rotation * new Vector3(-1, 0, 0);
         Vector3 right = rotation * new Vector3(1, 0, 0);
-        Vector3 forwardLeft = 0.75f * (forward + left);
-        Vector3 forwardRight = 0.75f * (forward + right);
-        Vector3 backwardLeft = 0.75f * (backward + left);
-        Vector3 backwardRight = 0.75f * (backward + right);
+        Vector3 forwardLeft = Vector3.Normalize(forward + left);
+        Vector3 forwardRight = Vector3.Normalize(forward + right);
+        Vector3 backwardLeft = Vector3.Normalize(backward + left);
+        Vector3 backwardRight = Vector3.Normalize(backward + right);
 
 
         // Movement Commands
@@ -87,32 +87,7 @@ public class CharacterInputManager : MonoBehaviour
     void Update()
     {
 
-        IMoveable Player = GetComponent<IMoveable>();
-        Ray mouseProjectionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Player.RotateTowards(mouseProjectionRay);
-
-        //Movement 
-        if (Input.GetKey(_moveForward)) 
-        {
-            if(Input.GetKey(_moveLeft))
-                EventQueueManager.instance.AddEventToQueue(_cmdMoveForwardLeft);
-            else if(Input.GetKey(_moveRight))
-                EventQueueManager.instance.AddEventToQueue(_cmdMoveForwardRight);
-            else
-                EventQueueManager.instance.AddEventToQueue(_cmdMoveForward);
-        }
-        else if (Input.GetKey(_moveBackward))
-        {
-            if (Input.GetKey(_moveLeft))
-                EventQueueManager.instance.AddEventToQueue(_cmdMoveBackwardLeft);
-            else if (Input.GetKey(_moveRight))
-                EventQueueManager.instance.AddEventToQueue(_cmdMoveBackwardRight);
-            else
-                EventQueueManager.instance.AddEventToQueue(_cmdMoveBackward);
-        }
-        else if (Input.GetKey(_moveLeft)) EventQueueManager.instance.AddEventToQueue(_cmdMoveLeft);
-        else if (Input.GetKey(_moveRight)) EventQueueManager.instance.AddEventToQueue(_cmdMoveRight);
-        
+        // Dodge
         if (Input.GetKeyDown(_dodge) && _dodgeCooldownTimer >= dodgeCooldown)
         {
             EventQueueManager.instance.AddEventToQueue(_cmdDodge);
@@ -124,9 +99,7 @@ public class CharacterInputManager : MonoBehaviour
         }
 
 
-
-
-        //Change weapon
+        // Change weapon
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
             if (!_isMelee)
@@ -156,5 +129,36 @@ public class CharacterInputManager : MonoBehaviour
         if (Input.GetKeyDown(_attack)) EventQueueManager.instance.AddEventToQueue(_cmdAttack);
 
 
+    }
+
+    // We use FixedUpdate for movement because it's physics related
+    private void FixedUpdate()
+    {
+        IMoveable Player = GetComponent<IMoveable>();
+        Ray mouseProjectionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Player.RotateTowards(mouseProjectionRay);
+        
+        //Movement 
+        if (Input.GetKey(_moveForward))
+        {
+            if (Input.GetKey(_moveLeft))
+                _cmdMoveForwardLeft.Do();
+                
+            else if (Input.GetKey(_moveRight))
+                _cmdMoveForwardRight.Do();
+            else
+                _cmdMoveForward.Do();
+        }
+        else if (Input.GetKey(_moveBackward))
+        {
+            if (Input.GetKey(_moveLeft))
+                _cmdMoveBackwardLeft.Do();
+            else if (Input.GetKey(_moveRight))
+                _cmdMoveBackwardRight.Do();
+            else
+                _cmdMoveBackward.Do();
+        }
+        else if (Input.GetKey(_moveLeft)) _cmdMoveLeft.Do();
+        else if (Input.GetKey(_moveRight)) _cmdMoveRight.Do();
     }
 }

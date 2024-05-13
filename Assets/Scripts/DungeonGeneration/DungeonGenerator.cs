@@ -12,6 +12,10 @@ public class DungeonGenerator : MonoBehaviour
     private void Start()
     {
         _dungeonRooms = DungeonCrawlerController.GenerateDungeon(Data);
+
+        // We manually remove the first room since it's the starting room
+        _dungeonRooms.Remove(Vector2Int.zero);
+
         SpawnRooms(_dungeonRooms);
     }
 
@@ -22,6 +26,7 @@ public class DungeonGenerator : MonoBehaviour
         RoomController.instance.LoadRoom("Room1", 0, 0);
         Debug.Log("Loaded first room");
         
+
 
         foreach (Vector2Int roomLocation in dungeonRooms)
         {

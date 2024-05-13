@@ -35,9 +35,6 @@ public class DungeonCrawlerController
             Debug.Log($"[DungeonCrawlerController] Added Crawler {i} (Total = {crawlers.Count})");
         }
 
-        // The center (0, 0) is always visited
-        positionsVisited.Add(Vector2Int.zero);
-
         for (int i = 0; i < Random.Range(data.IterationMin, data.IterationMax); i++)
         {
             foreach (DungeonCrawler crawler in crawlers)

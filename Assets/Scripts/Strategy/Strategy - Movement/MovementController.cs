@@ -11,18 +11,25 @@ public class MovementController : MonoBehaviour, IMoveable
     
     #region IMOVEABLE_PROPERTIES
 
-    public ActorStats Stats => stats;
-    [SerializeField] private ActorStats stats;
+    public ActorStats Stats => _stats;
+    [SerializeField] private ActorStats _stats;
+
+    private Rigidbody _rigidbody;
     
-    public float Speed => stats.Speed;
-    
+    public float Speed => _stats.Speed;
+
     #endregion
-    
+
+    private void Start()
+    {
+        _rigidbody = transform.GetComponent<Rigidbody>();
+    }
 
     #region IMOVEABLE_METHODS
     public void Move(Vector3 direction)
     {
-        transform.position +=  Time.deltaTime * Speed * direction;
+        _rigidbody.MovePosition(_rigidbody.position + Time.deltaTime * Speed * direction);
+        //transform.position +=  Time.deltaTime * Speed * direction;
     }
 
     // Rotates towards the direction

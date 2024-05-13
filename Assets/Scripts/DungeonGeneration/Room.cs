@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -9,6 +10,12 @@ public class Room : MonoBehaviour
     [SerializeField] private int _x;
     [SerializeField] private int _y;
     [SerializeField] private int _z;
+
+    private Door _topRightDoor;
+    private Door _topLeftDoor;
+    private Door _bottomRightDoor;
+    private Door _bottomLeftDoor;
+    private List<Door> _doors = new List<Door>();
 
 
     public int Width => _width;
@@ -25,6 +32,15 @@ public class Room : MonoBehaviour
             Debug.LogError("RoomController instance does not exist.");
             return;
         }
+
+        // Get all doors in the room. Should be 4.
+        Door[] doors = GetComponentsInChildren<Door>();
+        foreach (Door door in doors)
+        {
+            AssignDoorToLocalVariable(door);
+            _doors.Add(door);
+        }
+
 
         RoomController.instance.RegisterRoom(this);
     }
@@ -47,5 +63,77 @@ public class Room : MonoBehaviour
         _z = z;
 
         transform.position = new Vector3(_x, _y, _z);
+    }
+
+    private void AssignDoorToLocalVariable(Door door)
+    {
+        switch (door.Type)
+        {
+            case Door.DoorType.topRight:
+                _topRightDoor = door;
+                break;
+            case Door.DoorType.topLeft:
+                _topLeftDoor = door;
+                break;
+            case Door.DoorType.bottomRight:
+                _bottomRightDoor = door;
+                break;
+            case Door.DoorType.bottomLeft:
+                _bottomLeftDoor = door;
+                break;
+        }
+    }
+
+    // If exists, returns the adjacent room at (x + deltaX, z + deltaZ)
+    private Room GetAdjacentRoomAt(int deltaX, int DeltaZ) {
+        if(RoomController.instance.DoesRoomExist(_x + deltaX, _z + DeltaZ))
+        {
+            return RoomController.instance.FindRoom(_x + deltaX, _z + DeltaZ);
+        }
+        return null;
+    }
+
+    private Room GetTopRightRoom()
+    {
+        return GetAdjacentRoomAt(1, 1);
+    }
+
+    private Room GetTopLeftRoom()
+    {
+        return GetAdjacentRoomAt(-1, 1);
+    }
+
+    private Room GetBottomRightRoom()
+    {
+        return GetAdjacentRoomAt(1, -1);
+    }
+
+    private Room GetBottomLeftRoom()
+    {
+        return GetAdjacentRoomAt(-1, -1);
+    }
+
+    public void RemoveUnconnectedDoors() {
+        if(GetTopRightRoom() == null)
+        {
+            _topRightDoor.gameObject.SetActive(false);
+            transform.Find("ReplacementBigWallRight").gameObject.SetActive(true);
+        }
+
+        if(GetTopLeftRoom() == null)
+        {
+            _topLeftDoor.gameObject.SetActive(false);
+            transform.Find("ReplacementBigWallLeft").gameObject.SetActive(true);
+        }
+
+        if(GetBottomRightRoom() == null)
+        {
+            _bottomRightDoor.gameObject.SetActive(false);
+        }
+
+        if(GetBottomLeftRoom() == null)
+        {
+            _bottomLeftDoor.gameObject.SetActive(false);
+        }
     }
 }
