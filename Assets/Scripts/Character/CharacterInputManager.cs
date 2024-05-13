@@ -17,7 +17,10 @@ public class CharacterInputManager : MonoBehaviour
     private IWeapon _currentAttackStrategy;
     [SerializeField] private IDistanceWeapon _distanceWeapon;
     // [SerializeField] private IMeleeWeapon _meleeWeapon;
-    
+
+    private IMoveable _player;
+
+
     private KeyCode _moveForward = KeyCode.W;
     private KeyCode _moveBackward = KeyCode.S;
     private KeyCode _moveLeft = KeyCode.A;
@@ -50,13 +53,15 @@ public class CharacterInputManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _player = GetComponent<IMoveable>();
+
         // _melee = GetComponent<IMelee>();
         _distanceWeapon = GetComponent<Crossbow>();
         _isMelee = false;
         _currentAttackStrategy = _distanceWeapon;
 
         //45 degree view
-        Quaternion rotation = Quaternion.AngleAxis(0, Vector3.up);
+        Quaternion rotation = Quaternion.AngleAxis(-45, Vector3.up);
 
         // Movement directions
         Vector3 backward = rotation * new Vector3(0, 0, -1);
@@ -70,14 +75,14 @@ public class CharacterInputManager : MonoBehaviour
 
 
         // Movement Commands
-        _cmdMoveBackward = new CmdMovement(backward, GetComponent<IMoveable>());
-        _cmdMoveForward = new CmdMovement(forward, GetComponent<IMoveable>());
-        _cmdMoveLeft = new CmdMovement(left, GetComponent<IMoveable>());
-        _cmdMoveRight = new CmdMovement(right, GetComponent<IMoveable>());
-        _cmdMoveForwardLeft = new CmdMovement(forwardLeft, GetComponent<IMoveable>());
-        _cmdMoveForwardRight = new CmdMovement(forwardRight, GetComponent<IMoveable>());
-        _cmdMoveBackwardLeft = new CmdMovement(backwardLeft, GetComponent<IMoveable>());
-        _cmdMoveBackwardRight = new CmdMovement(backwardRight, GetComponent<IMoveable>());
+        _cmdMoveBackward = new CmdMovement(backward, _player);
+        _cmdMoveForward = new CmdMovement(forward, _player);
+        _cmdMoveLeft = new CmdMovement(left, _player);
+        _cmdMoveRight = new CmdMovement(right, _player);
+        _cmdMoveForwardLeft = new CmdMovement(forwardLeft, _player);
+        _cmdMoveForwardRight = new CmdMovement(forwardRight, _player);
+        _cmdMoveBackwardLeft = new CmdMovement(backwardLeft, _player);
+        _cmdMoveBackwardRight = new CmdMovement(backwardRight, _player);
 
         // Attack
         _cmdAttack = new CmdAttack(_currentAttackStrategy);
@@ -146,9 +151,9 @@ public class CharacterInputManager : MonoBehaviour
     // We use FixedUpdate for movement because it's physics related
     private void FixedUpdate()
     {
-        IMoveable Player = GetComponent<IMoveable>();
+        IMoveable player = GetComponent<IMoveable>();
         Ray mouseProjectionRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Player.RotateTowards(mouseProjectionRay);
+        _player.RotateTowards(mouseProjectionRay);
         
         //Movement 
         if (Input.GetKey(_moveForward))

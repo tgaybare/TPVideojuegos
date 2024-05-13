@@ -54,7 +54,8 @@ public class Room : MonoBehaviour
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y + 5, transform.position.z), new Vector3(_width, _height, _depth));
+        Vector3 position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+        Gizmos.DrawWireCube(position, new Vector3(_width, _height, _depth));
     }
 
     public void SetPosition(int x, int z)
