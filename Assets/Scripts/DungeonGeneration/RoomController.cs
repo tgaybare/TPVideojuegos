@@ -31,8 +31,6 @@ public class RoomController : MonoBehaviour
 
     private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
 
-    
-
     private bool _isLoadingRoom = false;
 
     private void Awake()
@@ -99,10 +97,11 @@ public class RoomController : MonoBehaviour
         room.name = $"{_currentWorldName} : {_currentLoadRoomData.Name} ({room.X};{room.Z})";
         room.transform.parent = transform;
 
-        _isLoadingRoom = false;
-
         room.RemoveUnconnectedDoors();
+        Debug.Log($"Room loaded at: ({room.X}, {room.Z})");
         _loadedRooms.Add(room);
+
+        _isLoadingRoom = false;
     }
 
     private void UpdateRoomQueue()

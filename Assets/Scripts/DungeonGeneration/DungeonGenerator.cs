@@ -27,7 +27,6 @@ public class DungeonGenerator : MonoBehaviour
         Debug.Log("Loaded first room");
         
 
-
         foreach (Vector2Int roomLocation in dungeonRooms)
         {
             // TODO: Update accordingly
