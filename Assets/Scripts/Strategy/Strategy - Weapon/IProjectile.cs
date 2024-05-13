@@ -9,5 +9,5 @@ public interface IProjectile
     float LifeTime { get; }
 
     void Travel();
-    void OnCollisionEnter(Collision collision);
+    
 }

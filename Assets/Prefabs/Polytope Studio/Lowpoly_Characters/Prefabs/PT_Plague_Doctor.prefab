@@ -697,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3255953556716913822
 Transform:
   m_ObjectHideFlags: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentProjectileCount: 0
-  _projectilePrefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
+  _projectilePrefab: {fileID: 7624496878921423553, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
 --- !u!114 &1951162183775469774
 MonoBehaviour:
   m_ObjectHideFlags: 0

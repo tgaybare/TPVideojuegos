@@ -66,33 +66,35 @@ namespace Managers
 
         #region GAME_ACTIONS
 
-        public event Action OnBoltHit;
-        public event Action OnCrossbowShot;
-        public event Action OnSwordSlash;
+        // Al final no son actions
         
-        public void BoltHit()
-        {
-            if (OnBoltHit != null)
-            {
-                OnBoltHit();
-            }
-        }
-        
-        public void CrossbowShot()
-        {
-            if (OnCrossbowShot != null)
-            {
-                OnCrossbowShot();
-            }
-        }
-        
-        public void SwordSlash()
-        {
-            if (OnSwordSlash != null)
-            {
-                OnSwordSlash();
-            }
-        }
+        // public event Action OnBoltHit;
+        // public event Action OnCrossbowShot;
+        // public event Action OnSwordSlash;
+        //
+        // public void BoltHit()
+        // {
+        //     if (OnBoltHit != null)
+        //     {
+        //         OnBoltHit();
+        //     }
+        // }
+        //
+        // public void CrossbowShot()
+        // {
+        //     if (OnCrossbowShot != null)
+        //     {
+        //         OnCrossbowShot();
+        //     }
+        // }
+        //
+        // public void SwordSlash()
+        // {
+        //     if (OnSwordSlash != null)
+        //     {
+        //         OnSwordSlash();
+        //     }
+        // }
 
         #endregion
 

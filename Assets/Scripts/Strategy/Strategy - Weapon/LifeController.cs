@@ -22,7 +22,6 @@ namespace Strategy.Strategy___Weapon
         public void TakeDamage(int damage)
         {
             life -= damage;
-            Debug.Log("se llamo take damage");
             if (life <= 0)
             {
                 if (gameObject.CompareTag("Player"))

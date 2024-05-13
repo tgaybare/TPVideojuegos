@@ -43,6 +43,9 @@ public class CharacterInputManager : MonoBehaviour
     [SerializeField] private int dodgeDuration = 1500; // in ms
     [SerializeField] private int dodgeCooldown = 2000; // in ms
     private int _dodgeCooldownTimer = 0;
+    
+    [SerializeField] private int shotCooldown = 1000; // in ms
+    private int _shotCooldownTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +56,7 @@ public class CharacterInputManager : MonoBehaviour
         _currentAttackStrategy = _distanceWeapon;
 
         //45 degree view
-        Quaternion rotation = Quaternion.AngleAxis(-45, Vector3.up);
+        Quaternion rotation = Quaternion.AngleAxis(0, Vector3.up);
 
         // Movement directions
         Vector3 backward = rotation * new Vector3(0, 0, -1);
@@ -126,7 +129,16 @@ public class CharacterInputManager : MonoBehaviour
         }
 
         //Attacks
-        if (Input.GetKeyDown(_attack)) EventQueueManager.instance.AddEventToQueue(_cmdAttack);
+        if (Input.GetKeyDown(_attack) && _shotCooldownTimer >= shotCooldown && _currentAttackStrategy == _distanceWeapon)
+        {
+            EventQueueManager.instance.AddEventToQueue(_cmdAttack);
+            _shotCooldownTimer = 0;
+        }
+        else
+        {
+            _shotCooldownTimer += (int)(Time.deltaTime * 1000);
+        }
+
 
 
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace Weapons
 {
     public class MeleeWeapon: MonoBehaviour, IWeapon
     {
-        [SerializeField] private List<int> layerMasks;
+        [SerializeField] protected List<int> layerMasks;
 
         
         #region I_WEAPON_PROPERTIES
@@ -28,15 +29,6 @@ namespace Weapons
         }
 
         #endregion
-
-        public void OnCollisionEnter(Collision collision)
-        {
-            if (layerMasks.Contains(collision.gameObject.layer))
-            {
-                IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-                damageable?.TakeDamage(Damage);
-            }
-        }
-
+        
     }
 }
