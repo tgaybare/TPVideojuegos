@@ -3864,6 +3864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ce6257fffdcfb409e5c64cfd53fe20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _replacementWall: {fileID: 0}
   _doorType: 1
 --- !u!1 &4015656906403486295
 GameObject:
@@ -4091,6 +4092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ce6257fffdcfb409e5c64cfd53fe20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _replacementWall: {fileID: 0}
   _doorType: 0
 --- !u!1 &4158467755920560471
 GameObject:
@@ -6867,6 +6869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ce6257fffdcfb409e5c64cfd53fe20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _replacementWall: {fileID: 0}
   _doorType: 2
 --- !u!1 &7131202073449687089
 GameObject:
@@ -7448,6 +7451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ce6257fffdcfb409e5c64cfd53fe20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _replacementWall: {fileID: 0}
   _doorType: 3
 --- !u!1 &7842559597023178713
 GameObject:
@@ -9963,6 +9967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar
       objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342671295866887495, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -10800,6 +10808,10 @@ PrefabInstance:
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_Name
       value: Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342671295866887495, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_LocalScale.x
@@ -13369,6 +13381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar
       objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342671295866887495, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -13598,6 +13614,10 @@ PrefabInstance:
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_Name
       value: Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342671295866887495, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_LocalScale.x

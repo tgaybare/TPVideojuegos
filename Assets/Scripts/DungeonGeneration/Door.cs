@@ -9,7 +9,9 @@ public class Door : MonoBehaviour
         topRight, topLeft, bottomRight, bottomLeft
     }
 
-    [SerializeField] private DoorType _doorType;
+    [SerializeField] private GameObject _replacementWall;
+    public GameObject ReplacementWall { get => _replacementWall; }
 
+    [SerializeField] private DoorType _doorType;
     public DoorType Type { get => _doorType; }
 }

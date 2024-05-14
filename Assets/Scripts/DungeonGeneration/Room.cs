@@ -35,7 +35,6 @@ public class Room : MonoBehaviour
 
         // Get all doors in the room. Should be 4.
         Door[] doors = GetComponentsInChildren<Door>();
-        Debug.Log($"Room has {doors.Length} doors.");
         foreach (Door door in doors)
         {
             AssignDoorToLocalVariable(door);
@@ -118,28 +117,26 @@ public class Room : MonoBehaviour
     public void RemoveUnconnectedDoors() {
         if(GetTopRightRoom() == null)
         {
-            Debug.Log($"No Room at ({_x + 1}, {_z + 1})");
             _topRightDoor.gameObject.SetActive(false);
-            //transform.Find("ReplacementBigWallRight").gameObject.SetActive(true);
+            _topRightDoor.ReplacementWall.SetActive(true);
         }
 
         if(GetTopLeftRoom() == null)
         {
-            Debug.Log($"No Room at ({_x - 1}, {_z + 1})");
             _topLeftDoor.gameObject.SetActive(false);
-            //transform.Find("ReplacementBigWallLeft").gameObject.SetActive(true);
+            _topLeftDoor.ReplacementWall.SetActive(true);
         }
 
-        if(GetBottomRightRoom() == null)
+        if (GetBottomRightRoom() == null)
         {
-            Debug.Log($"No Room at ({_x + 1}, {_z - 1})");
             _bottomRightDoor.gameObject.SetActive(false);
+            _bottomRightDoor.ReplacementWall.SetActive(true);
         }
 
         if(GetBottomLeftRoom() == null)
         {
-            Debug.Log($"No Room at ({_x - 1}, {_z - 1})");
             _bottomLeftDoor.gameObject.SetActive(false);
+            _bottomLeftDoor.ReplacementWall.SetActive(true);
         }
     }
 }

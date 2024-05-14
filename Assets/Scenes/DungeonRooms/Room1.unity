@@ -131,6 +131,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 902002139835752890, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110825962521847501, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3059274973894335594, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
       propertyPath: m_Name
       value: Room1
@@ -173,6 +181,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4669072301279308195, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271672428793636050, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601056371750475492, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

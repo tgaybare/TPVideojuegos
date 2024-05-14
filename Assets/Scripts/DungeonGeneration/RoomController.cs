@@ -5,16 +5,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RoomInfo
-{
-    public string Name { get; set; }
-    public int X { get; set; }
-    public int Z { get; set; }
+{   
+
+    private string _name;
+    private int _x;
+    private int _z;
+
+    public string Name { get => _name; set => _name = value;}
+    public int X { get => _x; set => _x = value;}
+    public int Z { get => _z; set => _z = value;}
 
     public RoomInfo(string name, int x, int z)
     {
-        Name = name;
-        X = x;
-        Z = z;
+        _name = name;
+        _x = x;
+        _z = z;
     }
 }
 
