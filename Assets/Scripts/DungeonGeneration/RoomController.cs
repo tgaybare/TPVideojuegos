@@ -81,11 +81,11 @@ public class RoomController : MonoBehaviour
             yield return null;
         }
     }
-    
+
     public void RegisterRoom(Room room)
     {
 
-        if(DoesRoomExist(_currentLoadRoomData.X, _currentLoadRoomData.Z))
+        if (DoesRoomExist(_currentLoadRoomData.X, _currentLoadRoomData.Z))
         {
             Destroy(room.gameObject);
             _isLoadingRoom = false;
@@ -95,7 +95,7 @@ public class RoomController : MonoBehaviour
         room.SetPosition(
             _currentLoadRoomData.X * room.Width,
             _currentLoadRoomData.Z * room.Depth
-            );        
+            );
 
         room.X = _currentLoadRoomData.X;
         room.Z = _currentLoadRoomData.Z;
