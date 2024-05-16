@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DungeonGenerator : MonoBehaviour
@@ -25,14 +26,12 @@ public class DungeonGenerator : MonoBehaviour
         // TODO: Define first room
         RoomController.instance.LoadRoom("Room1", 0, 0);
         Debug.Log("Loaded first room");
-        
 
         foreach (Vector2Int roomLocation in dungeonRooms)
         {
-            // TODO: Update accordingly
             int roomNumber = Random.Range(1, 4);
             Debug.Log($"Loading Room{roomNumber}");
-            RoomController.instance.LoadRoom($"Room{roomNumber}", roomLocation.x, roomLocation.y);
+            RoomController.instance.LoadRoom($"Room{roomNumber}", roomLocation.x, roomLocation.y);            
         }
     }
     

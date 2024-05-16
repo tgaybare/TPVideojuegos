@@ -21,6 +21,13 @@ public class DungeonCrawler
     {
         Direction toMove = (Direction) Random.Range(0, directionMovementMap.Count);
         _position += directionMovementMap[toMove];
+
+        //"Jump" over the start room when moving
+        if (_position == Vector2Int.zero)
+        {
+            _position += directionMovementMap[toMove];
+        }
+
         return _position;
     }
 }

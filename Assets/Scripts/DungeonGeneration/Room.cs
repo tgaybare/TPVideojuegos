@@ -25,7 +25,7 @@ public class Room : MonoBehaviour
     public int Y => _y;
     public int Z { get => _z; set => _z = value; }
 
-    private void Start()
+    protected virtual void Start()
     {
         if(RoomController.instance == null)
         {
@@ -138,5 +138,10 @@ public class Room : MonoBehaviour
             _bottomLeftDoor.gameObject.SetActive(false);
             _bottomLeftDoor.ReplacementWall.SetActive(true);
         }
+    }
+
+    public override string ToString()
+    {
+        return $"Room '{name}' at ({_x}, {_z})";
     }
 }

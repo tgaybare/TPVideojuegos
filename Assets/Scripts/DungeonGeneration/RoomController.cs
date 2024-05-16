@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,16 +28,15 @@ public class RoomInfo
 public class RoomController : MonoBehaviour
 {
     public static RoomController instance;
+    private string _currentWorldName = "Level 1";
+    private RoomInfo _currentLoadRoomData;
+    private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
+    private bool _isLoadingRoom = false;
+    private bool _spawnedBossRoom = false;
+    private bool _removedUnconnectedDoors = false;
 
     [SerializeField] private List<Room> _loadedRooms = new List<Room>();
 
-    private string _currentWorldName = "Level 1";
-
-    private RoomInfo _currentLoadRoomData;
-
-    private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
-
-    private bool _isLoadingRoom = false;
 
     private void Awake()
     {
@@ -72,6 +72,10 @@ public class RoomController : MonoBehaviour
         _loadRoomQueue.Enqueue(newRoomData);
     }
 
+    public void LoadRoom(string name, Vector2Int position) {
+        LoadRoom(name, position.x, position.y);
+    }
+
     public IEnumerator LoadRoomRoutine(RoomInfo info)
     {   
         AsyncOperation loadRoom = SceneManager.LoadSceneAsync(info.Name, LoadSceneMode.Additive);
@@ -85,41 +89,86 @@ public class RoomController : MonoBehaviour
     public void RegisterRoom(Room room)
     {
 
+        // No other room should exist at the same position
         if (DoesRoomExist(_currentLoadRoomData.X, _currentLoadRoomData.Z))
         {
+            Debug.LogError($"Trying to register a room that already exists: {room}");
             Destroy(room.gameObject);
             _isLoadingRoom = false;
             return;
         }
 
-        room.SetPosition(
-            _currentLoadRoomData.X * room.Width,
-            _currentLoadRoomData.Z * room.Depth
-            );
+        // Set the room's actual information
+        room.SetPosition(_currentLoadRoomData.X * room.Width, _currentLoadRoomData.Z * room.Depth);
 
         room.X = _currentLoadRoomData.X;
         room.Z = _currentLoadRoomData.Z;
         room.name = $"{_currentWorldName} : {_currentLoadRoomData.Name} ({room.X};{room.Z})";
         room.transform.parent = transform;
 
-        room.RemoveUnconnectedDoors();
-        Debug.Log($"Room loaded at: ({room.X}, {room.Z})");
-        _loadedRooms.Add(room);
+        Debug.Log($"Loaded Room '{room.name}'");
 
+        _loadedRooms.Add(room);
         _isLoadingRoom = false;
     }
 
     private void UpdateRoomQueue()
     {
-        if (_isLoadingRoom || _loadRoomQueue.Count == 0)
+        // If we are already loading a room, do nothing
+        if (_isLoadingRoom)
         {
             return;
         }
 
+        // If we have loaded all rooms, remove unconnected doors and spawn the boss room
+        // If the queue is empty, we have loaded all rooms
+        if (_loadRoomQueue.Count == 0) {
+            if(!_spawnedBossRoom)
+            {
+                if(!_removedUnconnectedDoors)
+                {
+                    RemoveUnconnectedDoors();
+                }
 
+                StartCoroutine(SpawnBossRoom());
+            }
+            return;
+        }
+
+        // Load the next room
         _currentLoadRoomData = _loadRoomQueue.Dequeue();
         _isLoadingRoom = true;
         StartCoroutine(LoadRoomRoutine(_currentLoadRoomData));
+    }
+
+    private IEnumerator SpawnBossRoom()
+    {
+        _spawnedBossRoom = true;
+        Debug.Log("Spawning boss room");
+        // Wait for more rooms to be loaded, just in case
+        yield return new WaitForSeconds(0.5f);
+
+        // The boss room is always the last room
+        Room lastRoom = _loadedRooms.Last();
+        Vector2Int position = new Vector2Int(lastRoom.X, lastRoom.Z);
+
+        Debug.Log($"Replacing: {lastRoom}");   
+
+        // Destroy the last room and replace it with the boss room
+        _loadedRooms.Remove(lastRoom);
+        Destroy(lastRoom.gameObject);
+
+        LoadRoom("BossRoom", position);
+    }
+
+    private void RemoveUnconnectedDoors()
+    {
+        Debug.Log("Removing unconnected doors");
+        foreach (Room room in _loadedRooms)
+        {
+            room.RemoveUnconnectedDoors();
+        }
+        _removedUnconnectedDoors = true;
     }
 
    
