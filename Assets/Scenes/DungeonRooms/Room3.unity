@@ -511,7 +511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 1996916446}
-  _doorType: 3
+  _doorwayType: 3
+  _door: {fileID: 0}
 --- !u!64 &141262586
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1034,7 +1035,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 804724040}
-  _doorType: 2
+  _doorwayType: 2
+  _door: {fileID: 0}
 --- !u!64 &382104578
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1770,7 +1772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 381574672}
-  _doorType: 1
+  _doorwayType: 1
+  _door: {fileID: 0}
 --- !u!64 &688945074
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1851,6 +1854,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 612414753311860795, guid: 8ae1bd02942519346bee24f92c33b4ec, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 663770600950857036, guid: 8ae1bd02942519346bee24f92c33b4ec, type: 3}
       propertyPath: m_Name
       value: Room3
@@ -2397,7 +2404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 527829122}
-  _doorType: 0
+  _doorwayType: 0
+  _door: {fileID: 0}
 --- !u!64 &1064118788
 MeshCollider:
   m_ObjectHideFlags: 0

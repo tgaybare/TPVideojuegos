@@ -644,7 +644,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3903,7 +3903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 0}
-  _doorType: 1
+  _doorwayType: 1
+  _door: {fileID: 0}
 --- !u!1 &4015656906403486295
 GameObject:
   m_ObjectHideFlags: 0
@@ -4131,7 +4132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 0}
-  _doorType: 0
+  _doorwayType: 0
+  _door: {fileID: 0}
 --- !u!1 &4158467755920560471
 GameObject:
   m_ObjectHideFlags: 0
@@ -6960,7 +6962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 0}
-  _doorType: 2
+  _doorwayType: 2
+  _door: {fileID: 0}
 --- !u!1 &7131202073449687089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7542,7 +7545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 0}
-  _doorType: 3
+  _doorwayType: 3
+  _door: {fileID: 0}
 --- !u!1 &7842559597023178713
 GameObject:
   m_ObjectHideFlags: 0

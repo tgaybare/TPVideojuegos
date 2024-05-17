@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,12 +12,14 @@ public class Room : MonoBehaviour
     [SerializeField] private int _y;
     [SerializeField] private int _z;
 
-    private Door _topRightDoor;
-    private Door _topLeftDoor;
-    private Door _bottomRightDoor;
-    private Door _bottomLeftDoor;
-    private List<Door> _doors = new List<Door>();
+    private Doorway _topRightDoorway;
+    private Doorway _topLeftDoorway;
+    private Doorway _bottomRightDoorway;
+    private Doorway _bottomLeftDoorway;
+    private List<Doorway> _doorways = new List<Doorway>();
 
+    private int _enemyCount = 3; // TODO: Update this variable when an enemy is spawned or defeated
+    public int EnemyCount { get => _enemyCount; set => _enemyCount = value; }
 
     public int Width => _width;
     public int Height => _height;
@@ -34,16 +37,18 @@ public class Room : MonoBehaviour
         }
 
         // Get all doors in the room. Should be 4.
-        Door[] doors = GetComponentsInChildren<Door>();
-        foreach (Door door in doors)
+        Doorway[] doorways = GetComponentsInChildren<Doorway>();
+        foreach (Doorway d in doorways)
         {
-            AssignDoorToLocalVariable(door);
-            _doors.Add(door);
+            AssignDoorToLocalVariable(d);
+            _doorways.Add(d);
         }
 
 
         RoomController.instance.RegisterRoom(this);
     }
+
+   
 
   
     public Vector3 GetRoomCenter()
@@ -66,21 +71,21 @@ public class Room : MonoBehaviour
         transform.position = new Vector3(_x, _y, _z);
     }
 
-    private void AssignDoorToLocalVariable(Door door)
+    private void AssignDoorToLocalVariable(Doorway d)
     {
-        switch (door.Type)
+        switch (d.Type)
         {
-            case Door.DoorType.topRight:
-                _topRightDoor = door;
+            case Doorway.DoorwayType.topRight:
+                _topRightDoorway = d;
                 break;
-            case Door.DoorType.topLeft:
-                _topLeftDoor = door;
+            case Doorway.DoorwayType.topLeft:
+                _topLeftDoorway = d;
                 break;
-            case Door.DoorType.bottomRight:
-                _bottomRightDoor = door;
+            case Doorway.DoorwayType.bottomRight:
+                _bottomRightDoorway = d;
                 break;
-            case Door.DoorType.bottomLeft:
-                _bottomLeftDoor = door;
+            case Doorway.DoorwayType.bottomLeft:
+                _bottomLeftDoorway = d;
                 break;
         }
     }
@@ -117,26 +122,26 @@ public class Room : MonoBehaviour
     public void RemoveUnconnectedDoors() {
         if(GetTopRightRoom() == null)
         {
-            _topRightDoor.gameObject.SetActive(false);
-            _topRightDoor.ReplacementWall.SetActive(true);
+            _topRightDoorway.gameObject.SetActive(false);
+            _topRightDoorway.ReplacementWall.SetActive(true);
         }
 
         if(GetTopLeftRoom() == null)
         {
-            _topLeftDoor.gameObject.SetActive(false);
-            _topLeftDoor.ReplacementWall.SetActive(true);
+            _topLeftDoorway.gameObject.SetActive(false);
+            _topLeftDoorway.ReplacementWall.SetActive(true);
         }
 
         if (GetBottomRightRoom() == null)
         {
-            _bottomRightDoor.gameObject.SetActive(false);
-            _bottomRightDoor.ReplacementWall.SetActive(true);
+            _bottomRightDoorway.gameObject.SetActive(false);
+            _bottomRightDoorway.ReplacementWall.SetActive(true);
         }
 
         if(GetBottomLeftRoom() == null)
         {
-            _bottomLeftDoor.gameObject.SetActive(false);
-            _bottomLeftDoor.ReplacementWall.SetActive(true);
+            _bottomLeftDoorway.gameObject.SetActive(false);
+            _bottomLeftDoorway.ReplacementWall.SetActive(true);
         }
     }
 
@@ -153,9 +158,48 @@ public class Room : MonoBehaviour
         return $"Room '{name}' at ({_x}, {_z})";
     }
 
-    // TODO
-    public void OpenDoors() { }
+    public void OpenDoors() 
+    {
+        foreach (Doorway d in _doorways)
+        {
+            d.OpenDoor();
+        }
+    }
 
     // TODO
-    public void CloseDoors() { }
+    public void CloseDoors() 
+    {
+        foreach (Doorway d in _doorways)
+        {
+            d.CloseDoor();
+        }
+    }
+
+    // TODO
+    public void PauseEnemies() {
+        /*Enemy[] enemies = GetComponentsInChildren<Enemy>();
+
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.Pause();
+            enemy.gameObject.SetActive(false);
+        }*/
+    }
+
+    // TODO
+    public void UnpauseEnemies()
+    {
+        /*Enemy[] enemies = GetComponentsInChildren<Enemy>();
+
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.Unpause();
+            enemy.gameObject.SetActive(false);
+        }*/
+    }
+
+    public bool IsCleared()
+    {
+        return _enemyCount == 0;
+    }
 }

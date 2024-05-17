@@ -26,7 +26,6 @@ public class DungeonGenerator : MonoBehaviour
         // Load first room
         // TODO: Define first room
         RoomController.instance.LoadRoom("Room1", 0, 0);
-        //Debug.Log("Loaded first room");
 
         foreach (Vector2Int roomLocation in dungeonRooms)
         {

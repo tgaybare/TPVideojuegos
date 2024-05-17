@@ -15,7 +15,6 @@ using UnityEngine;
 
     private void Start()
     {
-        Debug.Log("RoomObjectSpawner initialized");
         _gridController = GetComponentInChildren<GridController>();
         InitializeObjectSpawning();
     }

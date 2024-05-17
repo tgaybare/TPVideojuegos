@@ -38,7 +38,7 @@ public class RoomController : MonoBehaviour
     private bool _isLoadingRoom = false;
     private bool _spawnedBossRoom = false;
     private bool _removedUnconnectedDoors = false;
-    private Room _currentRoom;
+    [SerializeField] private Room _currentRoom;
 
     [SerializeField] private List<Room> _loadedRooms = new List<Room>();
 
@@ -57,8 +57,24 @@ public class RoomController : MonoBehaviour
 
     private void Update()
     {
+        // Room Generation
         UpdateRoomQueue();
+
+        // Room Management
+        if (_currentRoom != null && _currentRoom.IsCleared())
+        {
+            _currentRoom.OpenDoors();
+        }
+
+        // TODO: Delete
+        if (Input.GetKeyDown(KeyCode.K) && _currentRoom.EnemyCount > 0)
+        {
+            _currentRoom.EnemyCount--;
+            Debug.Log($"Killed an enemy. {_currentRoom.EnemyCount} left.");
+        }
     }
+
+
 
     public bool DoesRoomExist(int x, int z)
     {
@@ -112,7 +128,7 @@ public class RoomController : MonoBehaviour
         room.transform.parent = transform;
 
         // If this is the first room, set it as the current room
-        if(_loadedRooms.Count == 0)
+        if(_currentRoom == null && _loadedRooms.Count == 0)
         {
             _currentRoom = room;
         }
@@ -156,7 +172,7 @@ public class RoomController : MonoBehaviour
         _spawnedBossRoom = true;
         Debug.Log("Spawning boss room");
         // Wait for more rooms to be loaded, just in case
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
 
         // The boss room is always the last room
         Room lastRoom = _loadedRooms.Last();
@@ -171,7 +187,6 @@ public class RoomController : MonoBehaviour
 
     private void RemoveUnconnectedDoors()
     {
-        Debug.Log("Removing unconnected doors");
         foreach (Room room in _loadedRooms)
         {
             room.RemoveUnconnectedDoors();
@@ -183,7 +198,40 @@ public class RoomController : MonoBehaviour
     {
         Debug.Log($"Player entered room '{room.name}'");
         _currentRoom = room;
+
+        UpdateCurrentRoomDoors();
+        UpdateRoomsVisibility();
     }
+
+    // TODO: Would be better if we only updated the last room and the current room
+    private void UpdateRoomsVisibility()
+    {
+        foreach (Room room in _loadedRooms)
+        {
+            if (_currentRoom == room)
+            {
+                room.PauseEnemies();
+            }
+            else
+            {
+                room.UnpauseEnemies();
+            }
+        }
+    }
+
+    private void UpdateCurrentRoomDoors() 
+    {
+        if(_currentRoom.IsCleared())
+        {
+            _currentRoom.OpenDoors();
+        }
+        else
+        {
+            _currentRoom.CloseDoors();
+        }
+    }
+
+
 
    
 } 

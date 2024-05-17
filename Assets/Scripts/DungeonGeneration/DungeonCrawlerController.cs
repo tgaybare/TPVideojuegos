@@ -25,14 +25,9 @@ public class DungeonCrawlerController
     public static HashSet<Vector2Int> GenerateDungeon(DungeonGenerationData data) {
         List<DungeonCrawler> crawlers = new List<DungeonCrawler>();
 
-        //Debug.Log($"[DungeonCrawlerController] Number Of Crawlers: {data.NumberOfCrawlers}");
-        //Debug.Log($"[DungeonCrawlerController] Iteration Min: {data.IterationMin}");
-        //Debug.Log($"[DungeonCrawlerController] Iteration Max: {data.IterationMax}");
-
         for (int i = 0; i < data.NumberOfCrawlers; i++)
         {
             crawlers.Add(new DungeonCrawler(i, Vector2Int.zero));
-            //Debug.Log($"[DungeonCrawlerController] Added Crawler {i} (Total = {crawlers.Count})");
         }
 
         for (int i = 0; i < Random.Range(data.IterationMin, data.IterationMax); i++)
@@ -40,7 +35,6 @@ public class DungeonCrawlerController
             foreach (DungeonCrawler crawler in crawlers)
             {
                 Vector2Int newPosition = crawler.Move(directionMovementMap);
-                //Debug.Log($"[DungeonCrawlerController] Crawler {crawler.Id} moved to {newPosition}");
                 positionsVisited.Add(newPosition);
             }
         }

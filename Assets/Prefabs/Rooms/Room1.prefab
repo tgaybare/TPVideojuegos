@@ -564,13 +564,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637381762988634118}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.65, y: 0, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8705036215552696207}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8090193514134455789
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -871,7 +871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 2110825962521847501}
-  _doorType: 2
+  _doorwayType: 2
+  _door: {fileID: 0}
 --- !u!1 &902002139835752890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,13 +1325,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357001562414249250}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.65, y: 0, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1180562668129862276}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1160846122593562785
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2165,7 +2166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 902002139835752890}
-  _doorType: 1
+  _doorwayType: 1
+  _door: {fileID: 0}
 --- !u!1 &2286967881303043256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3289,7 +3291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 6271672428793636050}
-  _doorType: 0
+  _doorwayType: 0
+  _door: {fileID: 0}
 --- !u!1 &4058379401617815086
 GameObject:
   m_ObjectHideFlags: 0
@@ -5421,13 +5424,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6610681625399043928}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.65, y: 0, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1730420102646547717}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8654292000227223172
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6996,7 +6999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _replacementWall: {fileID: 7601056371750475492}
-  _doorType: 3
+  _doorwayType: 3
+  _door: {fileID: 0}
 --- !u!1 &8000586375791208391
 GameObject:
   m_ObjectHideFlags: 0
@@ -7278,13 +7282,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8243485912534813820}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.65, y: 0, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8707377684809701693}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &677296999774102452
 MeshFilter:
   m_ObjectHideFlags: 0
