@@ -37,7 +37,7 @@ public class RoomController : MonoBehaviour
     private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
     private bool _isLoadingRoom = false;
     private bool _spawnedBossRoom = false;
-    private bool _removedUnconnectedDoors = false;
+    private bool _finishedRoomsSetup = false;
     [SerializeField] private Room _currentRoom;
 
     [SerializeField] private List<Room> _loadedRooms = new List<Room>();
@@ -152,9 +152,9 @@ public class RoomController : MonoBehaviour
         if (_loadRoomQueue.Count == 0) {
             if(!_spawnedBossRoom)
             {
-                if(!_removedUnconnectedDoors)
+                if(!_finishedRoomsSetup)
                 {
-                    RemoveUnconnectedDoors();
+                    FinishRoomSetup();
                 }
 
                 StartCoroutine(SpawnBossRoom());
@@ -186,14 +186,19 @@ public class RoomController : MonoBehaviour
         LoadRoom("BossRoom", position);
     }
 
-    private void RemoveUnconnectedDoors()
+    private void FinishRoomSetup()
     {
         foreach (Room room in _loadedRooms)
         {
             room.RemoveUnconnectedDoors();
             room.OpenDoors();
+            // First room is always visible
+            if(room != _currentRoom)
+            {
+                room.SetInvisible();
+            }
         }
-        _removedUnconnectedDoors = true;
+        _finishedRoomsSetup = true;
     }
 
     public void OnPlayerEnterRoom(Room room)
@@ -202,23 +207,14 @@ public class RoomController : MonoBehaviour
         _currentRoom = room;
 
         UpdateCurrentRoomDoors();
-        UpdateRoomsVisibility();
+        room.SetVisible();
+        room.UnpauseEnemies();
     }
 
-    // TODO: Would be better if we only updated the last room and the current room
-    private void UpdateRoomsVisibility()
+    public void OnPlayerExitRoom(Room room)
     {
-        foreach (Room room in _loadedRooms)
-        {
-            if (_currentRoom == room)
-            {
-                room.PauseEnemies();
-            }
-            else
-            {
-                room.UnpauseEnemies();
-            }
-        }
+        room.PauseEnemies();
+        room.SetInvisible();
     }
 
     private void UpdateCurrentRoomDoors() 
@@ -232,6 +228,8 @@ public class RoomController : MonoBehaviour
             _currentRoom.CloseDoors();
         }
     }
+
+
 
 
 

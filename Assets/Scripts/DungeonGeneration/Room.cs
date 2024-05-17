@@ -152,6 +152,32 @@ public class Room : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            RoomController.instance.OnPlayerExitRoom(this);
+        }
+    }
+
+    public void SetVisible() {
+        SetChildrenVisibility(true);
+    }
+
+    public void SetInvisible()
+    {
+        SetChildrenVisibility(false);
+    }
+
+    // TODO: Lights?
+    private void SetChildrenVisibility(bool status)
+    {
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        {
+            renderer.enabled = status;
+        }
+    }
+
     public override string ToString()
     {
         return $"Room '{name}' at ({_x}, {_z})";

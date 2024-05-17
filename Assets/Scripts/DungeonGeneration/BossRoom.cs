@@ -7,5 +7,6 @@ public class BossRoom : Room {
         base.Start();
         RemoveUnconnectedDoors();
         OpenDoors();
+        SetInvisible();
     }
 }

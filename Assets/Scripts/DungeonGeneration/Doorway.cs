@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Doorway : MonoBehaviour
 {
+
     public enum DoorwayType
     {
         topRight, topLeft, bottomRight, bottomLeft
@@ -17,11 +18,14 @@ public class Doorway : MonoBehaviour
 
     [SerializeField] private GameObject _door;
 
+    private const string DEFAULT_DOOR_PREFAB_NAME = "Door_Wooden_Round_Left";
+
     private void Start()
     {
+        // If the door is not set, we try to find it by name
         if (_door == null)
         {
-            _door = transform.Find("Door_Wooden_Round_Left").gameObject;
+            _door = transform.Find(DEFAULT_DOOR_PREFAB_NAME).gameObject;
         }
     }
 
