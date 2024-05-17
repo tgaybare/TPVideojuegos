@@ -106,7 +106,7 @@ public class RoomController : MonoBehaviour
         room.name = $"{_currentWorldName} : {_currentLoadRoomData.Name} ({room.X};{room.Z})";
         room.transform.parent = transform;
 
-        Debug.Log($"Loaded Room '{room.name}'");
+        //Debug.Log($"Loaded Room '{room.name}'");
 
         _loadedRooms.Add(room);
         _isLoadingRoom = false;
@@ -151,8 +151,6 @@ public class RoomController : MonoBehaviour
         // The boss room is always the last room
         Room lastRoom = _loadedRooms.Last();
         Vector2Int position = new Vector2Int(lastRoom.X, lastRoom.Z);
-
-        Debug.Log($"Replacing: {lastRoom}");   
 
         // Destroy the last room and replace it with the boss room
         _loadedRooms.Remove(lastRoom);

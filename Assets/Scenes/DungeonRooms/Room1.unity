@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2704423063116620583, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: _room
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3059274973894335594, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
       propertyPath: m_Name
       value: Room1
@@ -187,6 +191,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7457892796104849430, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: _randomSpawners.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457892796104849430, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: _randomSpawners.Array.data[0].name
+      value: Barrel Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457892796104849430, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+      propertyPath: _randomSpawners.Array.data[0].spawnerData
+      value: 
+      objectReference: {fileID: 11400000, guid: ef8011ccdde3d3a448761bce9fadb8ab, type: 2}
     - target: {fileID: 7601056371750475492, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
       propertyPath: m_IsActive
       value: 0
