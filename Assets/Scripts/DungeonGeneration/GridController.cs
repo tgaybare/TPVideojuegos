@@ -57,7 +57,7 @@ public class GridController : MonoBehaviour
         int randomPosition = Random.Range(0, _availablePoints.Count - 1);
         Vector3 toReturn = _availablePoints[randomPosition];
 
-        Debug.Log($"Allocating tile {toReturn}");
+        //Debug.Log($"Allocating tile {toReturn}");
 
         _availablePoints.RemoveAt(randomPosition);
 

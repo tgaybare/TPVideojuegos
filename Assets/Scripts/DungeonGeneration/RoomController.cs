@@ -27,8 +27,11 @@ public class RoomInfo
 
 public class RoomController : MonoBehaviour
 {
+    public static readonly List<String> LevelNames = new List<String> { "Level 1" };
+    public static readonly List<String> RoomNames = new List<String> { "Room1", "Room2", "Room3" };
+
     public static RoomController instance;
-    private string _currentWorldName = "Level 1";
+    private string _currentWorldName = LevelNames[0];
     private RoomInfo _currentLoadRoomData;
     private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
     private bool _isLoadingRoom = false;
