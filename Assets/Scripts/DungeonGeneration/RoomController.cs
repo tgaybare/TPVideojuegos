@@ -131,6 +131,7 @@ public class RoomController : MonoBehaviour
         if(_currentRoom == null && _loadedRooms.Count == 0)
         {
             _currentRoom = room;
+            _currentRoom.EnemyCount = 0;
         }
 
 
@@ -190,6 +191,7 @@ public class RoomController : MonoBehaviour
         foreach (Room room in _loadedRooms)
         {
             room.RemoveUnconnectedDoors();
+            room.OpenDoors();
         }
         _removedUnconnectedDoors = true;
     }

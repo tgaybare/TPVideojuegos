@@ -44,7 +44,6 @@ public class Room : MonoBehaviour
             _doorways.Add(d);
         }
 
-
         RoomController.instance.RegisterRoom(this);
     }
 

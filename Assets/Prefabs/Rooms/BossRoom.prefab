@@ -1724,6 +1724,7 @@ GameObject:
   - component: {fileID: 4669072301279308195}
   - component: {fileID: 9063260292471273265}
   - component: {fileID: 7275413904493562666}
+  - component: {fileID: 6401014839378440696}
   m_Layer: 0
   m_Name: BossRoom
   m_TagString: Untagged
@@ -1744,6 +1745,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7871941922879922494}
   - {fileID: 894344702330604438}
   - {fileID: 4904490147148905207}
   - {fileID: 1846513948646024004}
@@ -1791,8 +1793,22 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 40, y: 10, z: 40}
+  m_Size: {x: 38, y: 10, z: 38}
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &6401014839378440696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059274973894335594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0bf2e64a6480bb4da937cb981d94155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridController: {fileID: 0}
+  _randomSpawners: []
 --- !u!1 &3164715769861831054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2080,58 @@ Halo:
     serializedVersion: 2
     rgba: 4278224383
   m_Size: -0.02
+--- !u!1 &3800103153424711662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7871941922879922494}
+  - component: {fileID: 7224745753550841685}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7871941922879922494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800103153424711662}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4669072301279308195}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7224745753550841685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800103153424711662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64517f5363e56b141a327a55830d7a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grid:
+    columns: 0
+    rows: 0
+    depthOffset: 22
+    horizontalOffset: 22
+  _room: {fileID: 0}
+  _gridTile: {fileID: 2321946459907312109, guid: 2af1139d4e90479429c6044e2e4dca72, type: 3}
+  _widthAndDepthOffset: 0
 --- !u!1 &4013967738525216927
 GameObject:
   m_ObjectHideFlags: 0
