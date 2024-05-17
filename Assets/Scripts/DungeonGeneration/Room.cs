@@ -140,8 +140,22 @@ public class Room : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            RoomController.instance.OnPlayerEnterRoom(this);
+        }
+    }
+
     public override string ToString()
     {
         return $"Room '{name}' at ({_x}, {_z})";
     }
+
+    // TODO
+    public void OpenDoors() { }
+
+    // TODO
+    public void CloseDoors() { }
 }

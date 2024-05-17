@@ -31,12 +31,14 @@ public class RoomController : MonoBehaviour
     public static readonly List<String> RoomNames = new List<String> { "Room1", "Room2", "Room3" };
 
     public static RoomController instance;
+
     private string _currentWorldName = LevelNames[0];
     private RoomInfo _currentLoadRoomData;
     private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
     private bool _isLoadingRoom = false;
     private bool _spawnedBossRoom = false;
     private bool _removedUnconnectedDoors = false;
+    private Room _currentRoom;
 
     [SerializeField] private List<Room> _loadedRooms = new List<Room>();
 
@@ -109,7 +111,12 @@ public class RoomController : MonoBehaviour
         room.name = $"{_currentWorldName} : {_currentLoadRoomData.Name} ({room.X};{room.Z})";
         room.transform.parent = transform;
 
-        //Debug.Log($"Loaded Room '{room.name}'");
+        // If this is the first room, set it as the current room
+        if(_loadedRooms.Count == 0)
+        {
+            _currentRoom = room;
+        }
+
 
         _loadedRooms.Add(room);
         _isLoadingRoom = false;
@@ -170,6 +177,12 @@ public class RoomController : MonoBehaviour
             room.RemoveUnconnectedDoors();
         }
         _removedUnconnectedDoors = true;
+    }
+
+    public void OnPlayerEnterRoom(Room room)
+    {
+        Debug.Log($"Player entered room '{room.name}'");
+        _currentRoom = room;
     }
 
    
