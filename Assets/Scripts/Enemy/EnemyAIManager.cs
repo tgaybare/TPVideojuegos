@@ -59,6 +59,7 @@ namespace Enemy
                     waitTime = 0;
                     timeSinceLastAttack = 0;
                 }
+                timeSinceLastAttack += Time.deltaTime;
             }
             else
             {

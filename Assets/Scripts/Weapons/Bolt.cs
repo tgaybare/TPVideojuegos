@@ -59,7 +59,7 @@ namespace Weapons
         IEnumerator WaitForSound()
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.isStatic = true;
+            gameObject.GetComponent<Collider>().enabled = false;
             while (_soundPlayer.IsPlaying())
             {
                 yield return null;
