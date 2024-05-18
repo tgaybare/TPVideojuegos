@@ -9,6 +9,7 @@ namespace Weapons
     public class SpiderAttack : MeleeWeapon
     {
         private Collider _spiderCollider;
+        private Animation _animation;
         
         
         public int Damage => _damage;
@@ -17,6 +18,7 @@ namespace Weapons
         private void Start()
         {
             _spiderCollider = gameObject.GetComponent<Collider>();
+            _animation = gameObject.GetComponentInParent<Animation>();
         }
 
         public override void Attack()
@@ -27,7 +29,7 @@ namespace Weapons
             // Attack logic
             _spiderCollider.enabled = true;
             StartCoroutine(WaitForTrigger());
-            
+            _animation.Play();
         }
 
         private IEnumerator WaitForTrigger()

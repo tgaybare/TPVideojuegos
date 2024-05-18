@@ -27,11 +27,12 @@ namespace Strategy.Strategy___Weapon
                 if (gameObject.CompareTag("Player"))
                 {
                     ActionManager.instance.ActionGameOver(false);
+                    Invoke(nameof(LoadMenuScreen),6f);
                 }
                 
                 Destroy(gameObject);
                 
-                Invoke(nameof(LoadMenuScreen),6f);
+                
             }
         }
         
