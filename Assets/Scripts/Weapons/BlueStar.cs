@@ -67,8 +67,13 @@ namespace Weapons
 
         IEnumerator WaitForSound()
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.isStatic = true;
+            //Disables all the components of the object
+            foreach (ParticleSystem ps in gameObject.GetComponentsInChildren<ParticleSystem>())
+            {
+                ps.Stop();
+                ps.Clear();
+            }
+            gameObject.GetComponent<Collider>().enabled = false;
             while (_soundPlayer.IsPlaying())
             {
                 yield return null;
