@@ -34,7 +34,9 @@ using UnityEngine;
         for (int i = 0; i < randomAmount; i++)
         {
             Vector3 spawnPosition = _gridController.AllocateRandomTile();
-            Instantiate(data.spawnerData.ToSpawn, spawnPosition, Quaternion.identity, transform);
+            GameObject spawned = Instantiate(data.spawnerData.ToSpawn, spawnPosition, Quaternion.identity, transform);
+            Debug.Log($"Spawned from '{data.name}' at ({spawnPosition.x},{spawnPosition.z})");
+
         }
     }
 }

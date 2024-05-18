@@ -697,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3255953556716913822
 Transform:
   m_ObjectHideFlags: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5221a15982f5d04d85c2c84d198ebb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: d11e0acb35c047f49831dbf033339d03, type: 2}
+  _stats: {fileID: 11400000, guid: d11e0acb35c047f49831dbf033339d03, type: 2}
 --- !u!114 &7561522886118343460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: d11e0acb35c047f49831dbf033339d03, type: 2}
-  player: {fileID: 0}
+  player: {fileID: 1933434664509849861, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
 --- !u!1 &2787789027213459379
 GameObject:
   m_ObjectHideFlags: 0
