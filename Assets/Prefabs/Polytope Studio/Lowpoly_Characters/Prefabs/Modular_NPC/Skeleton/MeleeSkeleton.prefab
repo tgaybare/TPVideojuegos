@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5221a15982f5d04d85c2c84d198ebb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: cf8a7d4b2cc87584a9f57bfdc7de8ed7, type: 2}
+  _stats: {fileID: 11400000, guid: cf8a7d4b2cc87584a9f57bfdc7de8ed7, type: 2}
 --- !u!114 &1213189639692746787
 MonoBehaviour:
   m_ObjectHideFlags: 0
