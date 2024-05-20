@@ -19,11 +19,16 @@ namespace Managers
         }
         #endregion SINGLETON
 
-        private const string TITLE_SCREEN = "TitleScreen";
-        private const string GAME_SCREEN = "MainScene";
+        public const string TITLE_SCREEN = "TitleScreen";
+        public const string LOADING_SCREEN = "LoadingScreen";
+        public const string GAME_SCREEN = "MainScene";
         
         public void LoadTitleScreen() => SceneManager.LoadScene(TITLE_SCREEN);
-        public void LoadGameScreen() => SceneManager.LoadScene(GAME_SCREEN);
+        
+        public void LoadLoadingScreen() => SceneManager.LoadScene(LOADING_SCREEN);
+
+        public AsyncOperation LoadGameScreenAsync() => SceneManager.LoadSceneAsync(GAME_SCREEN);
+
         
     }
 }
