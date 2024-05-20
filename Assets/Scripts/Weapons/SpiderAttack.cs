@@ -9,7 +9,7 @@ namespace Weapons
     public class SpiderAttack : MeleeWeapon
     {
         private Collider _spiderCollider;
-        private Animation _animation;
+        [SerializeField] private Animation _animation;
         
         
         public int Damage => _damage;
@@ -28,8 +28,10 @@ namespace Weapons
             
             // Attack logic
             _spiderCollider.enabled = true;
-            StartCoroutine(WaitForTrigger());
+            Debug.Log("se deberia correr la animacion");
             _animation.Play();
+            // _spiderCollider.enabled = false;
+            StartCoroutine(WaitForTrigger());
         }
 
         private IEnumerator WaitForTrigger()
@@ -50,7 +52,6 @@ namespace Weapons
         
         public void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("es colision");
             if (layerMasks.Contains(collision.gameObject.layer))
             {
                 IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
@@ -60,10 +61,8 @@ namespace Weapons
 
         public void OnTriggerEnter(Collider other)
         {
-            
             if (layerMasks.Contains(other.gameObject.layer))
             {
-                Debug.Log("es trigger");
                 IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
             }

@@ -10,7 +10,7 @@ namespace Weapons
     public class Bolt : MonoBehaviour, IProjectile
     {
 
-        [SerializeField] private int _damage = 10;
+        [SerializeField] private int _damage = 20;
         [SerializeField] private float _speed = 10;
         [SerializeField] private float _lifetime = 5;
         [SerializeField] private List<int> _layerMasks;

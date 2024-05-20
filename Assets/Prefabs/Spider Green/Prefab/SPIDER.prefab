@@ -2033,7 +2033,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 4
   m_Height: 8
@@ -2052,3 +2052,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerMasks: 03000000
+  _animation: {fileID: 0}

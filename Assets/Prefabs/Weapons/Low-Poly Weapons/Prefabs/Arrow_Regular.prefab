@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ca1d1e0c1141b0862ef97835317cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _damage: 20
   _speed: 30
   _lifetime: 5
   _layerMasks: 03000000
