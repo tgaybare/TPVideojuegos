@@ -26,7 +26,7 @@ namespace Managers
             if (OnGameOver != null)
             {
                 OnGameOver(isVictory);
-                Invoke(nameof(LoadMenuScreen),6f);
+                Invoke(nameof(LoadTitleScreen),5f);
             }
         }
         
@@ -36,7 +36,7 @@ namespace Managers
           throw new NotImplementedException();
         }
 
-        private void LoadMenuScreen() => UnitySceneManager.instance.Load_MenuScreen();
+        private void LoadTitleScreen() => UnitySceneManager.instance.LoadTitleScreen();
 
         #endregion GAME_MANAGER_ACTIONS
         

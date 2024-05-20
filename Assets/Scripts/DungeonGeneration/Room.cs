@@ -18,6 +18,8 @@ public class Room : MonoBehaviour
     private Doorway _bottomLeftDoorway;
     private List<Doorway> _doorways = new List<Doorway>();
 
+    private RoomObjectSpawner _roomObjectSpawner;
+
     private int _enemyCount = 3; // TODO: Update this variable when an enemy is spawned or defeated
     public int EnemyCount { get => _enemyCount; set => _enemyCount = value; }
 
@@ -43,6 +45,8 @@ public class Room : MonoBehaviour
             AssignDoorToLocalVariable(d);
             _doorways.Add(d);
         }
+
+        _roomObjectSpawner = GetComponent<RoomObjectSpawner>();
 
         RoomController.instance.RegisterRoom(this);
     }
@@ -202,25 +206,31 @@ public class Room : MonoBehaviour
 
     // TODO
     public void PauseEnemies() {
-        /*Enemy[] enemies = GetComponentsInChildren<Enemy>();
+        List<GameObject> enemies = _roomObjectSpawner.SpawnedEnemies();
 
-        foreach (Enemy enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
-            enemy.Pause();
-            enemy.gameObject.SetActive(false);
-        }*/
+            //TODO: enemy.Pause();  <-- Implement this method in the Enemy class
+            if(enemy != null)
+            {
+                enemy.SetActive(false);
+            }
+        }
     }
 
     // TODO
     public void UnpauseEnemies()
     {
-        /*Enemy[] enemies = GetComponentsInChildren<Enemy>();
+        List<GameObject> enemies = _roomObjectSpawner.SpawnedEnemies();
 
-        foreach (Enemy enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
-            enemy.Unpause();
-            enemy.gameObject.SetActive(false);
-        }*/
+            //TODO: enemy.Unpause();  <-- Implement this method in the Enemy class
+            if (enemy != null)
+            {
+                enemy.SetActive(true);
+            }
+        }
     }
 
     public bool IsCleared()

@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 1213189639692746787}
   m_Layer: 3
   m_Name: MeleeSkeleton
-  m_TagString: MeleeSkeleton
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cf8a7d4b2cc87584a9f57bfdc7de8ed7, type: 2}
-  player: {fileID: 0}
+  player: {fileID: 1933434664509849861, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
 --- !u!1 &1334277327535426561
 GameObject:
   m_ObjectHideFlags: 0

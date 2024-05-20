@@ -6,9 +6,7 @@ namespace Managers
 {
     public class UIManager : MonoBehaviour
     {
-        
-        private Text _gameOverText;
-
+        [SerializeField] private Text _gameOverText;
         [SerializeField] private Image lifeBar;
         private float _currentLife;
         
@@ -25,6 +23,7 @@ namespace Managers
         private void OnGameOver(bool isVictory)
         {
             _gameOverText.text = isVictory ? "VICTORY" : "GAME OVER";
+            _gameOverText.color = isVictory ? Color.green : Color.red;
             _gameOverText.gameObject.SetActive(true);
         }
 

@@ -26,8 +26,7 @@ namespace Strategy.Strategy___Weapon
             {
                 if (gameObject.CompareTag("Player"))
                 {
-                    ActionManager.instance.ActionGameOver(false);
-                    Invoke(nameof(LoadMenuScreen),6f);
+                    Die();
                 }
                 
                 Destroy(gameObject);
@@ -35,7 +34,9 @@ namespace Strategy.Strategy___Weapon
                 
             }
         }
-        
-        private void LoadMenuScreen() => UnitySceneManager.instance.Load_MenuScreen();
+
+        private void Die() {
+            ActionManager.instance.ActionGameOver(false);
+        }
     }
 }
