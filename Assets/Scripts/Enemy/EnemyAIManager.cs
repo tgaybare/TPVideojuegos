@@ -37,7 +37,11 @@ namespace Enemy
         
             // Attack
             _cmdAttack = new CmdAttack(_weapon);
+
+            player = GameObject.FindGameObjectWithTag("Player");
         }
+
+      
         
         void Update()
         {
@@ -72,6 +76,6 @@ namespace Enemy
                 timeSinceLastAttack += Time.deltaTime;
             }
         }
-
+       
     }
 }

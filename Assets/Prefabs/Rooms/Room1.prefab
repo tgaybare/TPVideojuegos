@@ -2690,8 +2690,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4669072301279308195}
   - component: {fileID: 2555363959072633971}
-  - component: {fileID: 7457892796104849430}
   - component: {fileID: 5503218498573555104}
+  - component: {fileID: 2006581167599868375}
   m_Layer: 0
   m_Name: Room1
   m_TagString: Untagged
@@ -2741,24 +2741,7 @@ MonoBehaviour:
   _x: 0
   _y: 0
   _z: 0
---- !u!114 &7457892796104849430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059274973894335594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0bf2e64a6480bb4da937cb981d94155, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gridController: {fileID: 0}
-  _randomSpawners:
-  - name: Skeleton Spawner
-    spawnerData: {fileID: 11400000, guid: d38458314cd131442a5f43376f2399f1, type: 2}
-  - name: Plague Doctor Spawner
-    spawnerData: {fileID: 11400000, guid: 4002a5543d12aec439f7301d83634837, type: 2}
+  _roomEnemiesSpawner: {fileID: 0}
 --- !u!65 &5503218498573555104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2780,6 +2763,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 38, y: 10, z: 38}
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &2006581167599868375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059274973894335594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef812943619a9c48915d3f6710f19e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridController: {fileID: 0}
+  _randomSpawners:
+  - name: Skeleton Spawner
+    spawnerData: {fileID: 11400000, guid: d38458314cd131442a5f43376f2399f1, type: 2}
+  - name: Plague Doctor Spawner
+    spawnerData: {fileID: 11400000, guid: 4002a5543d12aec439f7301d83634837, type: 2}
 --- !u!1 &3164715769861831054
 GameObject:
   m_ObjectHideFlags: 0

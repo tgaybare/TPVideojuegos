@@ -66,6 +66,15 @@ namespace Managers
 
         #region GAME_ACTIONS
 
+        public event Action<GameObject> OnEnemyKilled;
+        public void ActionEnemyKilled(GameObject enemy)
+        {
+            if (OnEnemyKilled != null)
+            {
+                OnEnemyKilled(enemy);
+            }
+        }
+
         // Al final no son actions
         
         // public event Action OnBoltHit;

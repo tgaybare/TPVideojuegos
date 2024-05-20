@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
- public class RoomObjectSpawner : MonoBehaviour
+ public class RoomGameObjectsSpawner : MonoBehaviour
 {
     [System.Serializable]
     public struct RandomSpawner // TODO: Diferenciar EnemySpawner
     {
         public string name;
         public SpawnerData spawnerData;
-        public List<GameObject> spawnedObjects; 
     }
 
     [SerializeField] public GridController _gridController;
-    [SerializeField] private RandomSpawner[] _randomSpawners;
+    [SerializeField] protected RandomSpawner[] _randomSpawners;
 
-    private void Start()
+    protected virtual void Awake()
     {
         _gridController = GetComponentInChildren<GridController>();
         InitializeObjectSpawning();
@@ -25,11 +24,11 @@ using UnityEngine;
     {
         foreach (RandomSpawner spawner in _randomSpawners)
         {
-            SpawnObjects(spawner);
+            this.SpawnObjects(spawner);
         }
     }
 
-    private void SpawnObjects(RandomSpawner data)
+    protected virtual void SpawnObjects(RandomSpawner data)
     {
         int randomAmount = Random.Range(data.spawnerData.MinSpawn, data.spawnerData.MaxSpawn + 1);
 
@@ -39,21 +38,6 @@ using UnityEngine;
             GameObject spawned = Instantiate(data.spawnerData.ToSpawn, spawnPosition, Quaternion.identity, transform);
             Debug.Log($"Spawned from '{data.name}' at ({spawnPosition.x},{spawnPosition.z})");
         }
-    }
-
-    public List<GameObject> SpawnedEnemies() {
-        List<GameObject> enemies = new List<GameObject>();
-        foreach (RandomSpawner spawner in _randomSpawners)
-        {
-            foreach (GameObject obj in spawner.spawnedObjects)
-            {
-                if(obj != null && obj.CompareTag("Enemy"))
-                {
-                    enemies.Add(obj);
-                }
-            }
-        }
-        return enemies;
     }
 }
 

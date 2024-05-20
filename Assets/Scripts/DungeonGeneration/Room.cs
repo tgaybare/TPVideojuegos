@@ -1,3 +1,4 @@
+using Assets.Scripts.DungeonGeneration;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,10 +19,9 @@ public class Room : MonoBehaviour
     private Doorway _bottomLeftDoorway;
     private List<Doorway> _doorways = new List<Doorway>();
 
-    private RoomObjectSpawner _roomObjectSpawner;
-
-    private int _enemyCount = 3; // TODO: Update this variable when an enemy is spawned or defeated
-    public int EnemyCount { get => _enemyCount; set => _enemyCount = value; }
+    //[SerializeField] private RoomGameObjectsSpawner _roomObjectSpawner;
+    [SerializeField] private RoomEnemiesSpawner _roomEnemiesSpawner;
+    public int EnemyCount { get => _roomEnemiesSpawner.EnemiesInRoom.Count; }
 
     public int Width => _width;
     public int Height => _height;
@@ -46,14 +46,17 @@ public class Room : MonoBehaviour
             _doorways.Add(d);
         }
 
-        _roomObjectSpawner = GetComponent<RoomObjectSpawner>();
+        _roomEnemiesSpawner = GetComponent<RoomEnemiesSpawner>();
+        if(_roomEnemiesSpawner == null)
+        {
+            Debug.LogError("RoomEnemiesSpawner is not set.");
+            return;
+        }
 
         RoomController.instance.RegisterRoom(this);
     }
 
-   
 
-  
     public Vector3 GetRoomCenter()
     {
         return new Vector3(_x * _width, _y * _height, _z * _depth);
@@ -206,7 +209,7 @@ public class Room : MonoBehaviour
 
     // TODO
     public void PauseEnemies() {
-        List<GameObject> enemies = _roomObjectSpawner.SpawnedEnemies();
+        List<GameObject> enemies = _roomEnemiesSpawner.EnemiesInRoom;
 
         foreach (GameObject enemy in enemies)
         {
@@ -221,7 +224,7 @@ public class Room : MonoBehaviour
     // TODO
     public void UnpauseEnemies()
     {
-        List<GameObject> enemies = _roomObjectSpawner.SpawnedEnemies();
+        List<GameObject> enemies = _roomEnemiesSpawner.EnemiesInRoom;
 
         foreach (GameObject enemy in enemies)
         {
@@ -235,6 +238,11 @@ public class Room : MonoBehaviour
 
     public bool IsCleared()
     {
-        return _enemyCount == 0;
+        return EnemyCount == 0;
+    }
+
+    public void RemoveEnemy(GameObject enemy)
+    {
+        _roomEnemiesSpawner.RemoveEnemy(enemy);
     }
 }

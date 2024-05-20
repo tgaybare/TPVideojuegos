@@ -27,16 +27,22 @@ namespace Strategy.Strategy___Weapon
                 if (gameObject.CompareTag("Player"))
                 {
                     Die();
+                } else if (gameObject.CompareTag("Enemy"))
+                {
+                    KillEnemy(gameObject);
                 }
                 
                 Destroy(gameObject);
-                
-                
             }
         }
 
         private void Die() {
             ActionManager.instance.ActionGameOver(false);
+        }
+
+        private void KillEnemy(GameObject enemy)
+        {
+            ActionManager.instance.ActionEnemyKilled(enemy);
         }
     }
 }

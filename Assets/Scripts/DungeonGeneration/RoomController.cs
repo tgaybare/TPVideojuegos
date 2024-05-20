@@ -1,3 +1,4 @@
+using Managers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -55,6 +56,11 @@ public class RoomController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        ActionManager.instance.OnEnemyKilled += OnEnemyKilled;
+    }
+
     private void Update()
     {
         // Room Generation
@@ -66,11 +72,10 @@ public class RoomController : MonoBehaviour
             _currentRoom.OpenDoors();
         }
 
-        // TODO: Delete
-        if (Input.GetKeyDown(KeyCode.K) && _currentRoom.EnemyCount > 0)
+        // Check Level Completion
+        if(_currentRoom is BossRoom && _currentRoom.IsCleared())
         {
-            _currentRoom.EnemyCount--;
-            Debug.Log($"Killed an enemy. {_currentRoom.EnemyCount} left.");
+            ActionManager.instance.ActionGameOver(true);
         }
     }
 
@@ -130,7 +135,6 @@ public class RoomController : MonoBehaviour
         if(_currentRoom == null && _loadedRooms.Count == 0)
         {
             _currentRoom = room;
-            _currentRoom.EnemyCount = 0;
         }
 
 
@@ -177,6 +181,7 @@ public class RoomController : MonoBehaviour
         _finishedRoomsSetup = true;
     }
 
+    //TODO: Cambiar a Action
     public void OnPlayerEnterRoom(Room room)
     {
         Debug.Log($"Player entered room '{room.name}'");
@@ -205,7 +210,11 @@ public class RoomController : MonoBehaviour
         }
     }
 
-
+    private void OnEnemyKilled(GameObject enemy)
+    {
+        _currentRoom.RemoveEnemy(enemy);
+        Debug.Log($"Killed an enemy. {_currentRoom.EnemyCount} left.");
+    }
 
 
 
