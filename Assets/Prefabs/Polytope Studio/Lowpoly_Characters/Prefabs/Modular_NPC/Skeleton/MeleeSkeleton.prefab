@@ -301,7 +301,6 @@ GameObject:
   - component: {fileID: 7556791954580782308}
   - component: {fileID: 2536824146348612490}
   - component: {fileID: 2035248133976126747}
-  - component: {fileID: 7237200189924479705}
   - component: {fileID: 6698960034011001713}
   - component: {fileID: 1213189639692746787}
   m_Layer: 3
@@ -416,19 +415,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7237200189924479705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264433200921298619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12703a0aa7104a5baf3aa24a2d83b952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMasks: 03000000
 --- !u!114 &6698960034011001713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cf8a7d4b2cc87584a9f57bfdc7de8ed7, type: 2}
-  player: {fileID: 1933434664509849861, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
+  player: {fileID: 0}
 --- !u!1 &1334277327535426561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3533,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4489677676252728369, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6542668694159134761}
+    - targetCorrespondingSourceObject: {fileID: 4489677676252728369, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3463179268894517159}
   m_SourcePrefab: {fileID: 100100000, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
 --- !u!1 &1299285685788741498 stripped
 GameObject:
@@ -3568,7 +3557,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3576,6 +3565,19 @@ CapsuleCollider:
   m_Height: 0.8053348
   m_Direction: 1
   m_Center: {x: -0.0000000048037476, y: -0.32237414, z: -0.00000014120552}
+--- !u!114 &3463179268894517159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299285685788741498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12703a0aa7104a5baf3aa24a2d83b952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMasks: 03000000
 --- !u!4 &1299285685789234010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4489677676252762129, guid: 39ec6af3eb8c70848b3da75dbf39628f, type: 3}
