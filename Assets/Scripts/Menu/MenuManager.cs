@@ -6,7 +6,12 @@ namespace Managers
     {
         public void PlayButton()
         {
-            UnitySceneManager.instance.Load_Floor1Screen();
+            UnitySceneManager.instance.LoadGameScreen();
+        }
+
+        public void ExitButton()
+        {
+            Application.Quit();
         }
     }
 }

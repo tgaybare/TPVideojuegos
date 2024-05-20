@@ -7,7 +7,7 @@ namespace Managers
 {
     public class UnitySceneManager : MonoBehaviour
     {
-        
+        #region SINGLETON
         public static UnitySceneManager instance;
 
         private void Awake()
@@ -17,12 +17,13 @@ namespace Managers
                 instance = this;
             }
         }
+        #endregion SINGLETON
 
-        private const string MENU_SCREEN = "Menu";
-        private const string FLOOR_1_SCREEN = "Floor_1";
+        private const string TITLE_SCREEN = "TitleScreen";
+        private const string GAME_SCREEN = "MainScene";
         
-        public void Load_MenuScreen() => SceneManager.LoadScene(MENU_SCREEN);
-        public void Load_Floor1Screen() => SceneManager.LoadScene(FLOOR_1_SCREEN);
+        public void LoadTitleScreen() => SceneManager.LoadScene(TITLE_SCREEN);
+        public void LoadGameScreen() => SceneManager.LoadScene(GAME_SCREEN);
         
     }
 }
