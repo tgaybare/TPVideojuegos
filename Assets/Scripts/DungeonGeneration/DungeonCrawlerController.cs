@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public enum Direction
 
 public class DungeonCrawlerController
 {
-    public static HashSet<Vector2Int> positionsVisited = new HashSet<Vector2Int>();
+    public static LastAddedHashSet<Vector2Int> positionsVisited = new LastAddedHashSet<Vector2Int>();
 
     private static readonly Dictionary<Direction, Vector2Int> directionMovementMap = new Dictionary<Direction, Vector2Int>
     {
@@ -22,7 +23,7 @@ public class DungeonCrawlerController
         { Direction.Right, Vector2Int.right }
     };
 
-    public static HashSet<Vector2Int> GenerateDungeon(DungeonGenerationData data) {
+    public static LastAddedHashSet<Vector2Int> GenerateDungeon(DungeonGenerationData data) {
         List<DungeonCrawler> crawlers = new List<DungeonCrawler>();
 
         for (int i = 0; i < data.NumberOfCrawlers; i++)

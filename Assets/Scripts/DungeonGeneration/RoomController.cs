@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class RoomInfo
 {   
-
     private string _name;
     private int _x;
     private int _z;
@@ -29,6 +28,8 @@ public class RoomController : MonoBehaviour
 {
     public static readonly List<String> LevelNames = new List<String> { "Level 1" };
     public static readonly List<String> RoomNames = new List<String> { "Room1", "Room2", "Room3" };
+    public const string BOSS_ROOM_NAME = "BossRoom";
+    public const string START_ROOM_NAME = "Room1";
 
     public static RoomController instance;
 
@@ -36,7 +37,6 @@ public class RoomController : MonoBehaviour
     private RoomInfo _currentLoadRoomData;
     private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
     private bool _isLoadingRoom = false;
-    private bool _spawnedBossRoom = false;
     private bool _finishedRoomsSetup = false;
     [SerializeField] private Room _currentRoom;
 
@@ -73,7 +73,6 @@ public class RoomController : MonoBehaviour
             Debug.Log($"Killed an enemy. {_currentRoom.EnemyCount} left.");
         }
     }
-
 
 
     public bool DoesRoomExist(int x, int z)
@@ -150,14 +149,9 @@ public class RoomController : MonoBehaviour
         // If we have loaded all rooms, remove unconnected doors and spawn the boss room
         // If the queue is empty, we have loaded all rooms
         if (_loadRoomQueue.Count == 0) {
-            if(!_spawnedBossRoom)
+            if(!_finishedRoomsSetup)
             {
-                if(!_finishedRoomsSetup)
-                {
-                    FinishRoomSetup();
-                }
-
-                StartCoroutine(SpawnBossRoom());
+                FinishRoomSetup();
             }
             return;
         }
@@ -166,24 +160,6 @@ public class RoomController : MonoBehaviour
         _currentLoadRoomData = _loadRoomQueue.Dequeue();
         _isLoadingRoom = true;
         StartCoroutine(LoadRoomRoutine(_currentLoadRoomData));
-    }
-
-    private IEnumerator SpawnBossRoom()
-    {
-        _spawnedBossRoom = true;
-        Debug.Log("Spawning boss room");
-        // Wait for more rooms to be loaded, just in case
-        yield return new WaitForSeconds(0.2f);
-
-        // The boss room is always the last room
-        Room lastRoom = _loadedRooms.Last();
-        Vector2Int position = new Vector2Int(lastRoom.X, lastRoom.Z);
-
-        // Destroy the last room and replace it with the boss room
-        _loadedRooms.Remove(lastRoom);
-        Destroy(lastRoom.gameObject);
-
-        LoadRoom("BossRoom", position);
     }
 
     private void FinishRoomSetup()

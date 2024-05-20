@@ -1,3 +1,4 @@
+using Assets.Scripts.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using UnityEngine;
 public class DungeonGenerator : MonoBehaviour
 {
     [SerializeField] private DungeonGenerationData _dungeonGenerationData;
-    private HashSet<Vector2Int> _dungeonRooms;
+    private LastAddedHashSet<Vector2Int> _dungeonRooms;
 
     public DungeonGenerationData Data { get => _dungeonGenerationData;}
 
@@ -15,25 +16,36 @@ public class DungeonGenerator : MonoBehaviour
     {
         _dungeonRooms = DungeonCrawlerController.GenerateDungeon(Data);
 
-        // We manually remove the first room since it's the starting room
-        _dungeonRooms.Remove(Vector2Int.zero);
-
-        SpawnRooms(_dungeonRooms);
+        SpawnStartRoom();
+        SpawnBossRoom();
+        SpawnRooms();
     }
 
-    private void SpawnRooms(IEnumerable<Vector2Int> dungeonRooms)
+    private void SpawnRooms()
     {
-        // Load first room
-        // TODO: Define first room
-        RoomController.instance.LoadRoom("Room1", 0, 0);
-
-        foreach (Vector2Int roomLocation in dungeonRooms)
+        foreach (Vector2Int roomLocation in _dungeonRooms)
         {
             int roomNumber = Random.Range(0, RoomController.RoomNames.Count);
             string roomName = RoomController.RoomNames[roomNumber];
 
-            RoomController.instance.LoadRoom(roomName, roomLocation.x, roomLocation.y);            
+            RoomController.instance.LoadRoom(roomName, roomLocation);            
         }
+    }
+
+    private void SpawnStartRoom() {
+        // Load first room
+        RoomController.instance.LoadRoom(RoomController.START_ROOM_NAME, Vector2Int.zero);
+
+        // We manually remove the first room since it's the starting room
+        _dungeonRooms.Remove(Vector2Int.zero);
+    }
+    
+    private void SpawnBossRoom() {
+        // We want to spawn the boss room in the last added room
+        Vector2Int furthestPosition = _dungeonRooms.LastAdded;
+        RoomController.instance.LoadRoom(RoomController.BOSS_ROOM_NAME, furthestPosition);
+
+        _dungeonRooms.Remove(furthestPosition);
     }
     
 }
