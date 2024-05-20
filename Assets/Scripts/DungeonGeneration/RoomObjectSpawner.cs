@@ -1,13 +1,15 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
  public class RoomObjectSpawner : MonoBehaviour
 {
     [System.Serializable]
-    public struct RandomSpawner
+    public struct RandomSpawner // TODO: Diferenciar EnemySpawner
     {
         public string name;
         public SpawnerData spawnerData;
+        public List<GameObject> spawnedObjects; 
     }
 
     [SerializeField] public GridController _gridController;
@@ -36,8 +38,22 @@ using UnityEngine;
             Vector3 spawnPosition = _gridController.AllocateRandomTile();
             GameObject spawned = Instantiate(data.spawnerData.ToSpawn, spawnPosition, Quaternion.identity, transform);
             Debug.Log($"Spawned from '{data.name}' at ({spawnPosition.x},{spawnPosition.z})");
-
         }
+    }
+
+    public List<GameObject> SpawnedEnemies() {
+        List<GameObject> enemies = new List<GameObject>();
+        foreach (RandomSpawner spawner in _randomSpawners)
+        {
+            foreach (GameObject obj in spawner.spawnedObjects)
+            {
+                if(obj != null && obj.CompareTag("Enemy"))
+                {
+                    enemies.Add(obj);
+                }
+            }
+        }
+        return enemies;
     }
 }
 
