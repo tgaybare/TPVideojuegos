@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
@@ -24,8 +25,17 @@ namespace Weapons
         public virtual void Attack()
         {
             Vector3 defaultPosition = transform.position;
-            transform.position = transform.forward * 2 + transform.position;
-            transform.position = defaultPosition; //TODO: hacer con una animacion
+            Transform parentTransform = transform.parent;
+            transform.position = parentTransform.forward * 2 + parentTransform.position;
+            Debug.Log("movi la espada");
+            StartCoroutine(WaitForTrigger(defaultPosition));
+            // transform.position = defaultPosition; //TODO: hacer con una animacion
+        }
+
+        private IEnumerator WaitForTrigger(Vector3 defaultPosition)
+        {
+            yield return new WaitForSeconds(0.2f);
+            transform.position = defaultPosition;
         }
 
         #endregion

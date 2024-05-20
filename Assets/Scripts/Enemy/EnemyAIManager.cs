@@ -16,7 +16,7 @@ namespace Enemy
         
         [SerializeField] private GameObject player;
         private float AttackRange => stats.AttackRange;
-        private float AttackRate => stats.AttackRate;
+        private float AttackCooldown => stats.AttackCooldown;
         private float RestAfterAttack => stats.RestAfterAttack;
     
         private CmdMovement _cmdMoveDirection;
@@ -53,20 +53,23 @@ namespace Enemy
             //Attack
             if (Vector3.Distance(transform.position, player.transform.position) < AttackRange)
             {
-                if (timeSinceLastAttack > AttackRate)
+                if (timeSinceLastAttack > AttackCooldown)
                 {
                     _cmdAttack.Do();
                     waitTime = 0;
                     timeSinceLastAttack = 0;
                 }
-                timeSinceLastAttack += Time.deltaTime;
+                else
+                {
+                    timeSinceLastAttack += Time.deltaTime;
+                }
+
             }
             else
             {
                 _cmdMoveDirection.ChangeDirection(playerDirection.direction);
                 _cmdMoveDirection.Do();
                 timeSinceLastAttack += Time.deltaTime;
-                
             }
         }
 

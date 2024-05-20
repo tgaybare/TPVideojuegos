@@ -5,11 +5,13 @@ namespace Weapons
     public class Sword : MeleeWeapon
     {
         
-        public void OnCollisionEnter(Collision collision)
+        public void OnTriggerEnter(Collider other)
         {
-            if (layerMasks.Contains(collision.gameObject.layer))
+            if (layerMasks.Contains(other.gameObject.layer))
             {
-                IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+                Debug.Log("Toy entrando al OnCollision correcto");
+                Debug.Log(other.gameObject.name);
+                IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
             }
         }
