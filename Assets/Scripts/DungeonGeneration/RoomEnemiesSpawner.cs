@@ -25,6 +25,7 @@ namespace Assets.Scripts.DungeonGeneration
                 Vector3 spawnPosition = _gridController.AllocateRandomTile();
                 GameObject enemy = Instantiate(data.spawnerData.ToSpawn, spawnPosition, Quaternion.identity, transform);
                 _enemiesInRoom.Add(enemy);
+                enemy.SetActive(false);
             }
         }
 
