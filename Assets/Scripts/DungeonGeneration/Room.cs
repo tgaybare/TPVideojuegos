@@ -199,7 +199,6 @@ public class Room : MonoBehaviour
         }
     }
 
-    // TODO
     public void CloseDoors() 
     {
         foreach (Doorway d in _doorways)
@@ -208,7 +207,6 @@ public class Room : MonoBehaviour
         }
     }
 
-    // TODO
     public void PauseEnemies() {
         List<GameObject> enemies = _roomEnemiesSpawner.EnemiesInRoom;
 
@@ -222,7 +220,6 @@ public class Room : MonoBehaviour
         }
     }
 
-    // TODO
     public void UnpauseEnemies()
     {
         List<GameObject> enemies = _roomEnemiesSpawner.EnemiesInRoom;

@@ -17,7 +17,6 @@ namespace Assets.Scripts.DungeonGeneration
 
         protected override void SpawnObjects(RandomSpawner data)
         {
-            Debug.Log("Spawning enemies");
             int randomAmount = Random.Range(data.spawnerData.MinSpawn, data.spawnerData.MaxSpawn + 1);
 
             for (int i = 0; i < randomAmount; i++)

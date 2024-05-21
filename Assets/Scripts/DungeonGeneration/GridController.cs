@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: Flyweight pattern?
 public class GridController : MonoBehaviour
 {
     [System.Serializable]

@@ -183,10 +183,8 @@ public class RoomController : MonoBehaviour
         _finishedRoomsSetup = true;
     }
 
-    //TODO: Cambiar a Action
     private void OnPlayerEnterRoom(Room room)
     {
-        Debug.Log($"Player entered room '{room.name}'");
         _currentRoom = room;
 
         UpdateCurrentRoomDoors();
@@ -215,7 +213,6 @@ public class RoomController : MonoBehaviour
     private void OnEnemyKilled(GameObject enemy)
     {
         _currentRoom.RemoveEnemy(enemy);
-        Debug.Log($"Killed an enemy. {_currentRoom.EnemyCount} left.");
     }
 
 

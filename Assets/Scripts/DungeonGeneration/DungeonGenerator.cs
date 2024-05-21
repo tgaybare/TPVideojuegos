@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// TODO: Cambiar a patron Manager
 public class DungeonGenerator : MonoBehaviour
 {
     [SerializeField] private DungeonGenerationData _dungeonGenerationData;
