@@ -24359,7 +24359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7056aa64d25746dfbf10f0f41766425a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: fbfcb4ff09757884fa57a972b3aa6c9d, type: 3}
+  audioClip: {fileID: 8300000, guid: fb4be2e1f33e4f33a411c6a2e9684eb7, type: 3}
 --- !u!82 &2092135549194986399
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24416,7 +24416,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

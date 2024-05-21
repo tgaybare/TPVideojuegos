@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sound;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,13 +12,16 @@ namespace Weapons
         private Collider _spiderCollider;
         [SerializeField] private Animation _animation;
         
+        public int SpiderDamage => _spiderDamage;
+        private int _spiderDamage = 50; 
         
-        private int _damage = 50; 
+        private FixedSoundPlayer _soundPlayer;
         
         private void Start()
         {
             _spiderCollider = gameObject.GetComponent<Collider>();
             _animation = gameObject.GetComponentInParent<Animation>();
+            _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();
         }
 
         public override void Attack()
@@ -41,8 +45,9 @@ namespace Weapons
         {
             if (layerMasks.Contains(collision.gameObject.layer))
             {
+                _soundPlayer.Play();
                 IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-                damageable?.TakeDamage(Damage);
+                damageable?.TakeDamage(SpiderDamage);
             }
         }
 
@@ -50,8 +55,9 @@ namespace Weapons
         {
             if (layerMasks.Contains(other.gameObject.layer))
             {
+                _soundPlayer.Play();
                 IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
-                damageable?.TakeDamage(Damage);
+                damageable?.TakeDamage(SpiderDamage);
             }
         }
     }

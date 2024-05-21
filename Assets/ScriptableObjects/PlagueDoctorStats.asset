@@ -19,4 +19,4 @@ MonoBehaviour:
   enemyStats:
     Damage: 60
     AttackRange: 10
-    RestAfterAttack: 3
+    RestAfterAttack: 0

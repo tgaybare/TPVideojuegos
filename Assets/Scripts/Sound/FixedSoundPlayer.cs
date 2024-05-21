@@ -18,7 +18,6 @@ namespace Sound
 
         public void Play()
         {
-            Debug.Log("Se esta llamando a play");
             _audioSource.Play();
             _audioSource.PlayOneShot(audioClip);
         }
