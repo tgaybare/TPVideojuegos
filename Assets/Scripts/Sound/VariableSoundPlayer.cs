@@ -13,7 +13,7 @@ namespace Sound
 
         public void PlayOneShot(AudioClip clip)
         {
-            PlayOneShot(clip);
+            AudioSource.PlayOneShot(clip);
         }
     }
 }
