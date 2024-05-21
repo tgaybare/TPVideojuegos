@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Commands;
+using JetBrains.Annotations;
 using Strategy.Strategy___Movement;
 using Strategy.Strategy___Weapon;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Enemy
         public EnemyStats Stats => stats;
         [SerializeField] private EnemyStats stats;
         
-        [SerializeField] private GameObject player;
+        [SerializeField] [CanBeNull] private GameObject player;
         private float AttackRange => stats.AttackRange;
         private float AttackCooldown => stats.AttackCooldown;
         private float RestAfterAttack => stats.RestAfterAttack;
@@ -45,6 +46,11 @@ namespace Enemy
         
         void Update()
         {
+            if (player == null)
+            {
+                // Player died or won
+                return;
+            }
             if (waitTime < RestAfterAttack)
             {
                 waitTime += Time.deltaTime;
