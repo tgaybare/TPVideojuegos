@@ -1809,7 +1809,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridController: {fileID: 0}
-  _randomSpawners: []
+  _randomSpawners:
+  - name: Boss Spawner
+    spawnerData: {fileID: 11400000, guid: d5e6ffd758b100645a81a274353b32ff, type: 2}
+  _enemiesInRoom: []
 --- !u!1 &3164715769861831054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,10 +2129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grid:
-    columns: 0
-    rows: 0
-    depthOffset: 22
-    horizontalOffset: 22
+    columns: 5
+    rows: 5
+    depthOffset: 12
+    horizontalOffset: 12
   _room: {fileID: 0}
   _gridTile: {fileID: 2321946459907312109, guid: 2af1139d4e90479429c6044e2e4dca72, type: 3}
   _widthAndDepthOffset: 0

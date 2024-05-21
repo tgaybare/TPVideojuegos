@@ -22,8 +22,12 @@ public class GridController : MonoBehaviour
     private void Awake()
     {
         _room = GetComponentInParent<Room>();
-        _grid.columns = (_room.Width - _widthAndDepthOffset)/4;
-        _grid.rows = (_room.Depth - _widthAndDepthOffset)/4;
+
+        if(_grid.columns == 0)
+            _grid.columns = (_room.Width - _widthAndDepthOffset)/4;
+
+        if(_grid.rows == 0)
+            _grid.rows = (_room.Depth - _widthAndDepthOffset)/4;
 
         GenerateGrid();
     }
