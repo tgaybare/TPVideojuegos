@@ -1,8 +1,9 @@
 ﻿using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Managers
+namespace Menu
 {
     public class UIManager : MonoBehaviour
     {

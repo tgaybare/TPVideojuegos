@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Managers
+namespace Menu
 {
     public class UnitySceneManager : MonoBehaviour
     {

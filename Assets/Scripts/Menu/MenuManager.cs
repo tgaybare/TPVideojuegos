@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Managers;
+using UnityEngine;
 
-namespace Managers
+namespace Menu
 {
     public class MenuManager : MonoBehaviour
     {
