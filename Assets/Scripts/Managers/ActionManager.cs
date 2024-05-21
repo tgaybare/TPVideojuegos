@@ -75,6 +75,24 @@ namespace Managers
             }
         }
 
+        public event Action<Room> OnPlayerEnterRoom;
+        public void ActionPlayerEnterRoom(Room newRoom)
+        {
+            if (OnPlayerEnterRoom != null)
+            {
+                OnPlayerEnterRoom(newRoom);
+            }
+        }
+
+        public event Action<Room> OnPlayerExitRoom;
+        public void ActionPlayerExitRoom(Room oldRoom)
+        {
+            if (OnPlayerExitRoom != null)
+            {
+                OnPlayerExitRoom(oldRoom);
+            }
+        }
+
         // Al final no son actions
         
         // public event Action OnBoltHit;

@@ -59,6 +59,8 @@ public class RoomController : MonoBehaviour
     private void Start()
     {
         ActionManager.instance.OnEnemyKilled += OnEnemyKilled;
+        ActionManager.instance.OnPlayerEnterRoom += OnPlayerEnterRoom;
+        ActionManager.instance.OnPlayerExitRoom += OnPlayerExitRoom;
     }
 
     private void Update()
@@ -182,7 +184,7 @@ public class RoomController : MonoBehaviour
     }
 
     //TODO: Cambiar a Action
-    public void OnPlayerEnterRoom(Room room)
+    private void OnPlayerEnterRoom(Room room)
     {
         Debug.Log($"Player entered room '{room.name}'");
         _currentRoom = room;
@@ -192,7 +194,7 @@ public class RoomController : MonoBehaviour
         room.UnpauseEnemies();
     }
 
-    public void OnPlayerExitRoom(Room room)
+    private void OnPlayerExitRoom(Room room)
     {
         room.PauseEnemies();
         room.SetInvisible();

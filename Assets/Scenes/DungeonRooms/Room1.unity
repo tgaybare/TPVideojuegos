@@ -131,18 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 902002139835752890, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 2110825962521847501, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704423063116620583, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: _room
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3059274973894335594, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
       propertyPath: m_Name
       value: Room1
@@ -187,29 +175,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6271672428793636050, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 7457892796104849430, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: _randomSpawners.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7457892796104849430, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: _randomSpawners.Array.data[0].name
-      value: Skeleton Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 7457892796104849430, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: _randomSpawners.Array.data[0].spawnerData
-      value: 
-      objectReference: {fileID: 11400000, guid: d38458314cd131442a5f43376f2399f1, type: 2}
-    - target: {fileID: 7601056371750475492, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6030865358658661138, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fd1c195cd5324d45b47abc2019b65fd, type: 3}

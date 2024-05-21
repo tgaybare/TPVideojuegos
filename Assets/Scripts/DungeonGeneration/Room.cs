@@ -1,4 +1,5 @@
 using Assets.Scripts.DungeonGeneration;
+using Managers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -155,7 +156,7 @@ public class Room : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            RoomController.instance.OnPlayerEnterRoom(this);
+            ActionManager.instance.ActionPlayerEnterRoom(this);
         }
     }
 
@@ -163,7 +164,7 @@ public class Room : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            RoomController.instance.OnPlayerExitRoom(this);
+            ActionManager.instance.ActionPlayerExitRoom(this);
         }
     }
 
