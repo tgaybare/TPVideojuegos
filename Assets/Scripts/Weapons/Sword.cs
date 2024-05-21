@@ -9,8 +9,6 @@ namespace Weapons
         {
             if (layerMasks.Contains(other.gameObject.layer))
             {
-                Debug.Log("Toy entrando al OnCollision correcto");
-                Debug.Log(other.gameObject.name);
                 IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
                 damageable?.TakeDamage(Damage);
             }

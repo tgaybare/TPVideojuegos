@@ -308,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dodgeDuration: 1500
   dodgeCooldown: 2000
-  shotCooldown: 1000
+  shotCooldown: 500
 --- !u!114 &5979107123989320403
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ namespace Weapons
         [SerializeField] private Animation _animation;
         
         
-        public int Damage => _damage;
         private int _damage = 50; 
         
         private void Start()
@@ -28,9 +27,7 @@ namespace Weapons
             
             // Attack logic
             _spiderCollider.enabled = true;
-            Debug.Log("se deberia correr la animacion");
             _animation.Play();
-            // _spiderCollider.enabled = false;
             StartCoroutine(WaitForTrigger());
         }
 
@@ -39,16 +36,6 @@ namespace Weapons
             yield return new WaitForSeconds(0.5f);
             _spiderCollider.enabled = false;
         }
-
-        //private IEnumerator AttackAnimationDelay()
-        //{
-            //while (animation.isPlaying)
-            //{
-            //    yield return null;
-            //}
-            
-         //   yield return new WaitForSeconds(2);
-        //}
         
         public void OnCollisionEnter(Collision collision)
         {

@@ -48,7 +48,7 @@ public class CharacterInputManager : MonoBehaviour
     [SerializeField] private int dodgeCooldown = 2000; // in ms
     private int _dodgeCooldownTimer = 0;
     
-    [SerializeField] private int shotCooldown = 1000; // in ms
+    [SerializeField] private int shotCooldown = 500; // in ms
     private int _shotCooldownTimer = 0;
 
     // Start is called before the first frame update

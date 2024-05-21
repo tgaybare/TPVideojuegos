@@ -27,9 +27,8 @@ namespace Weapons
             Vector3 defaultPosition = transform.position;
             Transform parentTransform = transform.parent;
             transform.position = parentTransform.forward * 2 + parentTransform.position;
-            Debug.Log("movi la espada");
             StartCoroutine(WaitForTrigger(defaultPosition));
-            // transform.position = defaultPosition; //TODO: hacer con una animacion
+            //TODO: hacer con una animacion
         }
 
         private IEnumerator WaitForTrigger(Vector3 defaultPosition)
