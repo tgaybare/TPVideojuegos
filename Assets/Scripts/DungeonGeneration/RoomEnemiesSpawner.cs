@@ -40,6 +40,7 @@ namespace Assets.Scripts.DungeonGeneration
         public void RemoveEnemy(GameObject enemy)
         {
             _enemiesInRoom.Remove(enemy);
+            Destroy(enemy);
         }
     }
 }

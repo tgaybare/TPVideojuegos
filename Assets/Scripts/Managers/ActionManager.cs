@@ -15,7 +15,6 @@ namespace Managers
             {
                 instance = this;
             }
-            Debug.Log("created instance of ActionManager");
         }
 
         #region GAME_MANAGER_ACTIONS
