@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DungeonRooms/MainScene.unity
     guid: 0e728550e6ae2f74ebf810a13a3aecd2
   - enabled: 1
+    path: Assets/Scenes/DungeonRooms/StartRoom.unity
+    guid: 119f7e8343d41cd43ae3c769d7621073
+  - enabled: 1
     path: Assets/Scenes/DungeonRooms/Room1.unity
     guid: 8a431be95967343489dba32b14be345a
   - enabled: 1

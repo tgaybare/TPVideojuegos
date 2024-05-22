@@ -30,7 +30,7 @@ public class RoomController : MonoBehaviour
     public static readonly List<String> LevelNames = new List<String> { "Level 1" };
     public static readonly List<String> RoomNames = new List<String> { "Room1", "Room2", "Room3" };
     public const string BOSS_ROOM_NAME = "BossRoom";
-    public const string START_ROOM_NAME = "Room1";
+    public const string START_ROOM_NAME = "StartRoom";
 
     public static RoomController instance;
 
