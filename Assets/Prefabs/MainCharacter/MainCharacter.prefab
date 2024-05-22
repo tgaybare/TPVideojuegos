@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dfcfdbadc489a43b1687f7e0cb671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeDuration: 1500
+  dodgeDuration: 200
   dodgeCooldown: 2000
   shotCooldown: 500
 --- !u!114 &5979107123989320403
