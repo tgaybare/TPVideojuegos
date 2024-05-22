@@ -63,7 +63,7 @@ public class CharacterInputManager : MonoBehaviour
         _currentAttackStrategy = _distanceWeapon;
 
         //45 degree view
-        Quaternion rotation = Quaternion.AngleAxis(0, Vector3.up);
+        Quaternion rotation = Quaternion.AngleAxis(-45, Vector3.up);
 
         // Movement directions
         Vector3 backward = rotation * new Vector3(0, 0, -1);
