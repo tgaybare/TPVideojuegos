@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DungeonRooms/BossRoom.unity
     guid: acd0498ee0e04bc468ae58874132bf66
+  - enabled: 1
+    path: Assets/Scenes/Menu/GameOverScreen.unity
+    guid: d96c89af1bad343469250db21ca3275e
+  - enabled: 1
+    path: Assets/Scenes/Menu/VictoryScreen.unity
+    guid: 1b53b71315e3299468aab5e9f318cca5
   m_configObjects: {}
