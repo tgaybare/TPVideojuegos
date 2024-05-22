@@ -8,6 +8,9 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class MovementController : MonoBehaviour, IMoveable
 {
+
+    private Vector3 _lastDirection;
+    private bool _isDodging;
     
     #region IMOVEABLE_PROPERTIES
 
@@ -23,38 +26,56 @@ public class MovementController : MonoBehaviour, IMoveable
     private void Start()
     {
         _rigidbody = transform.GetComponent<Rigidbody>();
+        _lastDirection = Vector3.zero;
+        _isDodging = false;
     }
 
     #region IMOVEABLE_METHODS
+
     public void Move(Vector3 direction)
     {
-        _rigidbody.MovePosition(_rigidbody.position + Time.deltaTime * Speed * direction);
-        //transform.position +=  Time.deltaTime * Speed * direction;
+        if (!_isDodging){
+            _rigidbody.MovePosition(_rigidbody.position + Time.deltaTime * Speed * direction);
+            _lastDirection = direction;
+            //transform.position +=  Time.deltaTime * Speed * direction;
+        }
     }
 
     // Rotates towards the direction
     public void RotateTowards(Ray ray)
     {
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (!_isDodging)
         {
-            transform.LookAt(new Vector3(raycastHit.point.x, transform.position.y, raycastHit.point.z));
+            if (Physics.Raycast(ray, out RaycastHit raycastHit))
+            {
+                transform.LookAt(new Vector3(raycastHit.point.x, transform.position.y, raycastHit.point.z));
+            }
         }
+
+        
     }
 
     public void Dodge(int duration)
     {
-        transform.position += 25 * Time.deltaTime * Speed * transform.forward;
+        _isDodging = true;
+        gameObject.GetComponent<Collider>().enabled = false;
+        if (_lastDirection == Vector3.zero)
+        {
+            _lastDirection = transform.forward;
+        }
+        transform.position += _lastDirection + Vector3.up;
+        // transform.rotation = Quaternion.Euler(180, 0, 0);
         StartCoroutine(SetInvulnerable(duration));
 
     }
 
     private IEnumerator SetInvulnerable(int duration)
     {
-        int layer = gameObject.layer;
-        gameObject.layer = 2;
-        yield return new WaitForSeconds(duration / 1000); //ms to s
-        Debug.Log("FUI INVULNERABLE Y YA ME LEVANTE");
-        gameObject.layer = layer;
+        yield return new WaitForSeconds(duration/1000f); //ms to s
+        transform.position += _lastDirection + Vector3.down;
+        transform.rotation = Quaternion.Euler(-180, 0, 0);
+        gameObject.GetComponent<Collider>().enabled = true;
+        _isDodging = false;
     }
 
     #endregion

@@ -44,9 +44,10 @@ public class CharacterInputManager : MonoBehaviour
     private CmdAttack _cmdAttack;
     private CmdDodge _cmdDodge;
 
-    [SerializeField] private int dodgeDuration = 1500; // in ms
+    [SerializeField] private int dodgeDuration = 200; // in ms
     [SerializeField] private int dodgeCooldown = 2000; // in ms
     private int _dodgeCooldownTimer = 0;
+    private Vector3 lastCharacterDirection; 
     
     [SerializeField] private int shotCooldown = 500; // in ms
     private int _shotCooldownTimer = 0;

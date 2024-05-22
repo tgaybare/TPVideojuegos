@@ -36,6 +36,7 @@ namespace Strategy.Strategy___Weapon
                     _soundPlayer.PlayOneShot(deathSound);
                     StartCoroutine(WaitForSound());
                 }
+                
                 if (gameObject.CompareTag("Player"))
                 {
                     Die();
