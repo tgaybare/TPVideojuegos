@@ -44,9 +44,10 @@ public class CharacterInputManager : MonoBehaviour
     private CmdAttack _cmdAttack;
     private CmdDodge _cmdDodge;
 
-    [SerializeField] private int dodgeDuration = 1500; // in ms
+    [SerializeField] private int dodgeDuration = 200; // in ms
     [SerializeField] private int dodgeCooldown = 2000; // in ms
     private int _dodgeCooldownTimer = 0;
+    private Vector3 lastCharacterDirection; 
     
     [SerializeField] private int shotCooldown = 500; // in ms
     private int _shotCooldownTimer = 0;
@@ -62,7 +63,7 @@ public class CharacterInputManager : MonoBehaviour
         _currentAttackStrategy = _distanceWeapon;
 
         //45 degree view
-        Quaternion rotation = Quaternion.AngleAxis(-45, Vector3.up);
+        Quaternion rotation = Quaternion.AngleAxis(0, Vector3.up);
 
         // Movement directions
         Vector3 backward = rotation * new Vector3(0, 0, -1);
