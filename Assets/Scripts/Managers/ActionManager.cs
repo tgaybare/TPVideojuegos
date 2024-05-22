@@ -27,7 +27,15 @@ namespace Managers
             if (OnGameOver != null)
             {
                 OnGameOver(isVictory);
-                Invoke(nameof(LoadTitleScreen),5f);
+
+                if (isVictory)
+                {
+                    Invoke(nameof(LoadVictoryScreen),5f);
+                }
+                else
+                {
+                    Invoke(nameof(LoadGameOverScreen),5f);
+                }
             }
         }
         
@@ -38,6 +46,10 @@ namespace Managers
         }
 
         private void LoadTitleScreen() => UnitySceneManager.instance.LoadTitleScreen();
+
+        private void LoadGameOverScreen() => UnitySceneManager.instance.LoadGameOverScreen();
+
+        private void LoadVictoryScreen() => UnitySceneManager.instance.LoadVictoryScreen();
 
         #endregion GAME_MANAGER_ACTIONS
         

@@ -14,5 +14,10 @@ namespace Menu
         {
             Application.Quit();
         }
+
+        public void BackToTitle()
+        {
+            UnitySceneManager.instance.LoadTitleScreen();
+        }
     }
 }
