@@ -9,13 +9,13 @@ namespace Strategy.Strategy___Weapon
 {
     public class LifeController : MonoBehaviour, IDamageable
     {
-        public ActorStats Stats => stats;
-        public ActorStats stats;
+        public ActorStats Stats => _stats;
+        [SerializeField] private ActorStats _stats;
 
         private VariableSoundPlayer _soundPlayer;
         [SerializeField] private AudioClip deathSound;
         
-        public float MaxLife => stats.MaxLife;
+        public float MaxLife => _stats.MaxLife;
         public float Life => life;
         [SerializeField] private float life;
 
@@ -28,6 +28,10 @@ namespace Strategy.Strategy___Weapon
         public void TakeDamage(int damage)
         {
             life -= damage;
+            if(gameObject.CompareTag("Player"))
+                ActionManager.instance.CharacterLifeChange(life, MaxLife);
+          
+
             if (life <= 0)
             {
                 //Play death sound for entities that have one assigned
