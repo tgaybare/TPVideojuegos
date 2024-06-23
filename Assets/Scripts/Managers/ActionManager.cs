@@ -64,6 +64,17 @@ namespace Managers
                 OnCharacterLifeChange(currentLife, maxLife);
             }
         }
+
+        public event Action<float,float> OnCharacterMaxLifeChange;
+
+        public void CharacterMaxLifeChange(float oldMaxLife, float newMaxLife)
+        {
+            if (OnCharacterMaxLifeChange != null)
+            {
+                OnCharacterMaxLifeChange(oldMaxLife, newMaxLife);
+            }
+        }
+
         
         public void WeaponChange(int currentAmmo, int maxAmmo)
         {
@@ -105,35 +116,7 @@ namespace Managers
             }
         }
 
-        // Al final no son actions
         
-        // public event Action OnBoltHit;
-        // public event Action OnCrossbowShot;
-        // public event Action OnSwordSlash;
-        //
-        // public void BoltHit()
-        // {
-        //     if (OnBoltHit != null)
-        //     {
-        //         OnBoltHit();
-        //     }
-        // }
-        //
-        // public void CrossbowShot()
-        // {
-        //     if (OnCrossbowShot != null)
-        //     {
-        //         OnCrossbowShot();
-        //     }
-        // }
-        //
-        // public void SwordSlash()
-        // {
-        //     if (OnSwordSlash != null)
-        //     {
-        //         OnSwordSlash();
-        //     }
-        // }
 
         #endregion
 

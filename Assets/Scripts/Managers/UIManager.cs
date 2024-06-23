@@ -9,6 +9,7 @@ namespace Menu
     {
         [SerializeField] private Text _gameOverText;
         [SerializeField] private Image lifeBar;
+        [SerializeField] private GameObject _lifeBarGameObject;
         private float _currentLife;
 
         private static readonly Color LIFEBAR_GREEN = new Color(0.21f, 0.46f, 0.04f);
@@ -20,6 +21,7 @@ namespace Menu
             ActionManager.instance.OnGameOver += OnGameOver;
             
             ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
+            ActionManager.instance.OnCharacterMaxLifeChange += OnCharacterMaxLifeChange;
         }
 
         
@@ -55,12 +57,19 @@ namespace Menu
             }
         }
 
-        /*private void OnCharacterMaxLifeChange(float oldMaxLife, float newMaxLife)
-        {
-            lifeBar.fillAmount = _currentLife / maxLife;
+        private void OnCharacterMaxLifeChange(float oldMaxLife, float newMaxLife)
+        {   
+            float sizeMultiplier = newMaxLife / oldMaxLife;
+
+            lifeBar.fillAmount = _currentLife / newMaxLife;
+
+            Vector3 oldScale = _lifeBarGameObject.transform.localScale;
+            _lifeBarGameObject.transform.localScale = new Vector3(oldScale.x * sizeMultiplier, oldScale.y, oldScale.z);
         }
-*/
+
+     
+
         #endregion
-        
+
     }
 }

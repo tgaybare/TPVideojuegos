@@ -86,6 +86,7 @@ namespace Strategy.Strategy___Weapon
             _maxLifeWithUpgrades = (int)(_maxLifeWithUpgrades * multiplier);
             life *= multiplier;
             ActionManager.instance.CharacterLifeChange(life, _maxLifeWithUpgrades);
+            ActionManager.instance.CharacterMaxLifeChange(_stats.MaxLife, _maxLifeWithUpgrades);
         }
     }
 }
