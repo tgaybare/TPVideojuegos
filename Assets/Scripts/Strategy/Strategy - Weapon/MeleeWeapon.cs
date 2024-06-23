@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Animations;
 using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,6 +12,12 @@ namespace Weapons
     {
         [SerializeField] protected List<int> layerMasks;
 
+        private MeleeAttackAnimController _animController;
+        
+        protected virtual void Start()
+        {
+            _animController = gameObject.GetComponentInParent<MeleeAttackAnimController>();
+        }
         
         #region I_WEAPON_PROPERTIES
         
@@ -24,18 +31,18 @@ namespace Weapons
 
         public virtual void Attack()
         {
-            Vector3 defaultPosition = transform.position;
-            Transform parentTransform = transform.parent;
-            transform.position = parentTransform.forward * 2 + parentTransform.position;
-            StartCoroutine(WaitForTrigger(defaultPosition));
-            //TODO: hacer con una animacion
+            // Vector3 defaultPosition = transform.position;
+            // Transform parentTransform = transform.parent;
+            // transform.position = parentTransform.forward * 2 + parentTransform.position;
+            _animController.Attack();
+            // StartCoroutine(WaitForTrigger(defaultPosition));
         }
 
-        private IEnumerator WaitForTrigger(Vector3 defaultPosition)
-        {
-            yield return new WaitForSeconds(0.2f);
-            transform.position = defaultPosition;
-        }
+        // private IEnumerator WaitForTrigger(Vector3 defaultPosition)
+        // {
+        //     yield return new WaitForSeconds(0.2f);
+        //     transform.position = defaultPosition;
+        // }
 
         #endregion
         
