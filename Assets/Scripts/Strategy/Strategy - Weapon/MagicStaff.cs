@@ -1,11 +1,26 @@
-﻿using UnityEngine;
+﻿using Animations;
+using TMPro;
+using UnityEngine;
 
 namespace Weapons
 {
     public class MagicStaff : DistanceWeapon
     {
         
+        private MagicStaffAttackAnimController _animator;
+        
+        private void Start()
+        {
+            _animator = GetComponent<MagicStaffAttackAnimController>();
+        }
+        
         public override void Attack()
+        {
+            _animator.StartAttack();
+
+        }
+
+        protected void generateProjectile()
         {
             Vector3 staffBarrelPosition = GameObject.FindWithTag("MagicStaff").GetComponent<Collider>().bounds.center;
             GameObject player = GameObject.FindWithTag("Player");
@@ -21,7 +36,9 @@ namespace Weapons
                 ProjectilePrefab, 
                 position, 
                 rotation);
+            
+            _animator.FinishAttack();
         }
-        
+
     }
 }
