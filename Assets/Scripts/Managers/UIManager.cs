@@ -10,6 +10,10 @@ namespace Menu
         [SerializeField] private Text _gameOverText;
         [SerializeField] private Image lifeBar;
         private float _currentLife;
+
+        private static readonly Color LIFEBAR_GREEN = new Color(0.21f, 0.46f, 0.04f);
+        private static readonly Color LIFEBAR_YELLOW = new Color(0.85f, 0.79f, 0f);
+        private static readonly Color LIFEBAR_RED = new Color(0.46f, 0.12f, 0.04f);
         
         private void Start()
         {
@@ -36,6 +40,19 @@ namespace Menu
         {
             _currentLife = currentLife;
             lifeBar.fillAmount = _currentLife / maxLife;
+
+            if (lifeBar.fillAmount >= 0.5f)
+            {
+                lifeBar.color = LIFEBAR_GREEN; // Dark green
+            }
+            else if (lifeBar.fillAmount >= 0.25f)
+            {
+                lifeBar.color = LIFEBAR_YELLOW; // Dark yellow
+            }
+            else
+            {
+                lifeBar.color = LIFEBAR_RED; // Dark red
+            }
         }
 
         #endregion
