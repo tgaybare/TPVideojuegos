@@ -1,4 +1,5 @@
 ﻿using Sound;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Weapons
@@ -8,8 +9,9 @@ namespace Weapons
         
         private FixedSoundPlayer _soundPlayer;
         
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();
         }
         
