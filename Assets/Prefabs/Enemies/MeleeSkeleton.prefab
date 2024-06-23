@@ -442,8 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc78d037cce49de85265bbdba1e4fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 0}
-  deathSound: {fileID: 0}
+  stats: {fileID: 11400000, guid: cf8a7d4b2cc87584a9f57bfdc7de8ed7, type: 2}
   player: {fileID: 0}
 --- !u!114 &6874605405615581638
 MonoBehaviour:

@@ -16,11 +16,6 @@ namespace Weapons
             _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();
         }
 
-        private void Update()
-        {
-            
-        }
-
         public void OnTriggerEnter(Collider other)
         {
             if (layerMasks.Contains(other.gameObject.layer))
