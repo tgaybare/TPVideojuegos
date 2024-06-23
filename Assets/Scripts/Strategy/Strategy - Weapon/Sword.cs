@@ -1,4 +1,5 @@
-﻿using Sound;
+﻿using System;
+using Sound;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,7 +15,12 @@ namespace Weapons
             base.Start();
             _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();
         }
-        
+
+        private void Update()
+        {
+            
+        }
+
         public void OnTriggerEnter(Collider other)
         {
             if (layerMasks.Contains(other.gameObject.layer))
