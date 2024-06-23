@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7044ae77a6248f197a9b69b316902b3, type: 3}
   m_Name: SpiderBossStats
   m_EditorClassIdentifier: 
-  stats:
-    MaxLife: 500
-    Speed: 4
-    AttackRate: 0
+  _stats:
+    MaxLife: 200
+    Speed: 5
+    AttackCooldown: 5
   enemyStats:
     Damage: 50
     AttackRange: 10

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7044ae77a6248f197a9b69b316902b3, type: 3}
   m_Name: PlagueDoctorStats
   m_EditorClassIdentifier: 
-  stats:
-    MaxLife: 100
+  _stats:
+    MaxLife: 80
     Speed: 3
-    AttackCooldown: 1
+    AttackCooldown: 3
   enemyStats:
     Damage: 60
     AttackRange: 10

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Upgrades;
 using Commands;
 using Strategy.Strategy___Movement;
 using Strategy.Strategy___Weapon;
@@ -147,7 +148,10 @@ public class CharacterInputManager : MonoBehaviour
             _shotCooldownTimer += (int)(Time.deltaTime * 1000);
         }
 
-
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            MoreHPUpgrade.instance.applyUpgrade();
+        }
 
     }
 

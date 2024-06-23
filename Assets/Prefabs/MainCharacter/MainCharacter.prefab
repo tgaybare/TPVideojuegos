@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce505d87df5404f8d321dde469a334c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 4c6c1f122a14848408d06c764872d95e, type: 2}
+  _stats: {fileID: 11400000, guid: 4c6c1f122a14848408d06c764872d95e, type: 2}
   deathSound: {fileID: 8300000, guid: 7e3182169ef44924990003af73be5027, type: 3}
   life: 30
 --- !u!136 &7740926741816173985

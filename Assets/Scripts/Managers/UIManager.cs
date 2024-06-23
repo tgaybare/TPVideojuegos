@@ -55,6 +55,11 @@ namespace Menu
             }
         }
 
+        /*private void OnCharacterMaxLifeChange(float oldMaxLife, float newMaxLife)
+        {
+            lifeBar.fillAmount = _currentLife / maxLife;
+        }
+*/
         #endregion
         
     }

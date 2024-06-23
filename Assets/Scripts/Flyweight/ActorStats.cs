@@ -4,11 +4,15 @@
 
 public class ActorStats: ScriptableObject
 {
-    [SerializeField] private ActorStatValues stats;
+    [SerializeField] private ActorStatValues _stats;
 
-    public int MaxLife => stats.MaxLife;
-    public float Speed => stats.Speed;
-    public float AttackCooldown => stats.AttackCooldown;
+    public int MaxLife { 
+        get => _stats.MaxLife;
+        set => _stats.MaxLife = value;
+    }
+
+    public float Speed => _stats.Speed;
+    public float AttackCooldown => _stats.AttackCooldown;
 
 }
 

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7044ae77a6248f197a9b69b316902b3, type: 3}
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
-  stats:
-    MaxLife: 50
-    Speed: 5
-    AttackCooldown: 1
+  _stats:
+    MaxLife: 40
+    Speed: 7
+    AttackCooldown: 2
   enemyStats:
     Damage: 20
     AttackRange: 2

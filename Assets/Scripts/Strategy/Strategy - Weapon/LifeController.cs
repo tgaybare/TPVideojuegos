@@ -15,13 +15,16 @@ namespace Strategy.Strategy___Weapon
         private VariableSoundPlayer _soundPlayer;
         [SerializeField] private AudioClip deathSound;
         
-        public float MaxLife => _stats.MaxLife;
+        public float MaxLife => _maxLifeWithUpgrades;
+        private float _maxLifeWithUpgrades;
+
         public float Life => life;
         [SerializeField] private float life;
 
         private void Start()
         {
-            life = MaxLife;
+            life = _stats.MaxLife;
+            _maxLifeWithUpgrades = _stats.MaxLife;
             _soundPlayer = gameObject.GetComponent<VariableSoundPlayer>();
         }
 
@@ -29,7 +32,7 @@ namespace Strategy.Strategy___Weapon
         {
             life -= damage;
             if(gameObject.CompareTag("Player"))
-                ActionManager.instance.CharacterLifeChange(life, MaxLife);
+                ActionManager.instance.CharacterLifeChange(life, _maxLifeWithUpgrades);
           
 
             if (life <= 0)
@@ -65,6 +68,24 @@ namespace Strategy.Strategy___Weapon
         private void KillEnemy(GameObject enemy)
         {
             ActionManager.instance.ActionEnemyKilled(enemy);
+        }
+
+        public void Heal(int healAmount)
+        {
+            life += healAmount;
+            if (life > _maxLifeWithUpgrades)
+            {
+                life = _maxLifeWithUpgrades;
+            }
+            if(gameObject.CompareTag("Player"))
+                ActionManager.instance.CharacterLifeChange(life, _maxLifeWithUpgrades);
+        }
+
+        public void incrementMaxLife(float multiplier)
+        {
+            _maxLifeWithUpgrades = (int)(_maxLifeWithUpgrades * multiplier);
+            life *= multiplier;
+            ActionManager.instance.CharacterLifeChange(life, _maxLifeWithUpgrades);
         }
     }
 }
