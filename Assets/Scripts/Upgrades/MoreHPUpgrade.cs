@@ -4,40 +4,57 @@ using UnityEngine;
 
 namespace Assets.Scripts.Upgrades
 {
-    public class MoreHPUpgrade : MonoBehaviour, IUpgrade
+    public sealed class MoreHPUpgrade : Upgrade
     {
-        public static MoreHPUpgrade instance;
 
-        [SerializeField] private float _extraHealthMultiplier = 1.5f;
-        [SerializeField] private LifeController _playerLifeController;
+        public static MoreHPUpgrade Instance => GetInstance();
+        private static MoreHPUpgrade _instance;
+        
 
-        private void Awake()
-        {
-            if (instance == null)
+        private const UpgradeID _upgradeID = Upgrades.UpgradeID.MORE_HP;
+        private float EXTRA_HEALTH_MULTIPLIER = 1.5f;
+
+        private LifeController _playerLifeController;
+
+        private MoreHPUpgrade() { }
+
+        private static MoreHPUpgrade GetInstance() {
+            if (_instance == null)
             {
-                instance = this;
+                _instance = new MoreHPUpgrade();
             }
-            else
-            {
-                Destroy(this);
-            }
+
+            return _instance;
         }
 
-        public void Start()
+        public void Initialize()
         {
-            _playerLifeController = GameObject.Find("MainCharacter").GetComponent<LifeController>();
-            if(_playerLifeController == null)
-            {
-                Debug.LogError("Player LifeController not found");
-            }
+            _playerLifeController = _playerLifeController = GameObject.FindGameObjectWithTag("Player").GetComponent<LifeController>();
         }
 
         public void applyUpgrade()
         {
-            _playerLifeController.incrementMaxLife(_extraHealthMultiplier);
+            if (_playerLifeController == null){
+                Debug.LogError("Player Life Controller not found");
+                return;
+            }
+
+            _playerLifeController.incrementMaxLife(EXTRA_HEALTH_MULTIPLIER);
         }
 
-        
+        public UpgradeID UpgradeID()
+        {
+            return _upgradeID;
+        }
 
+        public string Title()
+        {
+            return "HP Upgrade";
+        }
+
+        public string Description()
+        {
+            return $"Increments your Max Health by {(EXTRA_HEALTH_MULTIPLIER - 1) * 100}%";
+        }
     }
 }

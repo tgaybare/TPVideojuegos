@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.Upgrades
 {
-    public interface IUpgrade
+    public enum UpgradeID
     {
-
-        public void applyUpgrade();
+        MORE_HP      
     }
 }
