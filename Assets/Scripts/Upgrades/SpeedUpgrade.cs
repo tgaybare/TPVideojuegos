@@ -29,6 +29,12 @@ namespace Assets.Scripts.Upgrades
 
         public void applyUpgrade()
         {
+            if (_playerMovementController == null)
+            {
+                Debug.LogError("Player MovementController not found");
+                return;
+            }
+
             _playerMovementController.SpeedMultiplier = EXTRA_SPEED_MULTIPLIER;
         }
 

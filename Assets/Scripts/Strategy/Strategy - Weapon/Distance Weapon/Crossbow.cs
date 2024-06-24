@@ -9,9 +9,6 @@ public class Crossbow : DistanceWeapon
     private float _reloadTime = 500f;
     private GameObject _crossbowGameObject;
     
-    public int ProjectilesPerAttack { get; set; } = 1;
-    [SerializeField] private float _projectileDelay = 0.2f;
-
     private void Awake()
     {
         _soundPlayer = gameObject.GetComponentsInChildren<FixedSoundPlayer>()[1];
@@ -31,11 +28,11 @@ public class Crossbow : DistanceWeapon
     {
         Vector3 boltSpawnPosition;
 
-        for (int i = 0; i < ProjectilesPerAttack; i++)
+        for (int i = 0; i < this.ProjectilesPerAttack; i++)
         {
             boltSpawnPosition = new Vector3(transform.position.x, _crossbowGameObject.transform.position.y, transform.position.z);
             Instantiate(ProjectilePrefab, boltSpawnPosition, transform.rotation);
-            yield return new WaitForSeconds(_projectileDelay);
+            yield return new WaitForSeconds(this.ProjectileDelay);
         }
 
     }
