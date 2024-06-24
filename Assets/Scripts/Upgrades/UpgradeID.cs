@@ -6,6 +6,7 @@ namespace Assets.Scripts.Upgrades
     public enum UpgradeID
     {
         MORE_HP,
-        MORE_SPEED
+        MORE_SPEED,
+        DOUBLE_SHOT
     }
 }

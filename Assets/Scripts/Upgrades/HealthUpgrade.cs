@@ -36,7 +36,7 @@ namespace Assets.Scripts.Upgrades
         public void applyUpgrade()
         {
             if (_playerLifeController == null){
-                Debug.LogError("Player Life Controller not found");
+                Debug.LogError("Player LifeController not found");
                 return;
             }
 

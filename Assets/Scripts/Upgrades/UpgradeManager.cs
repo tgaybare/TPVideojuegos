@@ -14,7 +14,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _appliedUpgrades = new();
     [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new() {
         { UpgradeID.MORE_HP, HealthUpgrade.Instance },
-        { UpgradeID.MORE_SPEED, SpeedUpgrade.Instance }
+        { UpgradeID.MORE_SPEED, SpeedUpgrade.Instance },
+        { UpgradeID.DOUBLE_SHOT, DoubleShotUpgrade.Instance }
     };
 
     private void Awake()

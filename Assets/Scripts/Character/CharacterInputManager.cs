@@ -159,9 +159,9 @@ public class CharacterInputManager : MonoBehaviour
             EventQueueManager.instance.AddEventToQueue(_cmdSecondAttack);
         }
 
-        if(Input.GetKeyDown(KeyCode.H))
+        if(Input.GetKeyDown(KeyCode.H)) // For testing purposes
         {
-            UpgradeManager.instance.ApplyUpgrade(UpgradeID.MORE_SPEED);
+            UpgradeManager.instance.ApplyUpgrade(UpgradeID.DOUBLE_SHOT);
         }
 
     }
