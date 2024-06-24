@@ -7,11 +7,11 @@ namespace Weapons
     public class MagicStaff : DistanceWeapon
     {
         
-        private MagicStaffAttackAnimController _animator;
+        private PlagueDoctorAnimController _animator;
         
         private void Start()
         {
-            _animator = GetComponent<MagicStaffAttackAnimController>();
+            _animator = GetComponent<PlagueDoctorAnimController>();
         }
         
         public override void Attack()

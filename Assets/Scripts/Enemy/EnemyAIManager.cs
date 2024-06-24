@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Animations;
 using Commands;
 using JetBrains.Annotations;
 using Strategy.Strategy___Movement;
@@ -23,6 +24,8 @@ namespace Enemy
         private CmdMovement _cmdMoveDirection;
         private CmdAttack _cmdAttack;
         
+        private IAnimController _animController;
+        
         private double timeSinceLastAttack = 0;
         private double waitTime = 0;
         
@@ -40,6 +43,8 @@ namespace Enemy
             _cmdAttack = new CmdAttack(_weapon);
 
             player = GameObject.FindGameObjectWithTag("Player");
+            
+            _animController = GetComponent<IAnimController>();
         }
 
       
@@ -63,6 +68,7 @@ namespace Enemy
             //Attack
             if (Vector3.Distance(transform.position, player.transform.position) < AttackRange)
             {
+                _animController.StopWalking();
                 if (timeSinceLastAttack > AttackCooldown)
                 {
                     _cmdAttack.Do();
@@ -78,6 +84,7 @@ namespace Enemy
             else
             {
                 _cmdMoveDirection.ChangeDirection(playerDirection.direction);
+                _animController.Walk();
                 _cmdMoveDirection.Do();
                 timeSinceLastAttack += Time.deltaTime;
             }
