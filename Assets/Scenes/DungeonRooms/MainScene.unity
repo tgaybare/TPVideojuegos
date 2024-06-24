@@ -160,52 +160,6 @@ RectTransform:
   m_AnchoredPosition: {x: -702, y: 462}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &77992642
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 77992644}
-  - component: {fileID: 77992643}
-  m_Layer: 0
-  m_Name: HPUpgrade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &77992643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77992642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18f94da4c39f5540a93d1340fb2ad6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _extraHealthMultiplier: 1.5
-  _playerLifeController: {fileID: 0}
---- !u!4 &77992644
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77992642}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.796564, y: 64.56777, z: -2.175021}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202383186
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +912,7 @@ GameObject:
   - component: {fileID: 1436867836}
   - component: {fileID: 1436867837}
   - component: {fileID: 1436867838}
+  - component: {fileID: 1436867839}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1031,6 +986,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381a9a1bf41f41da9e5d57fd8c6ea1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1436867839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436867833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b326c276bdc2e754fad051963b253946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _appliedUpgrades: []
+  _availableUpgrades: []
 --- !u!1 &1447073337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,4 +1461,3 @@ SceneRoots:
   - {fileID: 1615331416}
   - {fileID: 863565597}
   - {fileID: 1077907014}
-  - {fileID: 77992644}
