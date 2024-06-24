@@ -2,7 +2,7 @@
 
 namespace Animations
 {
-    public class MagicStaffAttackAnimController: MonoBehaviour
+    public class PlagueDoctorAnimController: MonoBehaviour, IAnimController
     {
         private Animator _animator;
         
@@ -16,11 +16,16 @@ namespace Animations
         public void StartAttack()
         {
             _animator.SetTrigger("MagicStaffUp");
-            while (_animator.GetCurrentAnimatorStateInfo(0).IsName("MagicStaffUp"))
-            {
-                // Wait for animation to finish
-                Debug.Log("Hola");
-            }
+        }
+        
+        public void Walk()
+        {
+            _animator.SetBool("Walking", true);
+        }
+        
+        public void StopWalking()
+        {
+            _animator.SetBool("Walking", false);
         }
         
         public void FinishAttack()

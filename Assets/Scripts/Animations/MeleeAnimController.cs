@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Animations
 {
-    public class MeleeAttackAnimController : MonoBehaviour
+    public class MeleeAnimController : MonoBehaviour, IAnimController
     {
         private Animator _animator;
 
@@ -15,6 +15,16 @@ namespace Animations
         public void Attack()
         {
             _animator.SetTrigger("MeleeAttack");
+        }
+
+        public void Walk()
+        {
+            _animator.SetBool("Walking", true);
+        }
+        
+        public void StopWalking()
+        {
+            _animator.SetBool("Walking", false);
         }
 
         public bool IsAttacking()

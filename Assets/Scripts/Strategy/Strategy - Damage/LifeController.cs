@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Animations;
 using Managers;
 using Sound;
 using Unity.VisualScripting;
@@ -20,12 +21,15 @@ namespace Strategy.Strategy___Weapon
 
         public float Life => life;
         [SerializeField] private float life;
+        
+        private MainCharacterAnimController _animatorController;
 
         private void Start()
         {
             life = _stats.MaxLife;
             _maxLifeWithUpgrades = _stats.MaxLife;
             _soundPlayer = gameObject.GetComponent<VariableSoundPlayer>();
+            _animatorController = gameObject.GetComponent<MainCharacterAnimController>();
         }
 
         public void TakeDamage(int damage)
@@ -56,13 +60,13 @@ namespace Strategy.Strategy___Weapon
 
         private IEnumerator WaitForSound()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(3f);
             Destroy(gameObject);        
         }
 
         private void Die() {
             ActionManager.instance.ActionGameOver(false);
-            
+            _animatorController.Death();
         }
 
         private void KillEnemy(GameObject enemy)

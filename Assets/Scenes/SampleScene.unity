@@ -493,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1264433200921298619, guid: b91f2cacb0bef7f4bac8f61b0f00b4c6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1807278632576600552, guid: b91f2cacb0bef7f4bac8f61b0f00b4c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1930,6 +1930,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &746247296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3227526944292870385, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
+  m_PrefabInstance: {fileID: 899804422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &746247304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746247296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12703a0aa7104a5baf3aa24a2d83b952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMasks: 03000000
 --- !u!1 &859169181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,10 +2072,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6569331609719628353, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3227526944292870385, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 746247304}
   m_SourcePrefab: {fileID: 100100000, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
 --- !u!1 &899804423 stripped
 GameObject:
@@ -2931,7 +2953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2766520990056341028, guid: b4a79bd2a2c960f4f8f45e4014978a83, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2858120797959443380, guid: b4a79bd2a2c960f4f8f45e4014978a83, type: 3}
       propertyPath: m_LocalPosition.x

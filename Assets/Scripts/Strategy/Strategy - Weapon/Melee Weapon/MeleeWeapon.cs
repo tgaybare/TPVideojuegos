@@ -12,11 +12,11 @@ namespace Weapons
     {
         [SerializeField] protected List<int> layerMasks;
 
-        protected MeleeAttackAnimController _animController;
+        protected MeleeAnimController _animController;
         
         protected virtual void Start()
         {
-            _animController = gameObject.GetComponentInParent<MeleeAttackAnimController>();
+            _animController = gameObject.GetComponentInParent<MeleeAnimController>();
         }
         
         #region I_WEAPON_PROPERTIES
