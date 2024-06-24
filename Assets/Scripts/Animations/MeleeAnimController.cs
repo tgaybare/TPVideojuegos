@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Animations
 {
-    public class MeleeAnimController : MonoBehaviour
+    public class MeleeAnimController : MonoBehaviour, IAnimController
     {
         private Animator _animator;
 

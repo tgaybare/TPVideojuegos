@@ -67,8 +67,8 @@ namespace Enemy
         
             //Attack
             if (Vector3.Distance(transform.position, player.transform.position) < AttackRange)
-            {
-                _animController.StopWalking();
+            { 
+                _animController?.StopWalking();
                 if (timeSinceLastAttack > AttackCooldown)
                 {
                     _cmdAttack.Do();
@@ -84,7 +84,7 @@ namespace Enemy
             else
             {
                 _cmdMoveDirection.ChangeDirection(playerDirection.direction);
-                _animController.Walk();
+                _animController?.Walk();
                 _cmdMoveDirection.Do();
                 timeSinceLastAttack += Time.deltaTime;
             }
