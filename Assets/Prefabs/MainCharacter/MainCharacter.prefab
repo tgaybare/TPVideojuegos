@@ -206,8 +206,8 @@ GameObject:
   - component: {fileID: 6873914902698633716}
   - component: {fileID: 4879199845016789353}
   - component: {fileID: 5831111161835665730}
-  - component: {fileID: 6404938450448350190}
   - component: {fileID: 345950237884016393}
+  - component: {fileID: 1848064283754424478}
   m_Layer: 3
   m_Name: MainCharacter
   m_TagString: Player
@@ -449,18 +449,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentProjectileCount: 12
   _projectilePrefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
---- !u!114 &6404938450448350190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933434664509849861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b807fdc0ca494193a3f92d111db1b36e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &345950237884016393
 Animator:
   serializedVersion: 5
@@ -482,6 +470,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1848064283754424478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933434664509849861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0476c79305941c38347366f90e42538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2283261652127890892
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,10 +706,10 @@ GameObject:
   - component: {fileID: 6773366583928500299}
   - component: {fileID: 1148246103985332515}
   - component: {fileID: 6174722076100094614}
-  - component: {fileID: 6569331609719628353}
   - component: {fileID: 5016790271761426291}
   - component: {fileID: 7975382981922229863}
   - component: {fileID: 4510499821007203513}
+  - component: {fileID: 953084555233651694}
   m_Layer: 0
   m_Name: Sword_OH
   m_TagString: Untagged
@@ -782,19 +782,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6569331609719628353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3227526944292870385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e319659357754c56ad062ad12216ca13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerMasks: 03000000
 --- !u!64 &5016790271761426291
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -926,6 +913,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &953084555233651694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3227526944292870385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12703a0aa7104a5baf3aa24a2d83b952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMasks: 03000000
 --- !u!1 &5288162244740781869
 GameObject:
   m_ObjectHideFlags: 0

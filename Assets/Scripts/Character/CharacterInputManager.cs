@@ -60,7 +60,7 @@ public class CharacterInputManager : MonoBehaviour
     {
         _player = GetComponent<IMoveable>();
 
-        _meleeWeapon = GetComponentInChildren<RightHandedSword>();
+        _meleeWeapon = GetComponentInChildren<Sword>();
         _distanceWeapon = GetComponent<Crossbow>();
         _isMelee = false;
         _currentAttackStrategy = _distanceWeapon;
