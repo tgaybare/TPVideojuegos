@@ -11,7 +11,7 @@ namespace Strategy.Strategy___Weapon
         
         [SerializeField] protected List<int> layerMasks;
         
-        private RightHandedMeleeAttackAnimController _animController;
+        protected RightHandedMeleeAttackAnimController _animController;
         protected virtual void Start()
         {
             _animController = gameObject.GetComponentInParent<RightHandedMeleeAttackAnimController>();
