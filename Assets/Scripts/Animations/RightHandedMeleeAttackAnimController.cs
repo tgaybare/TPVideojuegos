@@ -15,5 +15,10 @@ namespace Animations
         {
             _animator.SetTrigger("MeleeAttack");
         }
+        
+        public bool IsAttacking()
+        {
+            return _animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack");
+        }
     }
 }

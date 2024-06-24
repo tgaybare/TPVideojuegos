@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 86019741722375974}
   - component: {fileID: 2269940345368990723}
   - component: {fileID: 2766408087786206162}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 8207246871081036550}
   - component: {fileID: 6518300554147816920}
   - component: {fileID: 6048838228210531249}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CorinthianHelmet_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 366999667406189043}
   - component: {fileID: 4505963846042762946}
   - component: {fileID: 3841467808941829357}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 7580839588051372374}
   - component: {fileID: 1214365268074139731}
   - component: {fileID: 3617478785931115811}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 5016790271761426291}
   - component: {fileID: 7975382981922229863}
   - component: {fileID: 4510499821007203513}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sword_OH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762077001827247858}
   - component: {fileID: 739867281972340293}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CorinthianHelmet_Bronze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 2988488317436402762}
   - component: {fileID: 4765971665955923382}
   - component: {fileID: 9118332729174769945}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Arrow_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 3434745762456542315}
   - component: {fileID: 4193367763349561631}
   - component: {fileID: 6484419467702576882}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Crossbow
   m_TagString: Crossbow
   m_Icon: {fileID: 0}
@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 6883039637296753326}
   - component: {fileID: 7089974012130895358}
   - component: {fileID: 5756065699838832841}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CorinthianHelmet_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1361,7 +1361,7 @@ GameObject:
   - component: {fileID: 7097091532376629702}
   - component: {fileID: 3604619845037688613}
   - component: {fileID: 2900969613327284065}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 2066762964289207008}
   - component: {fileID: 588239151604546544}
   - component: {fileID: 2482845042166160381}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CorinthianHelmet_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -28,7 +28,6 @@ public class CharacterInputManager : MonoBehaviour
     private KeyCode _moveLeft = KeyCode.A;
     private KeyCode _moveRight = KeyCode.D;
     private KeyCode _attack = KeyCode.Mouse0;
-    private KeyCode _attack2 = KeyCode.Mouse1;
     private KeyCode _dodge = KeyCode.LeftShift;
 
     private KeyCode _chooseMelee = KeyCode.Alpha1;
@@ -148,16 +147,17 @@ public class CharacterInputManager : MonoBehaviour
             EventQueueManager.instance.AddEventToQueue(_cmdAttack);
             _shotCooldownTimer = 0;
         }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Pressed Mouse 1");
+            EventQueueManager.instance.AddEventToQueue(_cmdSecondAttack);
+        }
         else
         {
             _shotCooldownTimer += (int)(Time.deltaTime * 1000);
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Pressed Mouse 1");
-            EventQueueManager.instance.AddEventToQueue(_cmdSecondAttack);
-        }
+        
 
         if(Input.GetKeyDown(KeyCode.H)) // For testing purposes
         {

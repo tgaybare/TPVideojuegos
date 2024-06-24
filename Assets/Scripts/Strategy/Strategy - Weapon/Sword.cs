@@ -18,7 +18,7 @@ namespace Weapons
 
         public void OnTriggerEnter(Collider other)
         {
-            if (layerMasks.Contains(other.gameObject.layer))
+            if (layerMasks.Contains(other.gameObject.layer)  && _animController.IsAttacking())
             {
                 _soundPlayer.Play();
                 IDamageable damageable = other.gameObject.GetComponent<IDamageable>();

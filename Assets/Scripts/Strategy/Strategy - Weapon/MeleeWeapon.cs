@@ -12,7 +12,7 @@ namespace Weapons
     {
         [SerializeField] protected List<int> layerMasks;
 
-        private MeleeAttackAnimController _animController;
+        protected MeleeAttackAnimController _animController;
         
         protected virtual void Start()
         {
