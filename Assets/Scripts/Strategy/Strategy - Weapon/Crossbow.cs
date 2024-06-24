@@ -10,7 +10,7 @@ public class Crossbow : DistanceWeapon
 
     private void Awake()
     {
-        _soundPlayer = gameObject.GetComponentInChildren<FixedSoundPlayer>();
+        _soundPlayer = gameObject.GetComponentsInChildren<FixedSoundPlayer>()[1];
     }
 
     private FixedSoundPlayer _soundPlayer;

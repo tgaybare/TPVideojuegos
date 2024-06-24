@@ -19,7 +19,6 @@ namespace Sound
         public void Play()
         {
             _audioSource.Play();
-            _audioSource.PlayOneShot(audioClip);
         }
         
         public void Stop()

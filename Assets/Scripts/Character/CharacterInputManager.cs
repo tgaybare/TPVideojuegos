@@ -7,6 +7,7 @@ using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Weapons;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class CharacterInputManager : MonoBehaviour
@@ -17,7 +18,7 @@ public class CharacterInputManager : MonoBehaviour
 
     private IWeapon _currentAttackStrategy;
     [SerializeField] private IDistanceWeapon _distanceWeapon;
-    // [SerializeField] private IMeleeWeapon _meleeWeapon;
+    [SerializeField] private IWeapon _meleeWeapon;
 
     private IMoveable _player;
 
@@ -27,6 +28,7 @@ public class CharacterInputManager : MonoBehaviour
     private KeyCode _moveLeft = KeyCode.A;
     private KeyCode _moveRight = KeyCode.D;
     private KeyCode _attack = KeyCode.Mouse0;
+    private KeyCode _attack2 = KeyCode.Mouse1;
     private KeyCode _dodge = KeyCode.LeftShift;
 
     private KeyCode _chooseMelee = KeyCode.Alpha1;
@@ -43,6 +45,7 @@ public class CharacterInputManager : MonoBehaviour
     private CmdMovement _cmdMoveForwardRight;
     private CmdMovement _cmdMoveBackwardRight;
     private CmdAttack _cmdAttack;
+    private CmdAttack _cmdSecondAttack;
     private CmdDodge _cmdDodge;
 
     [SerializeField] private int dodgeDuration = 200; // in ms
@@ -58,7 +61,7 @@ public class CharacterInputManager : MonoBehaviour
     {
         _player = GetComponent<IMoveable>();
 
-        // _melee = GetComponent<IMelee>();
+        _meleeWeapon = GetComponentInChildren<RightHandedSword>();
         _distanceWeapon = GetComponent<Crossbow>();
         _isMelee = false;
         _currentAttackStrategy = _distanceWeapon;
@@ -90,6 +93,7 @@ public class CharacterInputManager : MonoBehaviour
 
         // Attack
         _cmdAttack = new CmdAttack(_currentAttackStrategy);
+        _cmdSecondAttack = new CmdAttack(_meleeWeapon);
         
         // Dodge
         _cmdDodge = new CmdDodge(GetComponent<IMoveable>(), dodgeDuration);
@@ -140,12 +144,19 @@ public class CharacterInputManager : MonoBehaviour
         //Attacks
         if (Input.GetKeyDown(_attack) && _shotCooldownTimer >= shotCooldown && _currentAttackStrategy == _distanceWeapon)
         {
+            Debug.Log("Pressed Mouse 0");
             EventQueueManager.instance.AddEventToQueue(_cmdAttack);
             _shotCooldownTimer = 0;
         }
         else
         {
             _shotCooldownTimer += (int)(Time.deltaTime * 1000);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Pressed Mouse 1");
+            EventQueueManager.instance.AddEventToQueue(_cmdSecondAttack);
         }
 
         if(Input.GetKeyDown(KeyCode.H))
