@@ -10,12 +10,28 @@ namespace Menu
         [SerializeField] private Text _gameOverText;
         [SerializeField] private Image lifeBar;
         [SerializeField] private GameObject _lifeBarGameObject;
+        [SerializeField] private GameObject _upgradePicker;
         private float _currentLife;
 
         private static readonly Color LIFEBAR_GREEN = new Color(0.21f, 0.46f, 0.04f);
         private static readonly Color LIFEBAR_YELLOW = new Color(0.85f, 0.79f, 0f);
         private static readonly Color LIFEBAR_RED = new Color(0.46f, 0.12f, 0.04f);
-        
+
+        #region SINGLETON
+        public static UIManager instance;
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+        }
+        #endregion
+
         private void Start()
         {
             ActionManager.instance.OnGameOver += OnGameOver;
@@ -67,9 +83,24 @@ namespace Menu
             _lifeBarGameObject.transform.localScale = new Vector3(oldScale.x * sizeMultiplier, oldScale.y, oldScale.z);
         }
 
-     
+        #endregion
+
+        #region UPGRADES
+        public void ShowUpgradePicker()
+        {
+            _upgradePicker.SetActive(true);
+        }
+
+        public void HideUpgradePicker()
+        {
+            _upgradePicker.SetActive(false);
+        }
 
         #endregion
 
+        public bool IsUpgradePickerActive()
+        {
+            return _upgradePicker.activeSelf;
+        }
     }
 }

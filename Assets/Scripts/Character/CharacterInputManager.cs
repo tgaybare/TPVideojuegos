@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Upgrades;
 using Commands;
+using Menu;
 using Strategy.Strategy___Movement;
 using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
@@ -161,7 +162,10 @@ public class CharacterInputManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.H)) // For testing purposes
         {
-            UpgradeManager.instance.ApplyUpgrade(UpgradeID.DOUBLE_SHOT);
+            if(UIManager.instance.IsUpgradePickerActive())
+                UIManager.instance.HideUpgradePicker();
+            else
+                UIManager.instance.ShowUpgradePicker();
         }
 
     }
