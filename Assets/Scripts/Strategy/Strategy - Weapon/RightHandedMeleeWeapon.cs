@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Animations;
-using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
 using UnityEngine;
+using Weapons;
 
-namespace Weapons
+namespace Strategy.Strategy___Weapon
 {
-    public class MeleeWeapon: MonoBehaviour, IWeapon
+    public class RightHandedMeleeWeapon :  MonoBehaviour, IWeapon
     {
-        [SerializeField] protected List<int> layerMasks;
-
-        private MeleeAttackAnimController _animController;
         
+        [SerializeField] protected List<int> layerMasks;
+        
+        private RightHandedMeleeAttackAnimController _animController;
         protected virtual void Start()
         {
-            _animController = gameObject.GetComponentInParent<MeleeAttackAnimController>();
+            _animController = gameObject.GetComponentInParent<RightHandedMeleeAttackAnimController>();
         }
         
         #region I_WEAPON_PROPERTIES
@@ -25,16 +23,10 @@ namespace Weapons
         private int _damage = 10; 
         
         #endregion
-
-
-        #region I_WEAPON_METHODS
-
+        
         public virtual void Attack()
         {
             _animController.Attack();
         }
-
-        #endregion
-        
     }
 }
