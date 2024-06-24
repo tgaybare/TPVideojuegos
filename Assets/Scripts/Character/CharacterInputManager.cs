@@ -150,7 +150,7 @@ public class CharacterInputManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.H))
         {
-            UpgradeManager.instance.ApplyUpgrade(UpgradeID.MORE_HP);
+            UpgradeManager.instance.ApplyUpgrade(UpgradeID.MORE_SPEED);
         }
 
     }

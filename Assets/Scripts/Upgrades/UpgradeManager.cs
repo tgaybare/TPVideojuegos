@@ -11,9 +11,10 @@ public class UpgradeManager : MonoBehaviour
 
     public static UpgradeManager instance;
 
-    [SerializeField] private Dictionary<UpgradeID, Upgrade> _appliedUpgrades = new();
-    [SerializeField] private Dictionary<UpgradeID, Upgrade> _availableUpgrades = new() {
-        { UpgradeID.MORE_HP, MoreHPUpgrade.Instance }
+    [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _appliedUpgrades = new();
+    [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new() {
+        { UpgradeID.MORE_HP, HealthUpgrade.Instance },
+        { UpgradeID.MORE_SPEED, SpeedUpgrade.Instance }
     };
 
     private void Awake()
@@ -30,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
     public void Start()
     {
         // Initialize all upgrades
-        foreach (Upgrade upgrade in _availableUpgrades.Values)
+        foreach (IAppliableUpgrade upgrade in _availableUpgrades.Values)
         {
             upgrade.Initialize();
         }
@@ -40,17 +41,17 @@ public class UpgradeManager : MonoBehaviour
     {
         if (_appliedUpgrades.ContainsKey(upgradeID))
         {
-            Debug.LogError($"Upgrade with ID = {upgradeID} already applied");
+            Debug.LogError($"IAppliableUpgrade with ID = {upgradeID} already applied");
             return;
         }
 
         if(!_availableUpgrades.ContainsKey(upgradeID))
         {
-            Debug.LogError($"Upgrade with ID = {upgradeID} not found");
+            Debug.LogError($"IAppliableUpgrade with ID = {upgradeID} not found");
             return;
         }
 
-        Upgrade toApply = _availableUpgrades[upgradeID];
+        IAppliableUpgrade toApply = _availableUpgrades[upgradeID];
         toApply.applyUpgrade();
 
         _appliedUpgrades.Add(upgradeID, toApply);

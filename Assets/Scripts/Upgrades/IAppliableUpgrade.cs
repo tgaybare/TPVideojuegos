@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Upgrades
 {
-    public interface Upgrade
+    public interface IAppliableUpgrade
     {
         /*public bool IsApplied { get => _isApplied; }
         private bool _isApplied = false;*/

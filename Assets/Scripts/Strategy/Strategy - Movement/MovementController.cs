@@ -19,7 +19,8 @@ public class MovementController : MonoBehaviour, IMoveable
 
     private Rigidbody _rigidbody;
     
-    public float Speed => _stats.Speed;
+    public float SpeedMultiplier { get; set; } = 1f;
+    public float TotalSpeed => _stats.Speed * SpeedMultiplier;
 
     #endregion
 
@@ -35,7 +36,7 @@ public class MovementController : MonoBehaviour, IMoveable
     public void Move(Vector3 direction)
     {
         if (!_isDodging){
-            _rigidbody.MovePosition(_rigidbody.position + Time.deltaTime * Speed * direction);
+            _rigidbody.MovePosition(_rigidbody.position + Time.deltaTime * TotalSpeed * direction);
             _lastDirection = direction;
             //transform.position +=  Time.deltaTime * Speed * direction;
         }
