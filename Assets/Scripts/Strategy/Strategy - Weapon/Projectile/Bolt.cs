@@ -12,9 +12,9 @@ using UnityEngine;
         [SerializeField] private int _damage = 20;
         [SerializeField] private float _speed = 10;
         [SerializeField] private float _lifetime = 5;
-        [SerializeField] private List<int> _layerMasks;
+        [SerializeField] protected List<int> _layerMasks;
 
-        private FixedSoundPlayer _soundPlayer;
+        protected FixedSoundPlayer _soundPlayer;
 
         public int Damage { get => _damage; set => _damage = value; }
         public float Speed => _speed;
@@ -22,7 +22,7 @@ using UnityEngine;
 
         private Vector3 _direction;
 
-        private void Awake()
+        protected void Awake()
         {
             transform.position += transform.forward * 3.5f;
             _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();

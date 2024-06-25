@@ -15,5 +15,10 @@ namespace Sound
         {
             AudioSource.PlayOneShot(clip);
         }
+        
+        public bool IsPlaying()
+        {
+            return AudioSource.isPlaying;
+        }
     }
 }

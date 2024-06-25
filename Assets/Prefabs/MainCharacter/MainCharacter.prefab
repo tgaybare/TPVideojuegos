@@ -291,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentProjectileCount: 0
   _projectilePrefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
+  _explosiveProjectilePrefab: {fileID: 111768, guid: 2c6079e8ad207ba48a69c22ff6e0336d, type: 3}
 --- !u!136 &7740926741816173985
 CapsuleCollider:
   m_ObjectHideFlags: 0
