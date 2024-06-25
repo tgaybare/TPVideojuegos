@@ -200,12 +200,12 @@ GameObject:
   - component: {fileID: 7009125331553206958}
   - component: {fileID: 6379004514378921394}
   - component: {fileID: 4500933137814215941}
+  - component: {fileID: 6086084836074284028}
   - component: {fileID: 7740926741816173985}
   - component: {fileID: 5479758698446894193}
   - component: {fileID: 5979107123989320403}
   - component: {fileID: 6873914902698633716}
   - component: {fileID: 4879199845016789353}
-  - component: {fileID: 5831111161835665730}
   - component: {fileID: 345950237884016393}
   - component: {fileID: 1848064283754424478}
   - component: {fileID: 5726953621389769766}
@@ -277,6 +277,20 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 4c6c1f122a14848408d06c764872d95e, type: 2}
   deathSound: {fileID: 8300000, guid: 7e3182169ef44924990003af73be5027, type: 3}
   life: 30
+--- !u!114 &6086084836074284028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933434664509849861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0106f4ee2be555429afe3fcc8433888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentProjectileCount: 0
+  _projectilePrefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
 --- !u!136 &7740926741816173985
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -436,20 +450,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5831111161835665730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933434664509849861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0106f4ee2be555429afe3fcc8433888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentProjectileCount: 12
-  _projectilePrefab: {fileID: 111768, guid: 802986766a97b4a108b97eb5fdf6e02f, type: 3}
 --- !u!95 &345950237884016393
 Animator:
   serializedVersion: 5
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 5016790271761426291}
   - component: {fileID: 7975382981922229863}
   - component: {fileID: 4510499821007203513}
-  - component: {fileID: 953084555233651694}
+  - component: {fileID: 8161342819864891420}
   m_Layer: 0
   m_Name: Sword_OH
   m_TagString: Untagged
@@ -926,7 +926,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &953084555233651694
+--- !u!114 &8161342819864891420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

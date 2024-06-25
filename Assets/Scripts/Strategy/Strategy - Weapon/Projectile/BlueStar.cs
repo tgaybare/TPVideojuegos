@@ -4,8 +4,7 @@ using Managers;
 using Sound;
 using UnityEngine;
 
-namespace Weapons
-{
+
     public class BlueStar : MonoBehaviour, IProjectile
     {
         
@@ -83,4 +82,3 @@ namespace Weapons
         }
         
     }
-}

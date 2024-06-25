@@ -3,8 +3,7 @@ using Sound;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Weapons
-{
+
     public class Sword : MeleeWeapon
     {
         
@@ -27,4 +26,3 @@ namespace Weapons
         }
         
     }
-}

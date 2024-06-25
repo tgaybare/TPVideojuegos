@@ -2,8 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Weapons
-{
+
     public class MagicStaff : DistanceWeapon
     {
         
@@ -41,4 +40,3 @@ namespace Weapons
         }
 
     }
-}

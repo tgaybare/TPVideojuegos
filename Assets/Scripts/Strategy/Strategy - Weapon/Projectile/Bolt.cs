@@ -5,8 +5,7 @@ using Managers;
 using Sound;
 using UnityEngine;
 
-namespace Weapons
-{
+
     public class Bolt : MonoBehaviour, IProjectile
     {
 
@@ -68,4 +67,3 @@ namespace Weapons
             Destroy(gameObject);
         }
     }
-}
