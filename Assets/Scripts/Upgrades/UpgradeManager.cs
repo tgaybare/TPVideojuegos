@@ -76,13 +76,6 @@ public class UpgradeManager : MonoBehaviour
 
             Debug.Log($"Upgrade {i}: {result[i].GetTitle()}");
         }
-
-        // Fill the rest with repeated cards
-        for (int i = cardsToPick; i < 3; i++)
-        {
-            result[i] = result[i % cardsToPick];
-        }
-
         return result;
     }
 }

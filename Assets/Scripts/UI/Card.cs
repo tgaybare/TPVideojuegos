@@ -62,12 +62,26 @@ namespace Assets.Scripts.UI
 
         private void ApplyUpgrade()
         {
+            if(_upgradeID == UpgradeID.NONE)
+            {
+                return;
+            }
+
             UpgradeManager.instance.ApplyUpgrade(_upgradeID);
             UIManager.instance.HideUpgradePicker();
         }
 
         public void SetUpgradeInfo(IAppliableUpgrade upgrade)
         {
+            if(upgrade == null)
+            {
+                _title.text = "Empty Hands";
+                _description.text = "No more upgrades to pick";
+                _image.sprite = Resources.Load<Sprite>("Sprites/empty-hands");
+                _upgradeID = UpgradeID.NONE;
+                return;
+            }
+
             _title.text = upgrade.GetTitle();
             _description.text = upgrade.GetDescription();
             _upgradeID = upgrade.GetUpgradeID();
