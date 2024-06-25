@@ -51,7 +51,7 @@ namespace Assets.Scripts.Upgrades
 
         public string GetTitle()
         {
-            return "HP IAppliableUpgrade";
+            return "More Health";
         }
 
         public string GetDescription()
