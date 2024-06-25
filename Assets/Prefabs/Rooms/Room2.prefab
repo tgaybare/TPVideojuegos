@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1520598795194359699}
-  m_Layer: 0
+  - component: {fileID: 6049432099077990532}
+  m_Layer: 3
   m_Name: BottomRWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,6 +40,33 @@ Transform:
   - {fileID: 8814824467156175797}
   m_Father: {fileID: 2056812267665113561}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!54 &6049432099077990532
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200078937650690085}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &345985872631820687
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,7 +79,7 @@ GameObject:
   - component: {fileID: 5138843194072321604}
   - component: {fileID: 3739230265693561378}
   - component: {fileID: 5307914500571109378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +412,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4125531387384291198}
-  m_Layer: 0
+  - component: {fileID: 8205410757413919170}
+  m_Layer: 3
   m_Name: TopLWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,6 +443,33 @@ Transform:
   - {fileID: 4060526876822492570}
   m_Father: {fileID: 2056812267665113561}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!54 &8205410757413919170
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607788618586430580}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &631859534095871517
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +785,7 @@ GameObject:
   - component: {fileID: 6521762583124282249}
   - component: {fileID: 7417013900695720214}
   - component: {fileID: 2912307074294645661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1170,7 +1226,7 @@ GameObject:
   - component: {fileID: 3725452005239863807}
   - component: {fileID: 9035161665224771522}
   - component: {fileID: 3413328803504199971}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1549,7 @@ GameObject:
   - component: {fileID: 4074415285200882398}
   - component: {fileID: 6783971179043976447}
   - component: {fileID: 4960135121880258083}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Passage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2241,7 +2297,7 @@ GameObject:
   - component: {fileID: 8467310392610503367}
   - component: {fileID: 3421316975188414358}
   - component: {fileID: 38847157097124380}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2346,7 +2402,7 @@ GameObject:
   - component: {fileID: 4687695383863188633}
   - component: {fileID: 584771366966547903}
   - component: {fileID: 8301243637311793264}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ReplacementWallTopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2867,7 +2923,7 @@ GameObject:
   - component: {fileID: 7885297883736927180}
   - component: {fileID: 175418714025137655}
   - component: {fileID: 340937955284964115}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torch_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3268,7 +3324,7 @@ GameObject:
   - component: {fileID: 7614776829517317299}
   - component: {fileID: 6321613727833656486}
   - component: {fileID: 3393236094069153714}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Passage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4081,7 +4137,7 @@ GameObject:
   - component: {fileID: 356633105222609831}
   - component: {fileID: 3681251418167004597}
   - component: {fileID: 4057741695893915439}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: TorchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4189,7 +4245,7 @@ GameObject:
   - component: {fileID: 7196137288540763284}
   - component: {fileID: 58029556370774628}
   - component: {fileID: 8692347872953772354}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torch_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4405,7 +4461,7 @@ GameObject:
   - component: {fileID: 2825917349963734548}
   - component: {fileID: 2280572963126466574}
   - component: {fileID: 9027572455204885458}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ReplacementWallBottomLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4511,7 +4567,7 @@ GameObject:
   - component: {fileID: 6177292089217920625}
   - component: {fileID: 6940283982058652991}
   - component: {fileID: 3061699815921302874}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: TorchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4706,7 +4762,7 @@ GameObject:
   - component: {fileID: 6392912222036588038}
   - component: {fileID: 3824437099371733627}
   - component: {fileID: 7836014292464322732}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4811,7 +4867,7 @@ GameObject:
   - component: {fileID: 7751658271733279872}
   - component: {fileID: 3995920475383016923}
   - component: {fileID: 3848531674747655275}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torch_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6701,7 +6757,7 @@ GameObject:
   - component: {fileID: 5632885049697102750}
   - component: {fileID: 6419141582979241062}
   - component: {fileID: 6255588595077333232}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ReplacementWallTopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6808,7 +6864,7 @@ GameObject:
   - component: {fileID: 2997233772370990230}
   - component: {fileID: 4178288432349772915}
   - component: {fileID: 8657703634597749411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6956,7 +7012,7 @@ GameObject:
   - component: {fileID: 6360167545049784915}
   - component: {fileID: 2979811002920610498}
   - component: {fileID: 50109224713324524}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Wooden_Round_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7048,7 +7104,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4690904050770353206, guid: 18ba769f6f471c94ba78b15f094317ba, type: 3}
 --- !u!1 &5356460927178725725
@@ -7063,7 +7119,7 @@ GameObject:
   - component: {fileID: 6633002297484113695}
   - component: {fileID: 4427126336041740712}
   - component: {fileID: 7958023353950002637}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7315,7 +7371,7 @@ GameObject:
   - component: {fileID: 5913299018812554112}
   - component: {fileID: 217001435882792583}
   - component: {fileID: 3304087781595657364}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7785,7 +7841,7 @@ GameObject:
   - component: {fileID: 2315315178799827414}
   - component: {fileID: 8892427602725470631}
   - component: {fileID: 5687806158587405346}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7890,7 +7946,7 @@ GameObject:
   - component: {fileID: 140350196649397770}
   - component: {fileID: 1945635379741445711}
   - component: {fileID: 5976934212431810677}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8102,7 +8158,7 @@ GameObject:
   - component: {fileID: 1544440275224910334}
   - component: {fileID: 540785741577073067}
   - component: {fileID: 2909883710530068106}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Wooden_Round_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8194,7 +8250,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4690904050770353206, guid: 18ba769f6f471c94ba78b15f094317ba, type: 3}
 --- !u!1 &5999400053988620432
@@ -8351,7 +8407,7 @@ GameObject:
   - component: {fileID: 5122858470907929170}
   - component: {fileID: 6126157524437426876}
   - component: {fileID: 961406705936005700}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Passage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8508,7 +8564,7 @@ GameObject:
   - component: {fileID: 2596148206262630220}
   - component: {fileID: 4539607063864406425}
   - component: {fileID: 260094045531961920}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: TorchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8613,7 +8669,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5737551896162263791}
-  m_Layer: 0
+  - component: {fileID: 1301342003760097113}
+  m_Layer: 3
   m_Name: BottomLWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8643,6 +8700,33 @@ Transform:
   - {fileID: 2451002919046970175}
   m_Father: {fileID: 2056812267665113561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1301342003760097113
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228223614708299260}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6285598282939574432
 GameObject:
   m_ObjectHideFlags: 0
@@ -8655,7 +8739,7 @@ GameObject:
   - component: {fileID: 3419190839806751890}
   - component: {fileID: 9156442082061946641}
   - component: {fileID: 4595102450239189467}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8760,7 +8844,7 @@ GameObject:
   - component: {fileID: 1470278750631716676}
   - component: {fileID: 4293730951734726099}
   - component: {fileID: 297968398239449130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ReplacementWallBottomRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9055,7 +9139,7 @@ GameObject:
   - component: {fileID: 3207110280737459917}
   - component: {fileID: 4036951768618234973}
   - component: {fileID: 897183797342610124}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Wooden_Round_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9147,7 +9231,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4690904050770353206, guid: 18ba769f6f471c94ba78b15f094317ba, type: 3}
 --- !u!1 &6578986902556490444
@@ -9162,7 +9246,7 @@ GameObject:
   - component: {fileID: 8537258443625377419}
   - component: {fileID: 7077191108141444769}
   - component: {fileID: 6734867188290644437}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9413,7 +9497,7 @@ GameObject:
   - component: {fileID: 4641458626767182388}
   - component: {fileID: 2082292308277579696}
   - component: {fileID: 7475523913763812189}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9563,7 +9647,7 @@ GameObject:
   - component: {fileID: 430286518584687767}
   - component: {fileID: 4527437930742834335}
   - component: {fileID: 4921345424667949068}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: TorchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9795,7 +9879,7 @@ GameObject:
   - component: {fileID: 981587910031132853}
   - component: {fileID: 8333753477739589661}
   - component: {fileID: 3555735510692071653}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torch_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9904,7 +9988,7 @@ GameObject:
   - component: {fileID: 4039195977625370629}
   - component: {fileID: 8277056800126667480}
   - component: {fileID: 2113445541175672834}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torch_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10056,7 +10140,7 @@ GameObject:
   - component: {fileID: 5387011388480093648}
   - component: {fileID: 1143942954670645437}
   - component: {fileID: 3349196951391726723}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: TorchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10446,7 +10530,7 @@ GameObject:
   - component: {fileID: 1093607692874466508}
   - component: {fileID: 7728351251314193038}
   - component: {fileID: 6916497511803758144}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torch_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10905,7 +10989,7 @@ GameObject:
   - component: {fileID: 5204219305384082334}
   - component: {fileID: 2370246917097947999}
   - component: {fileID: 6007932499624201791}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: TorchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11056,7 +11140,7 @@ GameObject:
   - component: {fileID: 5858007615617606444}
   - component: {fileID: 7419228770980054857}
   - component: {fileID: 2759814128239337845}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: TorchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11164,7 +11248,7 @@ GameObject:
   - component: {fileID: 3649835257516049790}
   - component: {fileID: 7262448828035494716}
   - component: {fileID: 2787075925354497111}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Torch_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11525,7 +11609,7 @@ GameObject:
   - component: {fileID: 6611346250405606359}
   - component: {fileID: 6597808590409741371}
   - component: {fileID: 1566556257350277174}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11973,7 +12057,7 @@ GameObject:
   - component: {fileID: 6937742670774482330}
   - component: {fileID: 2935757591556665173}
   - component: {fileID: 8754071622046344850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12075,7 +12159,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6000230973964482134}
-  m_Layer: 0
+  - component: {fileID: 2149062929338302640}
+  m_Layer: 3
   m_Name: TopRWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12104,6 +12189,33 @@ Transform:
   - {fileID: 1824247521721037159}
   m_Father: {fileID: 2056812267665113561}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!54 &2149062929338302640
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8410041429832642881}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &8434503433622913868
 GameObject:
   m_ObjectHideFlags: 0
@@ -12116,7 +12228,7 @@ GameObject:
   - component: {fileID: 2010195819429241889}
   - component: {fileID: 4904058615605114195}
   - component: {fileID: 5383713114617987286}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12371,7 +12483,7 @@ GameObject:
   - component: {fileID: 6054376643553059949}
   - component: {fileID: 4248587617085453261}
   - component: {fileID: 9097687000640957449}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12585,7 +12697,7 @@ GameObject:
   - component: {fileID: 7280273375053180656}
   - component: {fileID: 5874267499105111796}
   - component: {fileID: 8048018024224529960}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon_Big_Passage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12707,7 +12819,7 @@ GameObject:
   - component: {fileID: 3971147435971681986}
   - component: {fileID: 1024050239531689982}
   - component: {fileID: 3671923177562046398}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Wooden_Round_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12799,7 +12911,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4690904050770353206, guid: 18ba769f6f471c94ba78b15f094317ba, type: 3}
 --- !u!1 &8892473744793936490
@@ -12814,7 +12926,7 @@ GameObject:
   - component: {fileID: 2448172727792116536}
   - component: {fileID: 698287161141995064}
   - component: {fileID: 4845955207000322342}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13226,9 +13338,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4125531387384291198}
     m_Modifications:
+    - target: {fileID: 4342671295866488773, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_Name
       value: Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15382,9 +15502,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5737551896162263791}
     m_Modifications:
+    - target: {fileID: 4342671295866488773, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_Name
       value: Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16186,9 +16314,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6000230973964482134}
     m_Modifications:
+    - target: {fileID: 4342671295866488773, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_Name
       value: Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19780,9 +19916,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1520598795194359699}
     m_Modifications:
+    - target: {fileID: 4342671295866488773, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_Name
       value: Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4342671295866585447, guid: 27f210ed52b6c0f409f410ac194d0a7c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19929,6 +20073,10 @@ PrefabInstance:
       value: Banner
       objectReference: {fileID: 0}
     - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -19982,6 +20130,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597135567908895808, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316854688227896739, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -20469,6 +20621,10 @@ PrefabInstance:
       value: Banner
       objectReference: {fileID: 0}
     - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -20522,6 +20678,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597135567908895808, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316854688227896739, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21603,6 +21763,10 @@ PrefabInstance:
       value: Banner
       objectReference: {fileID: 0}
     - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -21656,6 +21820,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597135567908895808, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316854688227896739, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -22414,6 +22582,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6000230973964482134}
     m_Modifications:
+    - target: {fileID: 1245658520538995112, guid: 3ef94e73d5607784fbcbba8de4155b1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7969972704437501193, guid: 3ef94e73d5607784fbcbba8de4155b1e, type: 3}
       propertyPath: m_Convex
       value: 0
@@ -22477,6 +22649,10 @@ PrefabInstance:
     - target: {fileID: 7969972704443782057, guid: 3ef94e73d5607784fbcbba8de4155b1e, type: 3}
       propertyPath: m_Name
       value: Dungeon_Big_Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969972704443782057, guid: 3ef94e73d5607784fbcbba8de4155b1e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7969972704443782057, guid: 3ef94e73d5607784fbcbba8de4155b1e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23969,6 +24145,10 @@ PrefabInstance:
       value: Banner
       objectReference: {fileID: 0}
     - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 216915012680525562, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -24022,6 +24202,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597135567908895808, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316854688227896739, guid: ad4bcbbca7d5fde4cbaa62e8f9296dd9, type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
