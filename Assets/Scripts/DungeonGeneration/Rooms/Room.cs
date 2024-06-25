@@ -19,6 +19,7 @@ public class Room : MonoBehaviour
     private Doorway _bottomRightDoorway;
     private Doorway _bottomLeftDoorway;
     private List<Doorway> _doorways = new List<Doorway>();
+    private List<GameObject> _roomLights = new List<GameObject>();
 
     //[SerializeField] private RoomGameObjectsSpawner _roomObjectSpawner;
     [SerializeField] private RoomEnemiesSpawner _roomEnemiesSpawner;
@@ -53,6 +54,12 @@ public class Room : MonoBehaviour
             Debug.LogError("RoomEnemiesSpawner is not set.");
             return;
         }
+
+        foreach (Light light in GetComponentsInChildren<Light>())
+        {
+            _roomLights.Add(light.gameObject);
+        }
+        
 
         RoomController.instance.RegisterRoom(this);
     }
@@ -183,6 +190,11 @@ public class Room : MonoBehaviour
         foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
         {
             renderer.enabled = status;
+        }
+
+        foreach (GameObject light in _roomLights)
+        {
+            light.SetActive(status);
         }
     }
 
