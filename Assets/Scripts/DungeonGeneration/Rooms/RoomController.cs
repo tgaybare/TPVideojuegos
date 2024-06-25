@@ -28,23 +28,27 @@ public class RoomInfo
 
 public class RoomController : MonoBehaviour
 {
-    public static readonly List<String> LevelNames = new List<String> { "Level 1" };
-    public static readonly List<String> RoomNames = new List<String> { "Room1", "Room2", "Room3" };
+    public static readonly List<String> LevelNames = new() { "Level 1" };
+    public static readonly List<String> RoomNames = new() { "Room1", "Room2", "Room3" };
     public const string BOSS_ROOM_NAME = "BossRoom";
+    public const string ITEM_ROOM_NAME = "ItemRoom";
     public const string START_ROOM_NAME = "StartRoom";
 
-    public static RoomController instance;
+    
 
     private string _currentWorldName = LevelNames[0];
     private RoomInfo _currentLoadRoomData;
-    private Queue<RoomInfo> _loadRoomQueue = new Queue<RoomInfo>();
+    private Queue<RoomInfo> _loadRoomQueue = new();
     private bool _isLoadingRoom = false;
     private bool _finishedRoomsSetup = false;
+    
+
     [SerializeField] private Room _currentRoom;
 
-    [SerializeField] private List<Room> _loadedRooms = new List<Room>();
+    [SerializeField] private List<Room> _loadedRooms = new();
 
-
+    #region SINGLETON
+    public static RoomController instance;
     private void Awake()
     {
         if (instance == null)
@@ -56,6 +60,7 @@ public class RoomController : MonoBehaviour
             Destroy(this);
         }
     }
+    #endregion
 
     private void Start()
     {

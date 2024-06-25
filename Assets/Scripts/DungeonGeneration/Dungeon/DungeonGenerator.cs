@@ -8,6 +8,7 @@ public class DungeonGenerator : MonoBehaviour
 {
     [SerializeField] private DungeonGenerationData _dungeonGenerationData;
     private LastAddedHashSet<Vector2Int> _dungeonRooms;
+    private bool _spawnedItemRoom = false;
 
     public DungeonGenerationData Data { get => _dungeonGenerationData;}
 
@@ -22,13 +23,40 @@ public class DungeonGenerator : MonoBehaviour
 
     private void SpawnRooms()
     {
+        int counter = 0;
         foreach (Vector2Int roomLocation in _dungeonRooms)
         {
-            int roomNumber = Random.Range(0, RoomController.RoomNames.Count);
-            string roomName = RoomController.RoomNames[roomNumber];
+            counter++;
+            if(_spawnedItemRoom)
+            {
+                SpawnRandomRoom(roomLocation);
+            } else {
+                // 33% chance to spawn an item room, unless we've already spawned one
+                // or we're at the last room
+                if(counter == _dungeonRooms.Count || Random.Range(0, 2) == 0)
+                {
+                    SpawnItemRoom(roomLocation);
+                    _spawnedItemRoom = true;
+                } 
+                else
+                {
+                    SpawnRandomRoom(roomLocation);
+                }
+            }
 
-            RoomController.instance.LoadRoom(roomName, roomLocation);            
         }
+    }
+
+    private void SpawnRandomRoom(Vector2Int location) {
+        int roomNumber = Random.Range(0, RoomController.RoomNames.Count);
+        string roomName = RoomController.RoomNames[roomNumber];
+
+        RoomController.instance.LoadRoom(roomName, location);
+    }
+
+    private void SpawnItemRoom(Vector2Int location)
+    {
+        RoomController.instance.LoadRoom(RoomController.ITEM_ROOM_NAME, location);
     }
 
     private void SpawnStartRoom() {

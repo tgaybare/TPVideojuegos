@@ -220,6 +220,11 @@ public class Room : MonoBehaviour
     }
 
     public void PauseEnemies() {
+        if (_roomEnemiesSpawner == null)
+        {
+            return;
+        }
+
         List<GameObject> enemies = _roomEnemiesSpawner.EnemiesInRoom;
 
         foreach (GameObject enemy in enemies)
@@ -234,6 +239,11 @@ public class Room : MonoBehaviour
 
     public void UnpauseEnemies()
     {
+        if(_roomEnemiesSpawner == null)
+        {
+            return;
+        }
+
         List<GameObject> enemies = _roomEnemiesSpawner.EnemiesInRoom;
 
         foreach (GameObject enemy in enemies)
