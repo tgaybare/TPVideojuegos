@@ -13,7 +13,8 @@ public class UpgradeManager : MonoBehaviour
         { UpgradeID.MORE_HP, HealthUpgrade.Instance },
         { UpgradeID.MORE_SPEED, SpeedUpgrade.Instance },
         { UpgradeID.DOUBLE_SHOT, DoubleShotUpgrade.Instance },
-        { UpgradeID.SHARP_PROJECTILES, SharpProjectilesUpgrade.Instance }
+        { UpgradeID.SHARP_PROJECTILES, SharpProjectilesUpgrade.Instance },
+        { UpgradeID.EXPLOSIVE_SHOT, ExplosiveShotUpgrade.Instance}
     };
 
     #region SINGLETON

@@ -29,7 +29,15 @@ public class Crossbow : DistanceWeapon
         for (int i = 0; i < this.ProjectilesPerAttack; i++)
         {
             boltSpawnPosition = new Vector3(transform.position.x, _crossbowGameObject.transform.position.y, transform.position.z);
-            Instantiate(ProjectilePrefab, boltSpawnPosition, transform.rotation);
+            if (ExplosiveShot)
+            {
+                Instantiate(ExplosiveProjectilePrefab, boltSpawnPosition, transform.rotation);
+            }
+            else
+            {
+                Instantiate(ProjectilePrefab, boltSpawnPosition, transform.rotation);
+            }
+
             yield return new WaitForSeconds(this.ProjectileDelay);
         }
 

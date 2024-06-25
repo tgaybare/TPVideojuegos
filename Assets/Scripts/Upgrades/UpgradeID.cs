@@ -10,5 +10,6 @@ namespace Assets.Scripts.Upgrades
         MORE_SPEED,
         DOUBLE_SHOT,
         SHARP_PROJECTILES,
+        EXPLOSIVE_SHOT
     }
 }
