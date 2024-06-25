@@ -9,7 +9,7 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
 
-    public static UpgradeManager instance;
+    
 
     [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _appliedUpgrades = new();
     [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new() {
@@ -17,6 +17,9 @@ public class UpgradeManager : MonoBehaviour
         { UpgradeID.MORE_SPEED, SpeedUpgrade.Instance },
         { UpgradeID.DOUBLE_SHOT, DoubleShotUpgrade.Instance }
     };
+
+    #region SINGLETON
+    public static UpgradeManager instance;
 
     private void Awake()
     {
@@ -28,6 +31,7 @@ public class UpgradeManager : MonoBehaviour
             Destroy(this);
         }
     }
+    #endregion
 
     public void Start()
     {
@@ -57,5 +61,22 @@ public class UpgradeManager : MonoBehaviour
 
         _appliedUpgrades.Add(upgradeID, toApply);
         _availableUpgrades.Remove(upgradeID);
+    }
+
+    // Returns a random array of 3 upgrades that can be picked
+    public IAppliableUpgrade[] GetRandomPickableUpgrades()
+    {
+        IAppliableUpgrade[] result = new IAppliableUpgrade[3];
+
+        List<IAppliableUpgrade> upgrades = new List<IAppliableUpgrade>(_availableUpgrades.Values);
+        for (int i = 0; i < 3; i++)
+        {
+            int randomIndex = Random.Range(0, upgrades.Count);
+            result[i] = upgrades[randomIndex];
+            upgrades.RemoveAt(randomIndex);
+
+            Debug.Log($"Upgrade {i}: {result[i].GetTitle()}");
+        }
+        return result;
     }
 }
