@@ -5,8 +5,7 @@ using Sound;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Weapons
-{
+
     public class SpiderAttack : MeleeWeapon
     {
         private Collider _spiderCollider;
@@ -61,4 +60,3 @@ namespace Weapons
             }
         }
     }
-}

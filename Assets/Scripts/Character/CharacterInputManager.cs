@@ -8,7 +8,6 @@ using Strategy.Strategy___Weapon;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Weapons;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class CharacterInputManager : MonoBehaviour
