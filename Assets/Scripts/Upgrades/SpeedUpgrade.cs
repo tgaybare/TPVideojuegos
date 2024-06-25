@@ -38,7 +38,7 @@ namespace Assets.Scripts.Upgrades
             _playerMovementController.SpeedMultiplier = EXTRA_SPEED_MULTIPLIER;
         }
 
-        public string Description()
+        public string GetDescription()
         {
             return "You move faster now!";
         }
@@ -48,12 +48,12 @@ namespace Assets.Scripts.Upgrades
             _playerMovementController = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>();
         }
 
-        public string Title()
+        public string GetTitle()
         {
             return "Speed Upgrade";
         }
 
-        public UpgradeID UpgradeID()
+        public UpgradeID GetUpgradeID()
         {
             return _upgradeID;
         }

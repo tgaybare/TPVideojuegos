@@ -36,7 +36,7 @@ namespace Assets.Scripts.Upgrades
             _distanceWeapon.ProjectilesPerAttack = 2;
         }
 
-        public string Description()
+        public string GetDescription()
         {
             return "You can now shoot two projectiles at once!";
         }
@@ -46,12 +46,12 @@ namespace Assets.Scripts.Upgrades
             _distanceWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<DistanceWeapon>();
         }
 
-        public string Title()
+        public string GetTitle()
         {
             return "Double Shot";
         }
 
-        public UpgradeID UpgradeID()
+        public UpgradeID GetUpgradeID()
         {
             return _upgradeID;
         }

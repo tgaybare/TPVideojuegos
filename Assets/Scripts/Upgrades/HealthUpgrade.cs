@@ -43,17 +43,17 @@ namespace Assets.Scripts.Upgrades
             _playerLifeController.incrementMaxLife(EXTRA_HEALTH_MULTIPLIER);
         }
 
-        public UpgradeID UpgradeID()
+        public UpgradeID GetUpgradeID()
         {
             return _upgradeID;
         }
 
-        public string Title()
+        public string GetTitle()
         {
             return "HP IAppliableUpgrade";
         }
 
-        public string Description()
+        public string GetDescription()
         {
             return $"Increments your Max Health by {(EXTRA_HEALTH_MULTIPLIER - 1) * 100}%";
         }

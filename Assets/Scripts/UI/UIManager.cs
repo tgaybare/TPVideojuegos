@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.UI;
+using Assets.Scripts.Upgrades;
 using Managers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +14,7 @@ namespace Menu
         [SerializeField] private Image lifeBar;
         [SerializeField] private GameObject _lifeBarGameObject;
         [SerializeField] private GameObject _upgradePicker;
-        private List<GameObject> _cards = new();
+        private Card[] _cards;
 
         private float _currentLife;
 
@@ -41,9 +43,9 @@ namespace Menu
             ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
             ActionManager.instance.OnCharacterMaxLifeChange += OnCharacterMaxLifeChange;
 
-            _cards.Add(GameObject.Find("Card Left"));
-            _cards.Add(GameObject.Find("Card Center"));
-            _cards.Add(GameObject.Find("Card Right"));
+            // Get all cards in the scene, should be 3
+            _cards = _upgradePicker.transform.GetComponentsInChildren<Card>();
+            Debug.Log("Cards: " + _cards.Length);
         }
 
         
@@ -95,6 +97,7 @@ namespace Menu
         public void ShowUpgradePicker()
         {
             _upgradePicker.SetActive(true);
+            GenerateUpgradeCards();
         }
 
         public void HideUpgradePicker()
@@ -102,11 +105,24 @@ namespace Menu
             _upgradePicker.SetActive(false);
         }
 
-        #endregion
-
         public bool IsUpgradePickerActive()
         {
             return _upgradePicker.activeSelf;
         }
+
+        private void GenerateUpgradeCards() {
+            IAppliableUpgrade[] randomUpgrades = UpgradeManager.instance.GetRandomPickableUpgrades();
+
+
+
+            for (int i = 0; i < _cards.Length; i++)
+            {
+                _cards[i].SetUpgradeInfo(randomUpgrades[i]);
+            }
+        }
+
+        #endregion
+
+
     }
 }

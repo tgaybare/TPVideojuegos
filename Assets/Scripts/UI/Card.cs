@@ -8,20 +8,20 @@ namespace Assets.Scripts.UI
 {
     public class Card : MonoBehaviour
     {
-        public Image Image { get => _image; set => _image = value;}
         [SerializeField] private Image _image;
-
-        public Text Title { get => _title; set => _title = value; }
         [SerializeField] private Text _title;
-
-        public Text Description { get => _description; set => _description = value; }
         [SerializeField] private Text _description;
-
-        public UpgradeID UpgradeID { get => _upgradeID; set => _upgradeID = value; }
+        [SerializeField] private Button _button;
         [SerializeField] private UpgradeID _upgradeID = UpgradeID.NONE;
 
         void Start()
         {
+            setComponentsIfNull();
+
+            _button.onClick.AddListener(ApplyUpgrade);
+        }
+
+        private void setComponentsIfNull() {
             if (_image == null)
             {
                 _image = transform.Find("Picture").GetComponent<Image>();
@@ -31,12 +31,12 @@ namespace Assets.Scripts.UI
                 }
             }
 
-            if(_title == null)
+            if (_title == null)
             {
                 _title = transform.Find("TitleText").GetComponent<Text>();
                 if (_title == null)
                 {
-                    Debug.LogError("Title is null");
+                    Debug.LogError("GetTitle is null");
                 }
             }
 
@@ -45,12 +45,31 @@ namespace Assets.Scripts.UI
                 _description = transform.Find("DescriptionText").GetComponent<Text>();
                 if (_description == null)
                 {
-                    Debug.LogError("Description is null");
+                    Debug.LogError("GetDescription is null");
                 }
             }
 
-            _title.text = "TITULARDOOO";
-            _description.text = "DESCRIPCION";
+            if (_button == null)
+            {
+                _button = transform.Find("Button").GetComponent<Button>();
+                if (_button == null)
+                {
+                    Debug.LogError("Button is null");
+                }
+            }
+        }
+
+        private void ApplyUpgrade()
+        {
+            UpgradeManager.instance.ApplyUpgrade(_upgradeID);
+        }
+
+        public void SetUpgradeInfo(IAppliableUpgrade upgrade)
+        {
+            _title.text = upgrade.GetTitle();
+            _description.text = upgrade.GetDescription();
+            _upgradeID = upgrade.GetUpgradeID();
+            Debug.Log($"Setting upgrade info for {_title.text} - {_description.text} [{_upgradeID}]");
         }
 
 
