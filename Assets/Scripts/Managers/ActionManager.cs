@@ -116,7 +116,15 @@ namespace Managers
             }
         }
 
-        
+        public event Action<bool> OnPlayerEnterItemRoom;
+
+        public void ActionPlayerEnterItemRoom(bool alreadyVisited)
+        {
+            if (OnPlayerEnterItemRoom != null)
+            {
+                OnPlayerEnterItemRoom(alreadyVisited);
+            }
+        }
 
         #endregion
 

@@ -1,4 +1,5 @@
 using Managers;
+using Menu;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -61,6 +62,7 @@ public class RoomController : MonoBehaviour
         ActionManager.instance.OnEnemyKilled += OnEnemyKilled;
         ActionManager.instance.OnPlayerEnterRoom += OnPlayerEnterRoom;
         ActionManager.instance.OnPlayerExitRoom += OnPlayerExitRoom;
+        ActionManager.instance.OnPlayerEnterItemRoom += OnPlayerEnterItemRoom;
     }
 
     private void Update()
@@ -190,6 +192,13 @@ public class RoomController : MonoBehaviour
         UpdateCurrentRoomDoors();
         room.SetVisible();
         room.UnpauseEnemies();
+    }
+
+    private void OnPlayerEnterItemRoom(bool alreadyVisied) {
+        if(!alreadyVisied)
+        {
+            UIManager.instance.ShowUpgradePicker();
+        }
     }
 
     private void OnPlayerExitRoom(Room room)
