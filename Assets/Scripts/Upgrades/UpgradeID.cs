@@ -8,6 +8,7 @@ namespace Assets.Scripts.Upgrades
         NONE,
         MORE_HP,
         MORE_SPEED,
-        DOUBLE_SHOT
+        DOUBLE_SHOT,
+        SHARP_PROJECTILES,
     }
 }

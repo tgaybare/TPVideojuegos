@@ -16,7 +16,7 @@ namespace Weapons
         
         private FixedSoundPlayer _soundPlayer;
 
-        public int Damage => _damage;
+        public int Damage { get => _damage; set => _damage = value;}
         public float Speed => _speed;
         public float LifeTime => _lifetime;
 
