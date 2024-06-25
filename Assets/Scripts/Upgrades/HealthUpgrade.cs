@@ -6,8 +6,8 @@ namespace Assets.Scripts.Upgrades
 {
     public sealed class HealthUpgrade : IAppliableUpgrade
     {
-
-        private const UpgradeID _upgradeID = Upgrades.UpgradeID.MORE_HP;
+        private Sprite _healthUpgradeSprite;
+        private const UpgradeID _upgradeID = UpgradeID.MORE_HP;
         private float EXTRA_HEALTH_MULTIPLIER = 1.5f;
 
         private LifeController _playerLifeController;
@@ -31,6 +31,7 @@ namespace Assets.Scripts.Upgrades
         public void Initialize()
         {
             _playerLifeController = _playerLifeController = GameObject.FindGameObjectWithTag("Player").GetComponent<LifeController>();
+            _healthUpgradeSprite = Resources.Load<Sprite>("Sprites/health-upgrade");
         }
 
         public void applyUpgrade()
@@ -56,6 +57,11 @@ namespace Assets.Scripts.Upgrades
         public string GetDescription()
         {
             return $"Increments your Max Health by {(EXTRA_HEALTH_MULTIPLIER - 1) * 100}%";
+        }
+
+        public Sprite GetSprite()
+        {
+            return _healthUpgradeSprite;
         }
     }
 }

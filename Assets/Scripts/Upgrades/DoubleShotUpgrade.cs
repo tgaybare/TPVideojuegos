@@ -5,7 +5,8 @@ namespace Assets.Scripts.Upgrades
 {
     public class DoubleShotUpgrade : IAppliableUpgrade
     {
-        private const UpgradeID _upgradeID = Upgrades.UpgradeID.DOUBLE_SHOT;
+        private Sprite _doubleShotUpgradeSprite;
+        private const UpgradeID _upgradeID = UpgradeID.DOUBLE_SHOT;
         private DistanceWeapon _distanceWeapon;
 
         #region SINGLETON
@@ -25,6 +26,12 @@ namespace Assets.Scripts.Upgrades
         }
         #endregion
 
+        public void Initialize()
+        {
+            _distanceWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<DistanceWeapon>();
+            _doubleShotUpgradeSprite = Resources.Load<Sprite>("Sprites/double-shot-upgrade");
+        }
+
         public void applyUpgrade()
         {
             if (_distanceWeapon == null)
@@ -41,11 +48,6 @@ namespace Assets.Scripts.Upgrades
             return "You can now shoot two projectiles at once!";
         }
 
-        public void Initialize()
-        {
-            _distanceWeapon = GameObject.FindGameObjectWithTag("Player").GetComponent<DistanceWeapon>();
-        }
-
         public string GetTitle()
         {
             return "Double Shot";
@@ -54,6 +56,11 @@ namespace Assets.Scripts.Upgrades
         public UpgradeID GetUpgradeID()
         {
             return _upgradeID;
+        }
+
+        public Sprite GetSprite()
+        {
+            return _doubleShotUpgradeSprite;
         }
     }
 }

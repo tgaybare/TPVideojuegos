@@ -8,9 +8,6 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-
-    
-
     [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _appliedUpgrades = new();
     [SerializeField] private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new() {
         { UpgradeID.MORE_HP, HealthUpgrade.Instance },
@@ -69,7 +66,9 @@ public class UpgradeManager : MonoBehaviour
         IAppliableUpgrade[] result = new IAppliableUpgrade[3];
 
         List<IAppliableUpgrade> upgrades = new List<IAppliableUpgrade>(_availableUpgrades.Values);
-        for (int i = 0; i < 3; i++)
+
+        int cardsToPick = upgrades.Count >= 3 ? 3 : upgrades.Count;
+        for (int i = 0; i < cardsToPick; i++)
         {
             int randomIndex = Random.Range(0, upgrades.Count);
             result[i] = upgrades[randomIndex];
@@ -77,6 +76,13 @@ public class UpgradeManager : MonoBehaviour
 
             Debug.Log($"Upgrade {i}: {result[i].GetTitle()}");
         }
+
+        // Fill the rest with repeated cards
+        for (int i = cardsToPick; i < 3; i++)
+        {
+            result[i] = result[i % cardsToPick];
+        }
+
         return result;
     }
 }

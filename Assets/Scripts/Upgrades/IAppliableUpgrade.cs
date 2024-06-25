@@ -20,5 +20,7 @@ namespace Assets.Scripts.Upgrades
 
         public string GetDescription();
 
+        public Sprite GetSprite();
+
     }
 }

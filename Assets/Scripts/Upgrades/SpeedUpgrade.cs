@@ -6,8 +6,9 @@ namespace Assets.Scripts.Upgrades
 {
     public class SpeedUpgrade : IAppliableUpgrade
     {
+        private Sprite _speedUpgradeSprite;
         private MovementController _playerMovementController;
-        private const UpgradeID _upgradeID = Upgrades.UpgradeID.MORE_SPEED;
+        private const UpgradeID _upgradeID = UpgradeID.MORE_SPEED;
         private const float EXTRA_SPEED_MULTIPLIER = 1.3f; // 30% more speed
 
         #region SINGLETON   
@@ -27,6 +28,12 @@ namespace Assets.Scripts.Upgrades
         }
         #endregion
 
+        public void Initialize()
+        {
+            _playerMovementController = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>();
+            _speedUpgradeSprite = Resources.Load<Sprite>("Sprites/speed-upgrade");
+        }
+
         public void applyUpgrade()
         {
             if (_playerMovementController == null)
@@ -43,11 +50,6 @@ namespace Assets.Scripts.Upgrades
             return "You move faster now!";
         }
 
-        public void Initialize()
-        {
-            _playerMovementController = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>();
-        }
-
         public string GetTitle()
         {
             return "Speed Upgrade";
@@ -56,6 +58,11 @@ namespace Assets.Scripts.Upgrades
         public UpgradeID GetUpgradeID()
         {
             return _upgradeID;
+        }
+
+        public Sprite GetSprite()
+        {
+            return _speedUpgradeSprite;
         }
 
        

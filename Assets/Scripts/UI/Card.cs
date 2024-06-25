@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Upgrades;
+using Menu;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,6 +63,7 @@ namespace Assets.Scripts.UI
         private void ApplyUpgrade()
         {
             UpgradeManager.instance.ApplyUpgrade(_upgradeID);
+            UIManager.instance.HideUpgradePicker();
         }
 
         public void SetUpgradeInfo(IAppliableUpgrade upgrade)
@@ -69,6 +71,8 @@ namespace Assets.Scripts.UI
             _title.text = upgrade.GetTitle();
             _description.text = upgrade.GetDescription();
             _upgradeID = upgrade.GetUpgradeID();
+            _image.sprite = upgrade.GetSprite();
+
             Debug.Log($"Setting upgrade info for {_title.text} - {_description.text} [{_upgradeID}]");
         }
 
