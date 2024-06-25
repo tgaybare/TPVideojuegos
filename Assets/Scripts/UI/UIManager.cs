@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Managers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ namespace Menu
         [SerializeField] private Image lifeBar;
         [SerializeField] private GameObject _lifeBarGameObject;
         [SerializeField] private GameObject _upgradePicker;
+        private List<GameObject> _cards = new();
+
         private float _currentLife;
 
         private static readonly Color LIFEBAR_GREEN = new Color(0.21f, 0.46f, 0.04f);
@@ -35,9 +38,12 @@ namespace Menu
         private void Start()
         {
             ActionManager.instance.OnGameOver += OnGameOver;
-            
             ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
             ActionManager.instance.OnCharacterMaxLifeChange += OnCharacterMaxLifeChange;
+
+            _cards.Add(GameObject.Find("Card Left"));
+            _cards.Add(GameObject.Find("Card Center"));
+            _cards.Add(GameObject.Find("Card Right"));
         }
 
         
