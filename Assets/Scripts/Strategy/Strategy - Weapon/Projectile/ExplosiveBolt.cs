@@ -37,7 +37,7 @@ public class ExplosiveBolt : Bolt
         gameObject.GetComponent<Collider>().enabled = false;
         
         //1. Instantiate de explosion
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+         GameObject explosionGameObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         _variableSoundPlayer.PlayOneShot(explosionSound);
         
         //2.1 Get all the colliders in the explosion radius
@@ -60,6 +60,9 @@ public class ExplosiveBolt : Bolt
         {
             yield return null;
         }
+
+        yield return new WaitForSeconds(1f);
+        Destroy(explosionGameObject);
         Destroy(this.gameObject);
     }
 }
