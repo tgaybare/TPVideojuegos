@@ -30,7 +30,19 @@ namespace Assets.Scripts.Upgrades
 
         public void applyUpgrade()
         {
+            if(_distanceWeapon == null)
+            {
+                Debug.LogError("Player DistanceWeapon not found");
+                return;
+            }
+
             IProjectile projectile = _distanceWeapon.ProjectilePrefab.GetComponent<IProjectile>();
+            if(projectile == null)
+            {
+                Debug.LogError("Projectile does not implement IProjectile interface");
+                return;
+            }
+
             projectile.Damage = (int)(projectile.Damage * DAMAGE_MULTIPLIER);
         }
 
