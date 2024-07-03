@@ -8,14 +8,17 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-    private Dictionary<UpgradeID, IAppliableUpgrade> _appliedUpgrades = new();
-    private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new() {
+    public static Dictionary<UpgradeID, IAppliableUpgrade> IDToUpgradeDict { get; } = new Dictionary<UpgradeID, IAppliableUpgrade>()
+    {
         { UpgradeID.MORE_HP, HealthUpgrade.Instance },
         { UpgradeID.MORE_SPEED, SpeedUpgrade.Instance },
         { UpgradeID.DOUBLE_SHOT, DoubleShotUpgrade.Instance },
         { UpgradeID.SHARP_PROJECTILES, SharpProjectilesUpgrade.Instance },
         { UpgradeID.EXPLOSIVE_SHOT, ExplosiveShotUpgrade.Instance}
     };
+
+    private Dictionary<UpgradeID, IAppliableUpgrade> _appliedUpgrades = new();
+    private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new();
 
     #region SINGLETON
     public static UpgradeManager instance;
@@ -34,11 +37,16 @@ public class UpgradeManager : MonoBehaviour
 
     public void Start()
     {
+
+        ActionManager.instance.OnPlayerPickUpgrade += ApplyUpgrade;
+
         // Initialize all upgrades
-        foreach (IAppliableUpgrade upgrade in _availableUpgrades.Values)
+        foreach (IAppliableUpgrade upgrade in IDToUpgradeDict.Values)
         {
             upgrade.Initialize();
         }
+
+        _availableUpgrades = new Dictionary<UpgradeID, IAppliableUpgrade>(IDToUpgradeDict);
     }
 
     public void ApplyUpgrade(UpgradeID upgradeID)
@@ -60,8 +68,6 @@ public class UpgradeManager : MonoBehaviour
 
         _appliedUpgrades.Add(upgradeID, toApply);
         _availableUpgrades.Remove(upgradeID);
-
-        UpgradeHolder.instance.AddUpgrade(toApply);
     }
 
     // Returns a random array of 3 upgrades that can be picked
@@ -77,8 +83,6 @@ public class UpgradeManager : MonoBehaviour
             int randomIndex = Random.Range(0, upgrades.Count);
             result[i] = upgrades[randomIndex];
             upgrades.RemoveAt(randomIndex);
-
-            Debug.Log($"Upgrade {i}: {result[i].GetTitle()}");
         }
         return result;
     }

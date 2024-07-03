@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Upgrades;
+using Managers;
 using Menu;
 using System.Collections;
 using UnityEngine;
@@ -67,8 +68,9 @@ namespace Assets.Scripts.UI
                 return;
             }
 
-            UpgradeManager.instance.ApplyUpgrade(_upgradeID);
-            UIManager.instance.HideUpgradePicker();
+            ActionManager.instance.ActionPlayerPickUpgrade(_upgradeID);
+            //UpgradeManager.instance.ApplyUpgrade(_upgradeID);
+            //UIManager.instance.HideUpgradePicker();
         }
 
         public void SetUpgradeInfo(IAppliableUpgrade upgrade)

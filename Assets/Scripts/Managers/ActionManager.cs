@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Upgrades;
 using Menu;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Managers
     public class ActionManager : MonoBehaviour
     {
 
+        #region SINGLETON
         public static ActionManager instance;
         
         private void Awake()
@@ -16,6 +18,7 @@ namespace Managers
                 instance = this;
             }
         }
+        #endregion
 
         #region GAME_MANAGER_ACTIONS
         
@@ -126,6 +129,15 @@ namespace Managers
             }
         }
 
+        public event Action<UpgradeID> OnPlayerPickUpgrade;
+
+        public void ActionPlayerPickUpgrade(UpgradeID upgradeID)
+        {
+            if (OnPlayerPickUpgrade != null)
+            {
+                OnPlayerPickUpgrade(upgradeID);
+            }
+        }
         #endregion
 
     }

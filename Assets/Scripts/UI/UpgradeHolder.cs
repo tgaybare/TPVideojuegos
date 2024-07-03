@@ -51,9 +51,9 @@ public class UpgradeHolder : MonoBehaviour
             shiftIcons();
         } else 
         {
-            _upgradeIcons[_maxUpgradeCount - _shownUpgrades.Count].gameObject.SetActive(true);
-            Debug.Log($"Adding upgrade - Shown Count: {_shownUpgrades.Count} - Updating Position {_maxUpgradeCount - _shownUpgrades.Count}");
-            _upgradeIcons[_maxUpgradeCount - _shownUpgrades.Count].UpdateUpgrade(upgrade.GetUpgradeID(), upgrade.GetSprite());
+            UpgradeIcon nextUpgradeIcon = _upgradeIcons[_maxUpgradeCount - _shownUpgrades.Count];
+            nextUpgradeIcon.gameObject.SetActive(true);
+            nextUpgradeIcon.UpdateUpgrade(upgrade.GetUpgradeID(), upgrade.GetSprite());
         }
     }
 

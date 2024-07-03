@@ -43,6 +43,7 @@ namespace Menu
             ActionManager.instance.OnGameOver += OnGameOver;
             ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
             ActionManager.instance.OnCharacterMaxLifeChange += OnCharacterMaxLifeChange;
+            ActionManager.instance.OnPlayerPickUpgrade += OnPlayerPickUpgrade;
 
             // Get all cards in the scene, should be 3
             _cards = _upgradePicker.transform.GetComponentsInChildren<Card>();
@@ -122,6 +123,14 @@ namespace Menu
             {
                 _cards[i].SetUpgradeInfo(randomUpgrades[i]);
             }
+        }
+
+        private void OnPlayerPickUpgrade(UpgradeID upgradeID)
+        {
+            HideUpgradePicker();
+
+            IAppliableUpgrade upgrade = UpgradeManager.IDToUpgradeDict[upgradeID];
+            UpgradeHolder.instance.AddUpgrade(upgrade);
         }
 
         #endregion
