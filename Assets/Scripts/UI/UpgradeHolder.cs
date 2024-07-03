@@ -30,6 +30,11 @@ public class UpgradeHolder : MonoBehaviour
     void Start()
     {
         _shownUpgrades = new(_maxUpgradeCount);
+
+        foreach (UpgradeIcon icon in _upgradeIcons)
+        {
+            icon.gameObject.SetActive(false);
+        }
     }
 
     public void AddUpgrade(IAppliableUpgrade upgrade)
@@ -38,9 +43,16 @@ public class UpgradeHolder : MonoBehaviour
 
         if(_shownUpgrades.Count == _maxUpgradeCount)
         {
+            if (!_upgradeIcons[0].gameObject.activeSelf) 
+            { 
+                _upgradeIcons[0].gameObject.SetActive(true);                       
+            }
+
             shiftIcons();
         } else 
         {
+            _upgradeIcons[_maxUpgradeCount - _shownUpgrades.Count].gameObject.SetActive(true);
+            Debug.Log($"Adding upgrade - Shown Count: {_shownUpgrades.Count} - Updating Position {_maxUpgradeCount - _shownUpgrades.Count}");
             _upgradeIcons[_maxUpgradeCount - _shownUpgrades.Count].UpdateUpgrade(upgrade.GetUpgradeID(), upgrade.GetSprite());
         }
     }
@@ -52,7 +64,7 @@ public class UpgradeHolder : MonoBehaviour
         
         for (int i = 0; i < _maxUpgradeCount; i++)
         {
-            _upgradeIcons[i].UpdateUpgrade(toShow[i].GetUpgradeID(), toShow[i].GetSprite());
+            _upgradeIcons[_maxUpgradeCount - i - 1].UpdateUpgrade(toShow[i].GetUpgradeID(), toShow[i].GetSprite());
         }
     }
         

@@ -396,12 +396,12 @@ GameObject:
   - component: {fileID: 58632180}
   - component: {fileID: 58632181}
   m_Layer: 5
-  m_Name: Upgrade Icon 8
+  m_Name: Upgrade Icon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &58632180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158484546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -549,8 +549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.9, y: 0}
-  m_SizeDelta: {x: 612.03, y: 80}
+  m_AnchoredPosition: {x: -20.94, y: 0}
+  m_SizeDelta: {x: 536.35, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158484548
 MonoBehaviour:
@@ -803,57 +803,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7009125331553206958, guid: f2e4162e132e1224aa657d18036b04a6, type: 3}
   m_PrefabInstance: {fileID: 4623222518635306578}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &264502746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 264502747}
-  - component: {fileID: 264502748}
-  m_Layer: 5
-  m_Name: Upgrade Icon 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &264502747
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264502746}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 544134480}
-  m_Father: {fileID: 2106891323}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 283, y: 0}
-  m_SizeDelta: {x: 70, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &264502748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264502746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb1bef865f5edcb4f8ae07cf07a52907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 0}
-  _upgradeID: 0
 --- !u!1 &265907039
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,12 +814,12 @@ GameObject:
   - component: {fileID: 265907040}
   - component: {fileID: 265907041}
   m_Layer: 5
-  m_Name: Upgrade Icon 5
+  m_Name: Upgrade Icon 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &265907040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1237,81 +1186,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514879367}
   m_CullTransparentMesh: 1
---- !u!1 &544134479
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 544134480}
-  - component: {fileID: 544134482}
-  - component: {fileID: 544134481}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &544134480
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544134479}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 264502747}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.000015258789}
-  m_SizeDelta: {x: 70, y: 70}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &544134481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544134479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 38a52b1df3a5edf46be966d70eb4bcf0, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &544134482
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544134479}
-  m_CullTransparentMesh: 1
 --- !u!1 &608807953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,12 +1482,12 @@ GameObject:
   - component: {fileID: 705391296}
   - component: {fileID: 705391297}
   m_Layer: 5
-  m_Name: Upgrade Icon 6
+  m_Name: Upgrade Icon 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &705391296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2278,8 +2152,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.1, y: 0}
-  m_SizeDelta: {x: 622.82, y: 93.09}
+  m_AnchoredPosition: {x: -21.34, y: -0}
+  m_SizeDelta: {x: 547.93, y: 93.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &927771791
 MonoBehaviour:
@@ -2518,12 +2392,12 @@ GameObject:
   - component: {fileID: 984297247}
   - component: {fileID: 984297248}
   m_Layer: 5
-  m_Name: Upgrade Icon 3
+  m_Name: Upgrade Icon 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &984297247
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3263,12 +3137,12 @@ GameObject:
   - component: {fileID: 1221683962}
   - component: {fileID: 1221683963}
   m_Layer: 5
-  m_Name: Upgrade Icon 7
+  m_Name: Upgrade Icon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1221683962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3464,12 +3338,12 @@ GameObject:
   - component: {fileID: 1267004519}
   - component: {fileID: 1267004520}
   m_Layer: 5
-  m_Name: Upgrade Icon 2
+  m_Name: Upgrade Icon 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1267004519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4793,12 +4667,12 @@ GameObject:
   - component: {fileID: 2037257321}
   - component: {fileID: 2037257322}
   m_Layer: 5
-  m_Name: Upgrade Icon 4
+  m_Name: Upgrade Icon 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2037257321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4992,6 +4866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106891323}
+  - component: {fileID: 2106891324}
   m_Layer: 5
   m_Name: Upgrade Holder
   m_TagString: Untagged
@@ -5012,21 +4887,40 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2102560904}
-  - {fileID: 264502747}
-  - {fileID: 1267004519}
-  - {fileID: 984297247}
-  - {fileID: 2037257321}
-  - {fileID: 265907040}
-  - {fileID: 705391296}
-  - {fileID: 1221683962}
   - {fileID: 58632180}
+  - {fileID: 1221683962}
+  - {fileID: 705391296}
+  - {fileID: 265907040}
+  - {fileID: 2037257321}
+  - {fileID: 984297247}
+  - {fileID: 1267004519}
   m_Father: {fileID: 2082242179}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 602, y: 461}
+  m_AnchoredPosition: {x: 668.1, y: 461}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2106891324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106891322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b365f04aabe0d240b0d546dc1128c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upgradeIcons:
+  - {fileID: 58632181}
+  - {fileID: 1221683963}
+  - {fileID: 705391297}
+  - {fileID: 265907041}
+  - {fileID: 2037257322}
+  - {fileID: 984297248}
+  - {fileID: 1267004520}
 --- !u!1 &2116443505
 GameObject:
   m_ObjectHideFlags: 0
