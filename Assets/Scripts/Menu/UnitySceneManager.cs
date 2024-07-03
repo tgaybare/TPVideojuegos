@@ -35,6 +35,10 @@ namespace Menu
 
         public void LoadVictoryScreen() => SceneManager.LoadScene(VICTORY_SCREEN);
 
+        public void test()
+        {
+            SceneManager.LoadScene()
+        }
         
     }
 }
