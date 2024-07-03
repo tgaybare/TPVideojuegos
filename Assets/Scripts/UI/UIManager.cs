@@ -11,7 +11,8 @@ namespace Menu
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private Text _gameOverText;
-        [SerializeField] private Image lifeBar;
+        [SerializeField] private Image _lifeBar;
+        [SerializeField] private Text _lifeBarText;
         [SerializeField] private GameObject _lifeBarGameObject;
         [SerializeField] private GameObject _upgradePicker;
         private Card[] _cards;
@@ -65,27 +66,29 @@ namespace Menu
         private void OnCharacterLifeChange(float currentLife, float maxLife)
         {
             _currentLife = currentLife;
-            lifeBar.fillAmount = _currentLife / maxLife;
+            _lifeBar.fillAmount = _currentLife / maxLife;
 
-            if (lifeBar.fillAmount >= 0.5f)
+            if (_lifeBar.fillAmount > 0.5f)
             {
-                lifeBar.color = LIFEBAR_GREEN; // Dark green
+                _lifeBar.color = LIFEBAR_GREEN; // Dark green
             }
-            else if (lifeBar.fillAmount >= 0.25f)
+            else if (_lifeBar.fillAmount >= 0.25f)
             {
-                lifeBar.color = LIFEBAR_YELLOW; // Dark yellow
+                _lifeBar.color = LIFEBAR_YELLOW; // Dark yellow
             }
             else
             {
-                lifeBar.color = LIFEBAR_RED; // Dark red
+                _lifeBar.color = LIFEBAR_RED; // Dark red
             }
+
+            _lifeBarText.text = $"{(int)(_currentLife/maxLife * 100) }%";
         }
 
         private void OnCharacterMaxLifeChange(float oldMaxLife, float newMaxLife)
         {   
             float sizeMultiplier = newMaxLife / oldMaxLife;
 
-            lifeBar.fillAmount = _currentLife / newMaxLife;
+            _lifeBar.fillAmount = _currentLife / newMaxLife; // I believe this is unnecessary
 
             Vector3 oldScale = _lifeBarGameObject.transform.localScale;
             _lifeBarGameObject.transform.localScale = new Vector3(oldScale.x * sizeMultiplier, oldScale.y, oldScale.z);
