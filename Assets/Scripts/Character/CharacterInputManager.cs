@@ -167,6 +167,24 @@ public class CharacterInputManager : MonoBehaviour
                 UIManager.instance.ShowUpgradePicker();
         }
 
+        if(Input.GetKeyDown(KeyCode.K)) // For testing purposes
+        {
+            Debug.Log("Saving game state...");
+            GameStateManager.Instance.SaveGameState();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L)) // For testing purposes
+        {
+            Debug.Log("Loading game state...");
+            GameStateManager.Instance.LoadGameState();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C)) // For testing purposes
+        {
+            Debug.Log("Clearing game state...");
+            GameStateManager.Instance.ClearGameState();
+        }
+
     }
 
     // We use FixedUpdate for movement because it's physics related

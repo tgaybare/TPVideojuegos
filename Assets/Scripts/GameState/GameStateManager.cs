@@ -13,18 +13,19 @@ public class GameStateManager
     private static readonly string GAMESTATE_FILE_PATH = Path.Combine(Application.persistentDataPath, GAMESTATE_FILE_NAME);
 
     #region SINGLETON
-    public static GameStateManager Instance { get => GetInstance(); private set => Instance = value; }
+    public static GameStateManager Instance => GetInstance();
+    private static GameStateManager _instance;
 
     private GameStateManager() { }
 
     private static GameStateManager GetInstance()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
-            Instance = new GameStateManager();
+            _instance = new GameStateManager();
         }
 
-        return Instance;
+        return _instance;
     }
     #endregion
 
@@ -52,7 +53,8 @@ public class GameStateManager
 
             // TODO: Restore game state
             //UIManager.instance.CurrentLife = gameState.playerHealth;
-            //UpgradeManager.instance.ApplyUpgrades(gameState.upgradeIDs);
+            UpgradeManager.instance.ApplyUpgrades(gameState.PlayerUpgrades);
+            UIManager.instance.AddUpgradesToHolder(gameState.PlayerUpgrades);
 
             Debug.Log("Game state loaded from " + GAMESTATE_FILE_PATH);
         }

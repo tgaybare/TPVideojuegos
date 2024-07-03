@@ -34,11 +34,6 @@ namespace Menu
         public void LoadGameOverScreen() => SceneManager.LoadScene(GAME_OVER_SCREEN);
 
         public void LoadVictoryScreen() => SceneManager.LoadScene(VICTORY_SCREEN);
-
-        public void test()
-        {
-            SceneManager.LoadScene()
-        }
         
     }
 }

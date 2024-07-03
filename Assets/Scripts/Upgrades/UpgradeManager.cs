@@ -70,6 +70,14 @@ public class UpgradeManager : MonoBehaviour
         _availableUpgrades.Remove(upgradeID);
     }
 
+    public void ApplyUpgrades(List<UpgradeID> upgradeIDs)
+    {
+        foreach (UpgradeID upgradeID in upgradeIDs)
+        {
+            ApplyUpgrade(upgradeID);
+        }
+    }
+
     // Returns a random array of 3 upgrades that can be picked
     public IAppliableUpgrade[] GetRandomPickableUpgrades()
     {
