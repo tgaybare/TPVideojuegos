@@ -17,6 +17,7 @@ namespace Menu
         [SerializeField] private GameObject _upgradePicker;
         private Card[] _cards;
 
+        public float CurrentLife => _currentLife;
         private float _currentLife;
 
         private static readonly Color LIFEBAR_GREEN = new Color(0.21f, 0.46f, 0.04f);

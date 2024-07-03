@@ -86,4 +86,8 @@ public class UpgradeManager : MonoBehaviour
         }
         return result;
     }
+
+    public List<UpgradeID> GetAppliedUpgradeIDs() { 
+        return new List<UpgradeID>(_appliedUpgrades.Keys);
+    }
 }
