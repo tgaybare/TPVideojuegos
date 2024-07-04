@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd40c64c3e27b64a83d13f0a5851d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLoadScreen: 1
 --- !u!1 &319384859
 GameObject:
   m_ObjectHideFlags: 0

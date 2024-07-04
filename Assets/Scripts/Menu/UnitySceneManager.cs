@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static GameLevels;
 
 
 public class UnitySceneManager : MonoBehaviour
@@ -57,7 +58,3 @@ public class UnitySceneManager : MonoBehaviour
         
 }
 
-public enum Levels {
-    LEVEL_1 = 1,
-    LEVEL_2
-}

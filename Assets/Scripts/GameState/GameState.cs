@@ -1,9 +1,9 @@
 ﻿using Assets.Scripts.Upgrades;
-using Menu;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameLevels;
 
 [Serializable]
 public class GameState

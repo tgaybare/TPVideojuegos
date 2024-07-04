@@ -4,16 +4,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using static GameLevels;
 
 
 public class GameStateManager: MonoBehaviour
 {
-
+    [SerializeField] private bool _isLoadScreen = false;
     private static readonly string GAMESTATE_FILE_NAME = "gameState.json";
     private static string GAMESTATE_FILE_PATH;
 
 
-    private Levels? _currentLevel;
+    private Levels _currentLevel = Levels.LEVEL_1;
 
     #region SINGLETON
     public static GameStateManager instance;
@@ -24,7 +25,18 @@ public class GameStateManager: MonoBehaviour
         {
             instance = this;
             GAMESTATE_FILE_PATH = Path.Combine(Application.persistentDataPath, GAMESTATE_FILE_NAME);
-            TryLoadGameState();
+
+            if (_isLoadScreen) {
+                ClearGameState();
+                return;
+            }
+            
+            _currentLevel = CurrentLevel();
+            if(_currentLevel != Levels.LEVEL_1)
+            {
+                TryLoadGameState();
+            }
+            
         }
         else
         {
@@ -39,14 +51,14 @@ public class GameStateManager: MonoBehaviour
         float playerHealth = UIManager.instance.CurrentLife;
         List<UpgradeID> upgradeIDs = UpgradeManager.instance.GetAppliedUpgradeIDs();
 
-        Levels? level = CurrentLevel();
-        if(level != null && level.HasValue && updateCurrentLevel)
+        Levels level = CurrentLevel();
+        if(updateCurrentLevel && level < GameLevels.MAX_LEVEL)
         {
             Debug.Log($"Updating current level to {level + 1}...");
             level = level + 1;
             Debug.Log($"Result: {level}");
         }
-        GameState gameState = new GameState(playerHealth, upgradeIDs, level.Value);
+        GameState gameState = new GameState(playerHealth, upgradeIDs, level);
 
         string json = JsonUtility.ToJson(gameState, true);
 
@@ -70,11 +82,6 @@ public class GameStateManager: MonoBehaviour
             if (gameState == null)
             {
                 Debug.LogWarning($"Could not load game state from '{GAMESTATE_FILE_PATH}' [gameState is null]");
-                return;
-            }
-
-            // Nothing to restore
-            if (gameState.CurrentLevel == Levels.LEVEL_1){
                 return;
             }
 
@@ -121,28 +128,21 @@ public class GameStateManager: MonoBehaviour
         }
     }
 
-    public Levels? CurrentLevel()
+    public Levels CurrentLevel()
     {
-        if(_currentLevel == null || !_currentLevel.HasValue)
+        // If the current level is LEVEL_1, we need to check the saved game state
+        // to seif the player has already completed a level, because it is the default value
+        if(_currentLevel == Levels.LEVEL_1)
         {
             GameState gameState = GetGameState();
-            if(gameState == null) {
-                _currentLevel = Levels.LEVEL_1;
-                return _currentLevel;
-            }
 
-
-            Levels? level = gameState.CurrentLevel;
-            if(level == null || !level.HasValue)
+            if(gameState != null && gameState.CurrentLevel != Levels.LEVEL_1)
             {
-                _currentLevel = Levels.LEVEL_1;
-            }
-            else
-            {
-                _currentLevel = level;
+                _currentLevel = gameState.CurrentLevel;
             }
         }
 
+        Debug.Log($"Returning Current level: {_currentLevel}");
         return _currentLevel;
     }
 }

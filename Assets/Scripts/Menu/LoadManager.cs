@@ -1,9 +1,8 @@
-using Managers;
 using System.Collections;
 using System.Collections.Generic;
-using Menu;
 using UnityEngine;
 using UnityEngine.UI;
+using static GameLevels;
 
 public class LoadManager : MonoBehaviour
 {

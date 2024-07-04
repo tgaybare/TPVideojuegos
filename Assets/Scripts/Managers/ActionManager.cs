@@ -1,7 +1,7 @@
 ﻿using System;
 using Assets.Scripts.Upgrades;
-using Menu;
 using UnityEngine;
+using static GameLevels;
 
 namespace Managers
 {
