@@ -170,7 +170,7 @@ public class CharacterInputManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K)) // For testing purposes
         {
             Debug.Log("Saving game state...");
-            GameStateManager.instance.SaveGameState();
+            GameStateManager.instance.SaveGameState(false);
         }
 
         if (Input.GetKeyDown(KeyCode.L)) // For testing purposes

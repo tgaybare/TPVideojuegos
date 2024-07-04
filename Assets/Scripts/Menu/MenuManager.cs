@@ -1,23 +1,22 @@
 ﻿using Managers;
+using Menu;
 using UnityEngine;
 
-namespace Menu
+
+public class MenuManager : MonoBehaviour
 {
-    public class MenuManager : MonoBehaviour
+    public void PlayButton()
     {
-        public void PlayButton()
-        {
-            UnitySceneManager.instance.LoadLoadingScreen();
-        }
+        UnitySceneManager.instance.LoadLoadingScreen();
+    }
 
-        public void ExitButton()
-        {
-            Application.Quit();
-        }
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
 
-        public void BackToTitle()
-        {
-            UnitySceneManager.instance.LoadTitleScreen();
-        }
+    public void BackToTitle()
+    {
+        UnitySceneManager.instance.LoadTitleScreen();
     }
 }

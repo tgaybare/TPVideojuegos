@@ -4,62 +4,60 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Menu
+
+public class UnitySceneManager : MonoBehaviour
 {
-    public class UnitySceneManager : MonoBehaviour
+    #region SINGLETON
+    public static UnitySceneManager instance;
+
+    private void Awake()
     {
-        #region SINGLETON
-        public static UnitySceneManager instance;
-
-        private void Awake()
+        if (instance == null)
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
+            instance = this;
         }
-        #endregion SINGLETON
+    }
+    #endregion SINGLETON
 
-        public static string TITLE_SCREEN = "TitleScreen";
-        public static string LOADING_SCREEN = "LoadingScreen";
-        public static string GAME_OVER_SCREEN = "GameOverScreen";
-        public static string VICTORY_SCREEN = "VictoryScreen";
+    public static string TITLE_SCREEN = "TitleScreen";
+    public static string LOADING_SCREEN = "LoadingScreen";
+    public static string GAME_OVER_SCREEN = "GameOverScreen";
+    public static string VICTORY_SCREEN = "VictoryScreen";
 
-        private static Dictionary<Levels, string> _levelSceneNames = new Dictionary<Levels, string>
-        {
-            {Levels.LEVEL_1, "Level1"},
-            {Levels.LEVEL_2, "Level2"}
-        };
+    private static Dictionary<Levels, string> _levelSceneNames = new Dictionary<Levels, string>
+    {
+        {Levels.LEVEL_1, "Level1"},
+        {Levels.LEVEL_2, "Level2"}
+    };
         
-        public void LoadTitleScreen() => SceneManager.LoadScene(TITLE_SCREEN);
+    public void LoadTitleScreen() => SceneManager.LoadScene(TITLE_SCREEN);
         
-        public void LoadLoadingScreen() => SceneManager.LoadScene(LOADING_SCREEN);
+    public void LoadLoadingScreen() => SceneManager.LoadScene(LOADING_SCREEN);
 
-        public AsyncOperation LoadLevelAsync(Levels level) 
+    public AsyncOperation LoadLevelAsync(Levels level) 
+    {
+        if (!_levelSceneNames.ContainsKey(level))
+            throw new ArgumentException("Level not found in dictionary");
+
+        if(level == Levels.LEVEL_1){
+            Debug.Log("Loading level 1...");
+            GameStateManager.instance.ClearGameState();
+        } else
         {
-            if (!_levelSceneNames.ContainsKey(level))
-                throw new ArgumentException("Level not found in dictionary");
-
-            if(level == Levels.LEVEL_1){
-                Debug.Log("Loading level 1...");
-                GameStateManager.instance.ClearGameState();
-            } else
-            {
-                Debug.Log($"Loading other level: {level}...");
-                GameStateManager.instance.SaveGameState();
-            }
-
-            return SceneManager.LoadSceneAsync(_levelSceneNames[level]); 
+            Debug.Log($"Loading other level: {level}...");
+            GameStateManager.instance.SaveGameState();
         }
 
-        public void LoadGameOverScreen() => SceneManager.LoadScene(GAME_OVER_SCREEN);
+        return SceneManager.LoadSceneAsync(_levelSceneNames[level]); 
+    }
 
-        public void LoadVictoryScreen() => SceneManager.LoadScene(VICTORY_SCREEN);
+    public void LoadGameOverScreen() => SceneManager.LoadScene(GAME_OVER_SCREEN);
+
+    public void LoadVictoryScreen() => SceneManager.LoadScene(VICTORY_SCREEN);
         
-    }
+}
 
-    public enum Levels {
-        LEVEL_1,
-        LEVEL_2
-    }
+public enum Levels {
+    LEVEL_1 = 1,
+    LEVEL_2
 }
