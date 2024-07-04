@@ -41,6 +41,7 @@ public class RoomController : MonoBehaviour
     private Queue<RoomInfo> _loadRoomQueue = new();
     private bool _isLoadingRoom = false;
     private bool _finishedRoomsSetup = false;
+    private bool _checkedCompletion = false;
     
 
     [SerializeField] private Room _currentRoom;
@@ -81,9 +82,10 @@ public class RoomController : MonoBehaviour
         }
 
         // Check Level Completion
-        if(_currentRoom is BossRoom && _currentRoom.IsCleared())
-        {   
-            if(GameStateManager.instance.CurrentLevel() == GameLevels.MAX_LEVEL)
+        if(!_checkedCompletion && _currentRoom is BossRoom && _currentRoom.IsCleared())
+        {
+            _checkedCompletion = true;
+            if (GameStateManager.instance.CurrentLevel() == GameLevels.MAX_LEVEL)
             {
                 ActionManager.instance.ActionGameOver(true);
             }

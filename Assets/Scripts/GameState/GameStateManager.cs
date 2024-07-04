@@ -150,6 +150,6 @@ public class GameStateManager: MonoBehaviour
     private void OnBossDefeated()
     {
         SaveGameState();
-        UnitySceneManager.instance.LoadLevelAsync(_currentLevel + 1);
+        //UnitySceneManager.instance.LoadLevelAsync(_currentLevel + 1);
     }
 }
