@@ -38,7 +38,7 @@ public class GameStateManager: MonoBehaviour
                 TryLoadGameState();
             }
 
-            ActionManager.instance.OnBossDefeated += OnBossDefeated;
+            ActionManager.instance.OnLevelComplete += OnLevelComplete;
         }
         else
         {
@@ -147,9 +147,9 @@ public class GameStateManager: MonoBehaviour
         return _currentLevel;
     }
 
-    private void OnBossDefeated()
+    private void OnLevelComplete()
     {
         SaveGameState();
-        //UnitySceneManager.instance.LoadLevelAsync(_currentLevel + 1);
+        UnitySceneManager.instance.LoadLevelAsync(_currentLevel + 1);
     }
 }

@@ -64,6 +64,16 @@ namespace Managers
             }
         }
 
+        public event Action OnLevelComplete;
+
+        public void ActionLevelComplete()
+        {
+            if (OnLevelComplete != null)
+            {
+                OnLevelComplete();
+            }
+        }
+
         #endregion GAME_MANAGER_ACTIONS
         
         #region HUD_UI_ACTIONS

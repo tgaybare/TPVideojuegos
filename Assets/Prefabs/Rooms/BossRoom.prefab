@@ -7973,8 +7973,54 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5783190160540704376, guid: 20d671da9177756469a71463964c300d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1821180086476518512}
+    - targetCorrespondingSourceObject: {fileID: 5783190160540704376, guid: 20d671da9177756469a71463964c300d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 118650554530908747}
   m_SourcePrefab: {fileID: 100100000, guid: 20d671da9177756469a71463964c300d, type: 3}
+--- !u!1 &2014422586317459969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5783190160540704376, guid: 20d671da9177756469a71463964c300d, type: 3}
+  m_PrefabInstance: {fileID: 5455739743921359993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1821180086476518512
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014422586317459969}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 7.8160305
+  m_Direction: 1
+  m_Center: {x: -0.000017943063, y: 3.2839177, z: 0.0000072546195}
+--- !u!114 &118650554530908747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014422586317459969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc33b40cc5713e4aaea8562dc5ba5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2014422586317753889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5783190160541188696, guid: 20d671da9177756469a71463964c300d, type: 3}
