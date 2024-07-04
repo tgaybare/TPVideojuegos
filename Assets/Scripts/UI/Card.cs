@@ -69,8 +69,6 @@ namespace Assets.Scripts.UI
             }
 
             ActionManager.instance.ActionPlayerPickUpgrade(_upgradeID);
-            //UpgradeManager.instance.ApplyUpgrade(_upgradeID);
-            //UIManager.instance.HideUpgradePicker();
         }
 
         public void SetUpgradeInfo(IAppliableUpgrade upgrade)
@@ -88,8 +86,6 @@ namespace Assets.Scripts.UI
             _description.text = upgrade.GetDescription();
             _upgradeID = upgrade.GetUpgradeID();
             _image.sprite = upgrade.GetSprite();
-
-            Debug.Log($"Setting upgrade info for {_title.text} - {_description.text} [{_upgradeID}]");
         }
 
 

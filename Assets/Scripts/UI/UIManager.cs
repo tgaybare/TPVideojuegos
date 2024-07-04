@@ -49,6 +49,8 @@ namespace Menu
             ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
             ActionManager.instance.OnCharacterMaxLifeChange += OnCharacterMaxLifeChange;
             ActionManager.instance.OnPlayerPickUpgrade += AddUpgradeToHolder;
+            ActionManager.instance.OnPlayerEnterItemRoom += OnPlayerEnterItemRoom;
+            ActionManager.instance.OnBossDefeated += ShowUpgradePicker;
         }
 
         #region GAMEOVER
@@ -117,8 +119,6 @@ namespace Menu
         private void GenerateUpgradeCards() {
             IAppliableUpgrade[] randomUpgrades = UpgradeManager.instance.GetRandomPickableUpgrades();
 
-
-
             for (int i = 0; i < _cards.Length; i++)
             {
                 _cards[i].SetUpgradeInfo(randomUpgrades[i]);
@@ -138,6 +138,14 @@ namespace Menu
             foreach (UpgradeID upgradeID in upgradeIDs)
             {
                 AddUpgradeToHolder(upgradeID);
+            }
+        }
+
+        private void OnPlayerEnterItemRoom(bool alreadyVisied)
+        {
+            if (!alreadyVisied)
+            {
+                ShowUpgradePicker();
             }
         }
 

@@ -40,14 +40,7 @@ public class UnitySceneManager : MonoBehaviour
         if (!_levelSceneNames.ContainsKey(level))
             throw new ArgumentException("Level not found in dictionary");
 
-        if(level == Levels.LEVEL_1){
-            Debug.Log("Loading level 1...");
-            GameStateManager.instance.ClearGameState();
-        } else
-        {
-            Debug.Log($"Loading other level: {level}...");
-            GameStateManager.instance.SaveGameState();
-        }
+        Debug.Log($"[LoadLevelAsync] Loading level {level}...");
 
         return SceneManager.LoadSceneAsync(_levelSceneNames[level]); 
     }

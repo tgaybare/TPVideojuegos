@@ -67,7 +67,6 @@ public class RoomController : MonoBehaviour
         ActionManager.instance.OnEnemyKilled += OnEnemyKilled;
         ActionManager.instance.OnPlayerEnterRoom += OnPlayerEnterRoom;
         ActionManager.instance.OnPlayerExitRoom += OnPlayerExitRoom;
-        ActionManager.instance.OnPlayerEnterItemRoom += OnPlayerEnterItemRoom;
     }
 
     private void Update()
@@ -83,8 +82,15 @@ public class RoomController : MonoBehaviour
 
         // Check Level Completion
         if(_currentRoom is BossRoom && _currentRoom.IsCleared())
-        {
-            ActionManager.instance.ActionGameOver(true);
+        {   
+            if(GameStateManager.instance.CurrentLevel() == GameLevels.MAX_LEVEL)
+            {
+                ActionManager.instance.ActionGameOver(true);
+            }
+            else
+            {
+                ActionManager.instance.ActionBossDefeated();
+            }
         }
     }
 
@@ -197,13 +203,6 @@ public class RoomController : MonoBehaviour
         UpdateCurrentRoomDoors();
         room.SetVisible();
         room.UnpauseEnemies();
-    }
-
-    private void OnPlayerEnterItemRoom(bool alreadyVisied) {
-        if(!alreadyVisied)
-        {
-            UIManager.instance.ShowUpgradePicker();
-        }
     }
 
     private void OnPlayerExitRoom(Room room)

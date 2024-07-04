@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Upgrades;
+using Managers;
 using Menu;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,7 +37,8 @@ public class GameStateManager: MonoBehaviour
             {
                 TryLoadGameState();
             }
-            
+
+            ActionManager.instance.OnBossDefeated += OnBossDefeated;
         }
         else
         {
@@ -44,7 +46,6 @@ public class GameStateManager: MonoBehaviour
         }
     }
     #endregion
-
 
     public void SaveGameState(bool updateCurrentLevel = true)
     {
@@ -144,5 +145,11 @@ public class GameStateManager: MonoBehaviour
 
         Debug.Log($"Returning Current level: {_currentLevel}");
         return _currentLevel;
+    }
+
+    private void OnBossDefeated()
+    {
+        SaveGameState();
+        UnitySceneManager.instance.LoadLevelAsync(_currentLevel + 1);
     }
 }

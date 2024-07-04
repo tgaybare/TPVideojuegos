@@ -33,8 +33,7 @@ namespace Managers
                 if (isVictory)
                 {
                     // TODO: Do not hardcode
-                    UnitySceneManager.instance.LoadLevelAsync(Levels.LEVEL_2);
-                    //Invoke(nameof(LoadVictoryScreen),5f);
+                    Invoke(nameof(LoadVictoryScreen),5f);
                 }
                 else
                 {
@@ -54,6 +53,16 @@ namespace Managers
         private void LoadGameOverScreen() => UnitySceneManager.instance.LoadGameOverScreen();
 
         private void LoadVictoryScreen() => UnitySceneManager.instance.LoadVictoryScreen();
+
+        public event Action OnBossDefeated;
+
+        public void ActionBossDefeated()
+        {
+            if (OnBossDefeated != null)
+            {
+                OnBossDefeated();
+            }
+        }
 
         #endregion GAME_MANAGER_ACTIONS
         
@@ -141,6 +150,7 @@ namespace Managers
             }
         }
         #endregion
+
 
     }
 }
