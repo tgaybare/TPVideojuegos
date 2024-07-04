@@ -10,13 +10,29 @@ public class LoadManager : MonoBehaviour
     [SerializeField] private Image _progressFill;
     [SerializeField] private Text _progressText;
 
+    /*#region SINGLETON
+    public static LoadManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+    #endregion*/
+
     private void Start()
     {
         StartCoroutine(LoadWithProgressBar());
     }
 
     IEnumerator LoadWithProgressBar() {
-        AsyncOperation operation = UnitySceneManager.instance.LoadGameScreenAsync();
+        AsyncOperation operation = UnitySceneManager.instance.LoadLevelAsync(Levels.LEVEL_1);
         operation.allowSceneActivation = false;
 
         float progress = 0;

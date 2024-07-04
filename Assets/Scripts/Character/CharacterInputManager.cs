@@ -170,19 +170,19 @@ public class CharacterInputManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K)) // For testing purposes
         {
             Debug.Log("Saving game state...");
-            GameStateManager.Instance.SaveGameState();
+            GameStateManager.instance.SaveGameState();
         }
 
         if (Input.GetKeyDown(KeyCode.L)) // For testing purposes
         {
             Debug.Log("Loading game state...");
-            GameStateManager.Instance.LoadGameState();
+            GameStateManager.instance.TryLoadGameState();
         }
 
         if (Input.GetKeyDown(KeyCode.C)) // For testing purposes
         {
             Debug.Log("Clearing game state...");
-            GameStateManager.Instance.ClearGameState();
+            GameStateManager.instance.ClearGameState();
         }
 
     }

@@ -18,7 +18,7 @@ public class UpgradeManager : MonoBehaviour
     };
 
     private Dictionary<UpgradeID, IAppliableUpgrade> _appliedUpgrades = new();
-    private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new();
+    private Dictionary<UpgradeID, IAppliableUpgrade> _availableUpgrades = new Dictionary<UpgradeID, IAppliableUpgrade>(IDToUpgradeDict);
 
     #region SINGLETON
     public static UpgradeManager instance;
@@ -28,6 +28,7 @@ public class UpgradeManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            initializeUpgrades();
         } else
         {
             Destroy(this);
@@ -40,13 +41,15 @@ public class UpgradeManager : MonoBehaviour
 
         ActionManager.instance.OnPlayerPickUpgrade += ApplyUpgrade;
 
+        
+    }
+
+    private void initializeUpgrades() {
         // Initialize all upgrades
         foreach (IAppliableUpgrade upgrade in IDToUpgradeDict.Values)
         {
             upgrade.Initialize();
         }
-
-        _availableUpgrades = new Dictionary<UpgradeID, IAppliableUpgrade>(IDToUpgradeDict);
     }
 
     public void ApplyUpgrade(UpgradeID upgradeID)

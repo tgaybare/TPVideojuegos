@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class UpgradeHolder : MonoBehaviour
 {
-    [SerializeField] private List<UpgradeIcon> _upgradeIcons = new();
-    FixedSizedQueue<IAppliableUpgrade> _shownUpgrades;
+    private const int MAX_DISPLAYED_UPGRADES = 7;
 
-    private int _maxUpgradeCount => _upgradeIcons.Count;
+    [SerializeField] private List<UpgradeIcon> _upgradeIcons = new();
+    FixedSizedQueue<IAppliableUpgrade> _shownUpgrades = new(MAX_DISPLAYED_UPGRADES);
 
     #region SINGLETON
     public static UpgradeHolder instance;
@@ -29,8 +29,6 @@ public class UpgradeHolder : MonoBehaviour
 
     void Start()
     {
-        _shownUpgrades = new(_maxUpgradeCount);
-
         foreach (UpgradeIcon icon in _upgradeIcons)
         {
             icon.gameObject.SetActive(false);
@@ -41,7 +39,7 @@ public class UpgradeHolder : MonoBehaviour
     {
         _shownUpgrades.Enqueue(upgrade);
 
-        if(_shownUpgrades.Count == _maxUpgradeCount)
+        if(_shownUpgrades.Count == MAX_DISPLAYED_UPGRADES)
         {
             if (!_upgradeIcons[0].gameObject.activeSelf) 
             { 
@@ -51,7 +49,7 @@ public class UpgradeHolder : MonoBehaviour
             shiftIcons();
         } else 
         {
-            UpgradeIcon nextUpgradeIcon = _upgradeIcons[_maxUpgradeCount - _shownUpgrades.Count];
+            UpgradeIcon nextUpgradeIcon = _upgradeIcons[MAX_DISPLAYED_UPGRADES - _shownUpgrades.Count];
             nextUpgradeIcon.gameObject.SetActive(true);
             nextUpgradeIcon.UpdateUpgrade(upgrade.GetUpgradeID(), upgrade.GetSprite());
         }
@@ -62,9 +60,9 @@ public class UpgradeHolder : MonoBehaviour
     private void shiftIcons() {
         IAppliableUpgrade[] toShow = _shownUpgrades.ToArray();
         
-        for (int i = 0; i < _maxUpgradeCount; i++)
+        for (int i = 0; i < MAX_DISPLAYED_UPGRADES; i++)
         {
-            _upgradeIcons[_maxUpgradeCount - i - 1].UpdateUpgrade(toShow[i].GetUpgradeID(), toShow[i].GetSprite());
+            _upgradeIcons[MAX_DISPLAYED_UPGRADES - i - 1].UpdateUpgrade(toShow[i].GetUpgradeID(), toShow[i].GetSprite());
         }
     }
         

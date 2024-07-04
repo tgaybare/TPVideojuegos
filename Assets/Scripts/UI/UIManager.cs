@@ -31,6 +31,10 @@ namespace Menu
             if (instance == null)
             {
                 instance = this;
+
+                // Get all cards in the scene, should be 3
+                _cards = _upgradePicker.transform.GetComponentsInChildren<Card>();
+                Debug.Log("Cards: " + _cards.Length);
             }
             else
             {
@@ -45,13 +49,8 @@ namespace Menu
             ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
             ActionManager.instance.OnCharacterMaxLifeChange += OnCharacterMaxLifeChange;
             ActionManager.instance.OnPlayerPickUpgrade += AddUpgradeToHolder;
-
-            // Get all cards in the scene, should be 3
-            _cards = _upgradePicker.transform.GetComponentsInChildren<Card>();
-            Debug.Log("Cards: " + _cards.Length);
         }
 
-        
         #region GAMEOVER
 
         private void OnGameOver(bool isVictory)

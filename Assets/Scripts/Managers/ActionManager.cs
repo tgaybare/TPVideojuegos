@@ -32,7 +32,9 @@ namespace Managers
 
                 if (isVictory)
                 {
-                    Invoke(nameof(LoadVictoryScreen),5f);
+                    // TODO: Do not hardcode
+                    UnitySceneManager.instance.LoadLevelAsync(Levels.LEVEL_2);
+                    //Invoke(nameof(LoadVictoryScreen),5f);
                 }
                 else
                 {

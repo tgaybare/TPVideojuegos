@@ -6,26 +6,27 @@ using System.IO;
 using UnityEngine;
 
 
-public class GameStateManager
+public class GameStateManager: MonoBehaviour
 {
 
     private static readonly string GAMESTATE_FILE_NAME = "gameState.json";
-    private static readonly string GAMESTATE_FILE_PATH = Path.Combine(Application.persistentDataPath, GAMESTATE_FILE_NAME);
+    private static string GAMESTATE_FILE_PATH;
 
     #region SINGLETON
-    public static GameStateManager Instance => GetInstance();
-    private static GameStateManager _instance;
+    public static GameStateManager instance;
 
-    private GameStateManager() { }
-
-    private static GameStateManager GetInstance()
+    private void Awake()
     {
-        if (_instance == null)
+        if (instance == null)
         {
-            _instance = new GameStateManager();
+            instance = this;
+            GAMESTATE_FILE_PATH = Path.Combine(Application.persistentDataPath, GAMESTATE_FILE_NAME);
+            TryLoadGameState();
         }
-
-        return _instance;
+        else
+        {
+            Destroy(this);
+        }
     }
     #endregion
 
@@ -43,25 +44,40 @@ public class GameStateManager
         Debug.Log("Game state saved to " + GAMESTATE_FILE_PATH);
     }
 
-    public void LoadGameState()
+    public void TryLoadGameState()
     {
 
         if (File.Exists(GAMESTATE_FILE_PATH))
         {
             string json = File.ReadAllText(GAMESTATE_FILE_PATH);
+            if(json == null)
+            {
+                Debug.LogWarning($"Could not load game state from '{GAMESTATE_FILE_PATH}' [JSON is null]");
+                return;
+            }
+
             GameState gameState = JsonUtility.FromJson<GameState>(json);
+            if (gameState == null)
+            {
+                Debug.LogWarning($"Could not load game state from '{GAMESTATE_FILE_PATH}' [gameState is null]");
+                return;
+            }
 
-            // TODO: Restore game state
-            //UIManager.instance.CurrentLife = gameState.playerHealth;
-            UpgradeManager.instance.ApplyUpgrades(gameState.PlayerUpgrades);
-            UIManager.instance.AddUpgradesToHolder(gameState.PlayerUpgrades);
-
+            restoreGameState(gameState);
             Debug.Log("Game state loaded from " + GAMESTATE_FILE_PATH);
         }
         else
         {
             Debug.Log("No saved game state found at " + GAMESTATE_FILE_PATH);
         }
+    }
+
+    private void restoreGameState(GameState gameState)
+    {
+        // TODO: Restore game state
+        //UIManager.instance.CurrentLife = gameState.playerHealth;
+        UpgradeManager.instance.ApplyUpgrades(gameState.PlayerUpgrades);
+        UIManager.instance.AddUpgradesToHolder(gameState.PlayerUpgrades);
     }
 
     public void ClearGameState()
@@ -74,6 +90,19 @@ public class GameStateManager
         else
         {
             Debug.LogWarning("No game state file found at " + GAMESTATE_FILE_PATH);
+        }
+    }
+
+    public GameState GetGameState()
+    {
+        if (File.Exists(GAMESTATE_FILE_PATH))
+        {
+            string json = File.ReadAllText(GAMESTATE_FILE_PATH);
+            return JsonUtility.FromJson<GameState>(json);
+        }
+        else
+        {
+            return null;
         }
     }
 }
