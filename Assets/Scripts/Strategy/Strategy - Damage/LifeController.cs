@@ -24,7 +24,7 @@ namespace Strategy.Strategy___Weapon
         
         private MainCharacterAnimController _animatorController;
 
-        private void Start()
+        private void Awake()
         {
             life = _stats.MaxLife;
             _maxLifeWithUpgrades = _stats.MaxLife;
@@ -35,6 +35,11 @@ namespace Strategy.Strategy___Weapon
         public void TakeDamage(int damage)
         {
             life -= damage;
+            if(life < 0)
+            {
+                life = 0;
+            }
+
             if(gameObject.CompareTag("Player"))
                 ActionManager.instance.CharacterLifeChange(life, _maxLifeWithUpgrades);
           
@@ -67,6 +72,13 @@ namespace Strategy.Strategy___Weapon
         private void Die() {
             ActionManager.instance.ActionGameOver(false);
             _animatorController.Death();
+        }
+
+        public void UpdateLife(int newLife)
+        {
+            life = newLife;
+            if(gameObject.CompareTag("Player"))
+                ActionManager.instance.CharacterLifeChange(life, _maxLifeWithUpgrades);
         }
 
         private void KillEnemy(GameObject enemy)

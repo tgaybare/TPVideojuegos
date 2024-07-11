@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.Upgrades;
 using Managers;
 using Menu;
+using Strategy.Strategy___Weapon;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -25,20 +27,6 @@ public class GameStateManager: MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            GAMESTATE_FILE_PATH = Path.Combine(Application.persistentDataPath, GAMESTATE_FILE_NAME);
-
-            if (_isLoadScreen) {
-                ClearGameState();
-                return;
-            }
-            
-            _currentLevel = CurrentLevel();
-            if(_currentLevel != Levels.LEVEL_1)
-            {
-                TryLoadGameState();
-            }
-
-            ActionManager.instance.OnLevelComplete += OnLevelComplete;
         }
         else
         {
@@ -47,18 +35,41 @@ public class GameStateManager: MonoBehaviour
     }
     #endregion
 
+    private void Start()
+    {
+        GAMESTATE_FILE_PATH = Path.Combine(Application.persistentDataPath, GAMESTATE_FILE_NAME);
+
+        if (_isLoadScreen)
+        {
+            ClearGameState();
+            return;
+        }
+
+        _currentLevel = CurrentLevel();
+        if (_currentLevel != Levels.LEVEL_1)
+        {
+            TryLoadGameState();
+        }
+
+        ActionManager.instance.OnLevelComplete += OnLevelComplete;
+    }
+
     public void SaveGameState(bool updateCurrentLevel = true)
     {
-        float playerHealth = UIManager.instance.CurrentLife;
+        //int playerHealth = (int) UIManager.instance.CurrentLife;
+        LifeController playerLifeController = GameObject.FindGameObjectWithTag("Player").GetComponent<LifeController>();
+        int playerHealth = (int)playerLifeController.Life;
+
+
+
         List<UpgradeID> upgradeIDs = UpgradeManager.instance.GetAppliedUpgradeIDs();
 
         Levels level = CurrentLevel();
         if(updateCurrentLevel && level < GameLevels.MAX_LEVEL)
         {
-            Debug.Log($"Updating current level to {level + 1}...");
-            level = level + 1;
-            Debug.Log($"Result: {level}");
+            level++;
         }
+
         GameState gameState = new GameState(playerHealth, upgradeIDs, level);
 
         string json = JsonUtility.ToJson(gameState, true);
@@ -97,10 +108,16 @@ public class GameStateManager: MonoBehaviour
 
     private void restoreGameState(GameState gameState)
     {
-        // TODO: Restore game state
-        //UIManager.instance.CurrentLife = gameState.playerHealth;
+        // Restore Upgrades
         UpgradeManager.instance.ApplyUpgrades(gameState.PlayerUpgrades);
         UIManager.instance.AddUpgradesToHolder(gameState.PlayerUpgrades);
+
+        // Restore Player Health
+        LifeController playerLifeController = GameObject.FindGameObjectWithTag("Player").GetComponent<LifeController>();
+        if(playerLifeController)
+        {
+            playerLifeController.UpdateLife(gameState.PlayerHealth);
+        }
     }
 
     public void ClearGameState()
@@ -142,8 +159,6 @@ public class GameStateManager: MonoBehaviour
                 _currentLevel = gameState.CurrentLevel;
             }
         }
-
-        Debug.Log($"Returning Current level: {_currentLevel}");
         return _currentLevel;
     }
 

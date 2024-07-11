@@ -34,7 +34,6 @@ namespace Menu
 
                 // Get all cards in the scene, should be 3
                 _cards = _upgradePicker.transform.GetComponentsInChildren<Card>();
-                Debug.Log("Cards: " + _cards.Length);
             }
             else
             {
@@ -46,11 +45,12 @@ namespace Menu
         private void Start()
         {
             ActionManager.instance.OnGameOver += OnGameOver;
-            ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
             ActionManager.instance.OnCharacterMaxLifeChange += OnCharacterMaxLifeChange;
             ActionManager.instance.OnPlayerPickUpgrade += AddUpgradeToHolder;
             ActionManager.instance.OnPlayerEnterItemRoom += OnPlayerEnterItemRoom;
             ActionManager.instance.OnBossDefeated += ShowUpgradePicker;
+            ActionManager.instance.OnCharacterLifeChange += OnCharacterLifeChange;
+
         }
 
         #region GAMEOVER

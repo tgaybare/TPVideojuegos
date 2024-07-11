@@ -143,13 +143,11 @@ public class CharacterInputManager : MonoBehaviour
         //Attacks
         if (Input.GetKeyDown(_attack) && _shotCooldownTimer >= shotCooldown && _currentAttackStrategy == _distanceWeapon)
         {
-            Debug.Log("Pressed Mouse 0");
             EventQueueManager.instance.AddEventToQueue(_cmdAttack);
             _shotCooldownTimer = 0;
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Pressed Mouse 1");
             EventQueueManager.instance.AddEventToQueue(_cmdSecondAttack);
         }
         else

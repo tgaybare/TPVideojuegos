@@ -27,14 +27,6 @@ public class UpgradeHolder : MonoBehaviour
     }
     #endregion SINGLETON
 
-    void Start()
-    {
-        /*foreach (UpgradeIcon icon in _upgradeIcons)
-        {
-            icon.gameObject.SetActive(false);
-        }*/
-    }
-
     public void AddUpgrade(IAppliableUpgrade upgrade)
     {
         _shownUpgrades.Enqueue(upgrade);
