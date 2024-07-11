@@ -29,10 +29,10 @@ public class UpgradeHolder : MonoBehaviour
 
     void Start()
     {
-        foreach (UpgradeIcon icon in _upgradeIcons)
+        /*foreach (UpgradeIcon icon in _upgradeIcons)
         {
             icon.gameObject.SetActive(false);
-        }
+        }*/
     }
 
     public void AddUpgrade(IAppliableUpgrade upgrade)
