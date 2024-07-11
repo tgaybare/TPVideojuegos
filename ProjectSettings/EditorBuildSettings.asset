@@ -30,11 +30,23 @@ EditorBuildSettings:
     path: Assets/Scenes/DungeonRooms/Room3.unity
     guid: cbe1fb146489d6340add476d4be60405
   - enabled: 1
+    path: Assets/Scenes/DungeonRooms/Room4.unity
+    guid: 2cad1ad34e356b7429c67da2976a1a76
+  - enabled: 1
+    path: Assets/Scenes/DungeonRooms/Room5.unity
+    guid: 488485ad492242b4880e287a406f1daf
+  - enabled: 1
+    path: Assets/Scenes/DungeonRooms/Room6.unity
+    guid: cafe7da405a0e8b488a8fd69555c4085
+  - enabled: 1
     path: Assets/Scenes/DungeonRooms/ItemRoom.unity
     guid: b8ea9c5c87e83b644aa07f6c7fe4a1b8
   - enabled: 1
     path: Assets/Scenes/DungeonRooms/BossRoom.unity
     guid: acd0498ee0e04bc468ae58874132bf66
+  - enabled: 1
+    path: Assets/Scenes/DungeonRooms/FinalBossRoom.unity
+    guid: 6335221aaf39710418f0a2f64b73a444
   - enabled: 1
     path: Assets/Scenes/Menu/GameOverScreen.unity
     guid: d96c89af1bad343469250db21ca3275e
