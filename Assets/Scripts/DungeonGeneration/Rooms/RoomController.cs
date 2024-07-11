@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static GameLevels;
 
 public class RoomInfo
 {   
@@ -28,15 +29,25 @@ public class RoomInfo
 
 public class RoomController : MonoBehaviour
 {
-    public static readonly List<String> LevelNames = new() { "Level 1" };
-    public static readonly List<String> RoomNames = new() { "Room1", "Room2", "Room3" };
-    public const string BOSS_ROOM_NAME = "BossRoom";
+    public static readonly Dictionary<Levels, List<string>> RoomNamesByLevel = new()
+    {
+        { Levels.LEVEL_1, new List<string> { "Room1", "Room2", "Room3" } },
+        { Levels.LEVEL_2, new List<string> { "Room4", "Room5", "Room6" } }
+    };
+    public static readonly Dictionary<Levels, string> BossRoomNamesByLevel = new() 
+    { 
+        { Levels.LEVEL_1, "BossRoom" },
+        { Levels.LEVEL_2, "FinalBossRoom" } 
+    };
+    public static readonly Dictionary<Levels, string> StartRoomNamesByLevel = new()
+    {
+        { Levels.LEVEL_1, "StartRoom" },
+        { Levels.LEVEL_2, "StartRoom2" }
+    };
     public const string ITEM_ROOM_NAME = "ItemRoom";
-    public const string START_ROOM_NAME = "StartRoom";
 
-    
 
-    private string _currentWorldName = LevelNames[0];
+    private Levels _currentLevel;
     private RoomInfo _currentLoadRoomData;
     private Queue<RoomInfo> _loadRoomQueue = new();
     private bool _isLoadingRoom = false;
@@ -68,6 +79,8 @@ public class RoomController : MonoBehaviour
         ActionManager.instance.OnEnemyKilled += OnEnemyKilled;
         ActionManager.instance.OnPlayerEnterRoom += OnPlayerEnterRoom;
         ActionManager.instance.OnPlayerExitRoom += OnPlayerExitRoom;
+
+        _currentLevel = GameStateManager.instance.CurrentLevel();
     }
 
     private void Update()
@@ -145,7 +158,7 @@ public class RoomController : MonoBehaviour
 
         room.X = _currentLoadRoomData.X;
         room.Z = _currentLoadRoomData.Z;
-        room.name = $"{_currentWorldName} : {_currentLoadRoomData.Name} ({room.X};{room.Z})";
+        room.name = $"{LevelNames[_currentLevel]} : {_currentLoadRoomData.Name} ({room.X};{room.Z})";
         room.transform.parent = transform;
 
         // If this is the first room, set it as the current room

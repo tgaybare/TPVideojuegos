@@ -27,6 +27,7 @@ public class GameStateManager: MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            OnAwake();
         }
         else
         {
@@ -35,7 +36,7 @@ public class GameStateManager: MonoBehaviour
     }
     #endregion
 
-    private void Start()
+    private void OnAwake()
     {
         GAMESTATE_FILE_PATH = Path.Combine(Application.persistentDataPath, GAMESTATE_FILE_NAME);
 
@@ -46,6 +47,13 @@ public class GameStateManager: MonoBehaviour
         }
 
         _currentLevel = CurrentLevel();
+    }
+    
+
+    private void Start()
+    {
+        if (_isLoadScreen) return;
+
         if (_currentLevel != Levels.LEVEL_1)
         {
             TryLoadGameState();
