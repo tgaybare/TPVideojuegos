@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public class FixedSizedQueue<T> : Queue<T>
 {
@@ -20,6 +17,6 @@ public class FixedSizedQueue<T> : Queue<T>
         {
             base.Dequeue();
         }
-        
+
     }
 }

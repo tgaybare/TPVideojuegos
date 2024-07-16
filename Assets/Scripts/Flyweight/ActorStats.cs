@@ -2,11 +2,12 @@
 
 [CreateAssetMenu(fileName = "ActorStats", menuName = "Stats/Actors/Player", order = 0)]
 
-public class ActorStats: ScriptableObject
+public class ActorStats : ScriptableObject
 {
     [SerializeField] private ActorStatValues _stats;
 
-    public int MaxLife { 
+    public int MaxLife
+    {
         get => _stats.MaxLife;
         set => _stats.MaxLife = value;
     }

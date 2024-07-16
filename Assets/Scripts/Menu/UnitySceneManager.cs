@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameLevels;
@@ -30,22 +29,22 @@ public class UnitySceneManager : MonoBehaviour
         {Levels.LEVEL_1, "Level1"},
         {Levels.LEVEL_2, "Level2"}
     };
-        
+
     public void LoadTitleScreen() => SceneManager.LoadScene(TITLE_SCREEN);
-        
+
     public void LoadLoadingScreen() => SceneManager.LoadScene(LOADING_SCREEN);
 
-    public AsyncOperation LoadLevelAsync(Levels level) 
+    public AsyncOperation LoadLevelAsync(Levels level)
     {
         if (!_levelSceneNames.ContainsKey(level))
             throw new ArgumentException("Level not found in dictionary");
 
-        return SceneManager.LoadSceneAsync(_levelSceneNames[level]); 
+        return SceneManager.LoadSceneAsync(_levelSceneNames[level]);
     }
 
     public void LoadGameOverScreen() => SceneManager.LoadScene(GAME_OVER_SCREEN);
 
     public void LoadVictoryScreen() => SceneManager.LoadScene(VICTORY_SCREEN);
-        
+
 }
 

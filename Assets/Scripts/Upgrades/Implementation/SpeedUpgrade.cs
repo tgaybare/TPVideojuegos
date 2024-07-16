@@ -1,6 +1,4 @@
-﻿using Strategy.Strategy___Weapon;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Upgrades
 {
@@ -65,6 +63,6 @@ namespace Assets.Scripts.Upgrades
             return _speedUpgradeSprite;
         }
 
-       
+
     }
 }

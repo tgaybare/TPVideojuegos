@@ -7,7 +7,7 @@ namespace Strategy.Strategy___Movement
         void Move(Vector3 direction);
 
         void RotateTowards(Ray ray);
-        
+
         void Dodge(int duration);
     }
 }

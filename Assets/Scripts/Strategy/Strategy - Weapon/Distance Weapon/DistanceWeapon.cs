@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class DistanceWeapon : MonoBehaviour, IDistanceWeapon
@@ -12,7 +10,7 @@ public abstract class DistanceWeapon : MonoBehaviour, IDistanceWeapon
     [SerializeField] private GameObject _explosiveProjectilePrefab;
 
     public int ProjectilesPerAttack { get; set; } = 1;
-    
+
     public bool ExplosiveShot { get; set; } = false;
     public float ProjectileDelay { get; } = 0.2f;
     #endregion
@@ -26,8 +24,8 @@ public abstract class DistanceWeapon : MonoBehaviour, IDistanceWeapon
 
     #region I_DISTANCE_WEAPON_PROPERTIES
     public virtual void Attack() => Instantiate(
-                                        _projectilePrefab, 
-                                        transform.position, 
+                                        _projectilePrefab,
+                                        transform.position,
                                         transform.rotation);
 
     public virtual void Reload() => _currentProjectileCount = _maxProjectileCount;

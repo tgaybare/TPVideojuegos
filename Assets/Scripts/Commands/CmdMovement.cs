@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Commands
 {
-    public class CmdMovement: ICommand
+    public class CmdMovement : ICommand
     {
-        
+
         private Vector3 _direction;
         private IMoveable _moveable;
-        
+
         public CmdMovement(Vector3 direction, IMoveable moveable)
         {
             _moveable = moveable;

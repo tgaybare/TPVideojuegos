@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 namespace Assets.Scripts.Utils
 {
@@ -17,7 +15,7 @@ namespace Assets.Scripts.Utils
                 _lastAdded = item;
             }
             return added;
-        }   
-       
+        }
+
     }
 }

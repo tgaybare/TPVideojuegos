@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using Commands;
+﻿using Commands;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EventQueueManager : MonoBehaviour
 {
     public static EventQueueManager instance;
-    
+
     private Queue<ICommand> _eventQueue = new Queue<ICommand>();
-    
+
     private void Awake()
     {
         if (instance == null)
@@ -19,7 +19,7 @@ public class EventQueueManager : MonoBehaviour
             Destroy(this);
         }
     }
-    
+
     private void Update()
     {
         if (_eventQueue.Count > 0)

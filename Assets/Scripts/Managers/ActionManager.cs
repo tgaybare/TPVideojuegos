@@ -1,7 +1,6 @@
-﻿using System;
-using Assets.Scripts.Upgrades;
+﻿using Assets.Scripts.Upgrades;
+using System;
 using UnityEngine;
-using static GameLevels;
 
 namespace Managers
 {
@@ -10,7 +9,7 @@ namespace Managers
 
         #region SINGLETON
         public static ActionManager instance;
-        
+
         private void Awake()
         {
             if (instance == null)
@@ -21,7 +20,7 @@ namespace Managers
         #endregion
 
         #region GAME_MANAGER_ACTIONS
-        
+
         public event Action<bool> OnGameOver;
 
         public void ActionGameOver(bool isVictory)
@@ -33,19 +32,19 @@ namespace Managers
                 if (isVictory)
                 {
                     // TODO: Do not hardcode
-                    Invoke(nameof(LoadVictoryScreen),5f);
+                    Invoke(nameof(LoadVictoryScreen), 5f);
                 }
                 else
                 {
-                    Invoke(nameof(LoadGameOverScreen),5f);
+                    Invoke(nameof(LoadGameOverScreen), 5f);
                 }
             }
         }
-        
+
         public event Action<bool> OnGameStart;
         public void ActionGameStart()
         {
-          throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void LoadTitleScreen() => UnitySceneManager.instance.LoadTitleScreen();
@@ -75,12 +74,12 @@ namespace Managers
         }
 
         #endregion GAME_MANAGER_ACTIONS
-        
+
         #region HUD_UI_ACTIONS
 
-        public event Action<float,float> OnCharacterLifeChange;
+        public event Action<float, float> OnCharacterLifeChange;
         // public event Action<int, int> OnWeaponChange;
-        
+
         public void CharacterLifeChange(float currentLife, float maxLife)
         {
             if (OnCharacterLifeChange != null)
@@ -89,7 +88,7 @@ namespace Managers
             }
         }
 
-        public event Action<float,float> OnCharacterMaxLifeChange;
+        public event Action<float, float> OnCharacterMaxLifeChange;
 
         public void CharacterMaxLifeChange(float oldMaxLife, float newMaxLife)
         {
@@ -99,7 +98,7 @@ namespace Managers
             }
         }
 
-        
+
         public void WeaponChange(int currentAmmo, int maxAmmo)
         {
             // if (OnWeaponChange != null)
@@ -108,7 +107,7 @@ namespace Managers
             // }
             throw new NotImplementedException();
         }
-         
+
         #endregion
 
         #region GAME_ACTIONS

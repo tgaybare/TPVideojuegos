@@ -1,14 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.Upgrades;
 using Commands;
 using Menu;
 using Strategy.Strategy___Movement;
 using Strategy.Strategy___Weapon;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class CharacterInputManager : MonoBehaviour
 {
@@ -33,7 +27,7 @@ public class CharacterInputManager : MonoBehaviour
     private KeyCode _chooseMelee = KeyCode.Alpha1;
     private KeyCode _chooseDistance = KeyCode.Alpha2;
     private bool _isMelee;
-    
+
     private CmdRotateTowardsMouse _cmdRotateTowardsMouse;
     private CmdMovement _cmdMoveForward;
     private CmdMovement _cmdMoveBackward;
@@ -50,8 +44,8 @@ public class CharacterInputManager : MonoBehaviour
     [SerializeField] private int dodgeDuration = 200; // in ms
     [SerializeField] private int dodgeCooldown = 2000; // in ms
     private int _dodgeCooldownTimer = 0;
-    private Vector3 lastCharacterDirection; 
-    
+    private Vector3 lastCharacterDirection;
+
     [SerializeField] private int shotCooldown = 500; // in ms
     private int _shotCooldownTimer = 0;
 
@@ -93,7 +87,7 @@ public class CharacterInputManager : MonoBehaviour
         // Attack
         _cmdAttack = new CmdAttack(_currentAttackStrategy);
         _cmdSecondAttack = new CmdAttack(_meleeWeapon);
-        
+
         // Dodge
         _cmdDodge = new CmdDodge(GetComponent<IMoveable>(), dodgeDuration);
     }
@@ -126,7 +120,7 @@ public class CharacterInputManager : MonoBehaviour
             {
                 _currentAttackStrategy = GetComponent<IDistanceWeapon>();
                 _cmdAttack = new CmdAttack(_currentAttackStrategy);
-            
+
             }
         }
         else if (Input.GetKeyDown(_chooseMelee))
@@ -155,17 +149,17 @@ public class CharacterInputManager : MonoBehaviour
             _shotCooldownTimer += (int)(Time.deltaTime * 1000);
         }
 
-        
 
-        if(Input.GetKeyDown(KeyCode.H)) // For testing purposes
+
+        if (Input.GetKeyDown(KeyCode.H)) // For testing purposes
         {
-            if(UIManager.instance.IsUpgradePickerActive())
+            if (UIManager.instance.IsUpgradePickerActive())
                 UIManager.instance.HideUpgradePicker();
             else
                 UIManager.instance.ShowUpgradePicker();
         }
 
-        if(Input.GetKeyDown(KeyCode.K)) // For testing purposes
+        if (Input.GetKeyDown(KeyCode.K)) // For testing purposes
         {
             Debug.Log("Saving game state...");
             GameStateManager.instance.SaveGameState(false);
@@ -190,13 +184,13 @@ public class CharacterInputManager : MonoBehaviour
     {
         //Rotation
         _cmdRotateTowardsMouse.Do();
-        
+
         //Movement 
         if (Input.GetKey(_moveForward))
         {
             if (Input.GetKey(_moveLeft))
                 _cmdMoveForwardLeft.Do();
-                
+
             else if (Input.GetKey(_moveRight))
                 _cmdMoveForwardRight.Do();
             else

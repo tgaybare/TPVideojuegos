@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-
-namespace Assets.Scripts.Upgrades
+﻿namespace Assets.Scripts.Upgrades
 {
     public enum UpgradeID
     {

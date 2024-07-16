@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -19,7 +18,7 @@ public class DungeonCrawler
 
     public Vector2Int Move(Dictionary<Direction, Vector2Int> directionMovementMap)
     {
-        Direction toMove = (Direction) Random.Range(0, directionMovementMap.Count);
+        Direction toMove = (Direction)Random.Range(0, directionMovementMap.Count);
         _position += directionMovementMap[toMove];
 
         //"Jump" over the start room when moving

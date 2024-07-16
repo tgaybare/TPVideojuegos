@@ -1,5 +1,4 @@
 ﻿using Managers;
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.DungeonGeneration.Rooms

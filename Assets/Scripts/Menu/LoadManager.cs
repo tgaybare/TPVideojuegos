@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static GameLevels;
@@ -30,12 +29,13 @@ public class LoadManager : MonoBehaviour
         StartCoroutine(LoadWithProgressBar());
     }
 
-    IEnumerator LoadWithProgressBar() {
+    IEnumerator LoadWithProgressBar()
+    {
         AsyncOperation operation = UnitySceneManager.instance.LoadLevelAsync(Levels.LEVEL_1);
         operation.allowSceneActivation = false;
 
         float progress = 0;
-        
+
         while (!operation.isDone)
         {
             progress = operation.progress;

@@ -1,8 +1,8 @@
-
 using Managers;
 using UnityEngine;
 
-public class BossRoom : Room {
+public class BossRoom : Room
+{
 
     [SerializeField] private GameObject _jailDoor;
 

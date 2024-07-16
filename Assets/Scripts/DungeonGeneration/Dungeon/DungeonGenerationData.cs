@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "DungeonGenerationData.asset", menuName = "DungeonGenerationData/DungeonData", order = 0)]
 
-public class DungeonGenerationData : ScriptableObject 
+public class DungeonGenerationData : ScriptableObject
 {
     [SerializeField] private int _numberOfCrawlers;
     [SerializeField] private int _iterationMin;

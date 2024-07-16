@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
- public class RoomGameObjectsSpawner : MonoBehaviour
+public class RoomGameObjectsSpawner : MonoBehaviour
 {
     [System.Serializable]
     public struct RandomSpawner // TODO: Diferenciar EnemySpawner

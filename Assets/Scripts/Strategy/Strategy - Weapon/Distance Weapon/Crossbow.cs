@@ -1,12 +1,12 @@
-using System.Collections;
 using Sound;
+using System.Collections;
 using UnityEngine;
 
 public class Crossbow : DistanceWeapon
 {
     private float _reloadTime = 500f;
     private GameObject _crossbowGameObject;
-    
+
     private void Awake()
     {
         _soundPlayer = gameObject.GetComponentsInChildren<FixedSoundPlayer>()[1];
@@ -18,7 +18,7 @@ public class Crossbow : DistanceWeapon
     {
         _soundPlayer.Play();
         StartCoroutine(SpawnBolts());
-    }    
+    }
 
     public override void Reload() => base.Reload();
 

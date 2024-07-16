@@ -1,24 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using Strategy.Strategy___Movement;
+using System.Collections;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class MovementController : MonoBehaviour, IMoveable
 {
 
     private Vector3 _lastDirection;
     private bool _isDodging;
-    
+
     #region IMOVEABLE_PROPERTIES
 
     public ActorStats Stats => _stats;
     [SerializeField] private ActorStats _stats;
 
     private Rigidbody _rigidbody;
-    
+
     public float SpeedMultiplier { get; set; } = 1f;
     public float TotalSpeed => _stats.Speed * SpeedMultiplier;
 
@@ -35,7 +31,8 @@ public class MovementController : MonoBehaviour, IMoveable
 
     public void Move(Vector3 direction)
     {
-        if (!_isDodging){
+        if (!_isDodging)
+        {
             _rigidbody.MovePosition(_rigidbody.position + Time.deltaTime * TotalSpeed * direction);
             _lastDirection = direction;
             //transform.position +=  Time.deltaTime * Speed * direction;
@@ -53,7 +50,7 @@ public class MovementController : MonoBehaviour, IMoveable
             }
         }
 
-        
+
     }
 
     public void Dodge(int duration)
@@ -72,7 +69,7 @@ public class MovementController : MonoBehaviour, IMoveable
 
     private IEnumerator SetInvulnerable(int duration)
     {
-        yield return new WaitForSeconds(duration/1000f); //ms to s
+        yield return new WaitForSeconds(duration / 1000f); //ms to s
         transform.position += _lastDirection + Vector3.down;
         transform.rotation = Quaternion.Euler(-180, 0, 0);
         gameObject.GetComponent<Collider>().enabled = true;

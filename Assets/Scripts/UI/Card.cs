@@ -1,7 +1,5 @@
 ﻿using Assets.Scripts.Upgrades;
 using Managers;
-using Menu;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +21,8 @@ namespace Assets.Scripts.UI
             _button.onClick.AddListener(ApplyUpgrade);
         }
 
-        private void setComponentsIfNull() {
+        private void setComponentsIfNull()
+        {
             if (_image == null)
             {
                 _image = transform.Find("Picture").GetComponent<Image>();
@@ -63,7 +62,7 @@ namespace Assets.Scripts.UI
 
         private void ApplyUpgrade()
         {
-            if(_upgradeID == UpgradeID.NONE)
+            if (_upgradeID == UpgradeID.NONE)
             {
                 return;
             }
@@ -73,7 +72,7 @@ namespace Assets.Scripts.UI
 
         public void SetUpgradeInfo(IAppliableUpgrade upgrade)
         {
-            if(upgrade == null)
+            if (upgrade == null)
             {
                 _title.text = "Empty Hands";
                 _description.text = "No more upgrades to pick";

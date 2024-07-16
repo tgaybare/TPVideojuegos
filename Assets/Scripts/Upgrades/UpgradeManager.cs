@@ -1,8 +1,6 @@
 ﻿using Assets.Scripts.Upgrades;
 using Managers;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -29,7 +27,8 @@ public class UpgradeManager : MonoBehaviour
         {
             instance = this;
             initializeUpgrades();
-        } else
+        }
+        else
         {
             Destroy(this);
         }
@@ -41,10 +40,11 @@ public class UpgradeManager : MonoBehaviour
 
         ActionManager.instance.OnPlayerPickUpgrade += ApplyUpgrade;
 
-        
+
     }
 
-    private void initializeUpgrades() {
+    private void initializeUpgrades()
+    {
         // Initialize all upgrades
         foreach (IAppliableUpgrade upgrade in IDToUpgradeDict.Values)
         {
@@ -60,7 +60,7 @@ public class UpgradeManager : MonoBehaviour
             return;
         }
 
-        if(!_availableUpgrades.ContainsKey(upgradeID))
+        if (!_availableUpgrades.ContainsKey(upgradeID))
         {
             Debug.LogError($"IAppliableUpgrade with ID = {upgradeID} not found");
             return;
@@ -98,7 +98,8 @@ public class UpgradeManager : MonoBehaviour
         return result;
     }
 
-    public List<UpgradeID> GetAppliedUpgradeIDs() { 
+    public List<UpgradeID> GetAppliedUpgradeIDs()
+    {
         return new List<UpgradeID>(_appliedUpgrades.Keys);
     }
 }

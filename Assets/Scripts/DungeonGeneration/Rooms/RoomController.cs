@@ -1,22 +1,19 @@
 using Managers;
-using Menu;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameLevels;
 
 public class RoomInfo
-{   
+{
     private string _name;
     private int _x;
     private int _z;
 
-    public string Name { get => _name; set => _name = value;}
-    public int X { get => _x; set => _x = value;}
-    public int Z { get => _z; set => _z = value;}
+    public string Name { get => _name; set => _name = value; }
+    public int X { get => _x; set => _x = value; }
+    public int Z { get => _z; set => _z = value; }
 
     public RoomInfo(string name, int x, int z)
     {
@@ -34,10 +31,10 @@ public class RoomController : MonoBehaviour
         { Levels.LEVEL_1, new List<string> { "Room1", "Room2", "Room3" } },
         { Levels.LEVEL_2, new List<string> { "Room4", "Room5", "Room6" } }
     };
-    public static readonly Dictionary<Levels, string> BossRoomNamesByLevel = new() 
-    { 
+    public static readonly Dictionary<Levels, string> BossRoomNamesByLevel = new()
+    {
         { Levels.LEVEL_1, "BossRoom" },
-        { Levels.LEVEL_2, "FinalBossRoom" } 
+        { Levels.LEVEL_2, "FinalBossRoom" }
     };
     public static readonly Dictionary<Levels, string> StartRoomNamesByLevel = new()
     {
@@ -53,7 +50,7 @@ public class RoomController : MonoBehaviour
     private bool _isLoadingRoom = false;
     private bool _finishedRoomsSetup = false;
     private bool _checkedCompletion = false;
-    
+
 
     [SerializeField] private Room _currentRoom;
 
@@ -95,7 +92,7 @@ public class RoomController : MonoBehaviour
         }
 
         // Check Level Completion
-        if(!_checkedCompletion && _currentRoom is BossRoom && _currentRoom.IsCleared())
+        if (!_checkedCompletion && _currentRoom is BossRoom && _currentRoom.IsCleared())
         {
             _checkedCompletion = true;
             if (GameStateManager.instance.CurrentLevel() == GameLevels.MAX_LEVEL)
@@ -112,7 +109,7 @@ public class RoomController : MonoBehaviour
 
     public bool DoesRoomExist(int x, int z)
     {
-        return FindRoom(x,z) != null;
+        return FindRoom(x, z) != null;
     }
 
     public Room FindRoom(int x, int z)
@@ -127,12 +124,13 @@ public class RoomController : MonoBehaviour
         _loadRoomQueue.Enqueue(newRoomData);
     }
 
-    public void LoadRoom(string name, Vector2Int position) {
+    public void LoadRoom(string name, Vector2Int position)
+    {
         LoadRoom(name, position.x, position.y);
     }
 
     public IEnumerator LoadRoomRoutine(RoomInfo info)
-    {   
+    {
         AsyncOperation loadRoom = SceneManager.LoadSceneAsync(info.Name, LoadSceneMode.Additive);
 
         while (!loadRoom.isDone)
@@ -162,7 +160,7 @@ public class RoomController : MonoBehaviour
         room.transform.parent = transform;
 
         // If this is the first room, set it as the current room
-        if(_currentRoom == null && _loadedRooms.Count == 0)
+        if (_currentRoom == null && _loadedRooms.Count == 0)
         {
             _currentRoom = room;
         }
@@ -182,8 +180,9 @@ public class RoomController : MonoBehaviour
 
         // If we have loaded all rooms, remove unconnected doors and spawn the boss room
         // If the queue is empty, we have loaded all rooms
-        if (_loadRoomQueue.Count == 0) {
-            if(!_finishedRoomsSetup)
+        if (_loadRoomQueue.Count == 0)
+        {
+            if (!_finishedRoomsSetup)
             {
                 FinishRoomSetup();
             }
@@ -203,7 +202,7 @@ public class RoomController : MonoBehaviour
             room.RemoveUnconnectedDoors();
             room.OpenDoors();
             // First room is always visible
-            if(room != _currentRoom)
+            if (room != _currentRoom)
             {
                 room.SetInvisible();
             }
@@ -226,9 +225,9 @@ public class RoomController : MonoBehaviour
         room.SetInvisible();
     }
 
-    private void UpdateCurrentRoomDoors() 
+    private void UpdateCurrentRoomDoors()
     {
-        if(_currentRoom.IsCleared())
+        if (_currentRoom.IsCleared())
         {
             _currentRoom.OpenDoors();
         }
@@ -245,5 +244,5 @@ public class RoomController : MonoBehaviour
 
 
 
-   
-} 
+
+}

@@ -1,5 +1,4 @@
 ﻿using Strategy.Strategy___Weapon;
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Upgrades
@@ -18,7 +17,8 @@ namespace Assets.Scripts.Upgrades
 
         private HealthUpgrade() { }
 
-        private static HealthUpgrade GetInstance() {
+        private static HealthUpgrade GetInstance()
+        {
             if (_instance == null)
             {
                 _instance = new HealthUpgrade();
@@ -36,7 +36,8 @@ namespace Assets.Scripts.Upgrades
 
         public void applyUpgrade()
         {
-            if (_playerLifeController == null){
+            if (_playerLifeController == null)
+            {
                 Debug.LogError("Player LifeController not found");
                 return;
             }

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public interface IProjectile
 {
     int Damage { get; set; }
@@ -9,5 +5,5 @@ public interface IProjectile
     float LifeTime { get; }
 
     void Travel();
-    
+
 }

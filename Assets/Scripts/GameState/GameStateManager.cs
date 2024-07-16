@@ -2,15 +2,13 @@
 using Managers;
 using Menu;
 using Strategy.Strategy___Weapon;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using static GameLevels;
 
 
-public class GameStateManager: MonoBehaviour
+public class GameStateManager : MonoBehaviour
 {
     [SerializeField] private bool _isLoadScreen = false;
     private static readonly string GAMESTATE_FILE_NAME = "gameState.json";
@@ -48,7 +46,7 @@ public class GameStateManager: MonoBehaviour
 
         _currentLevel = CurrentLevel();
     }
-    
+
 
     private void Start()
     {
@@ -73,7 +71,7 @@ public class GameStateManager: MonoBehaviour
         List<UpgradeID> upgradeIDs = UpgradeManager.instance.GetAppliedUpgradeIDs();
 
         Levels level = CurrentLevel();
-        if(updateCurrentLevel && level < GameLevels.MAX_LEVEL)
+        if (updateCurrentLevel && level < GameLevels.MAX_LEVEL)
         {
             level++;
         }
@@ -92,7 +90,7 @@ public class GameStateManager: MonoBehaviour
         if (File.Exists(GAMESTATE_FILE_PATH))
         {
             string json = File.ReadAllText(GAMESTATE_FILE_PATH);
-            if(json == null)
+            if (json == null)
             {
                 Debug.LogWarning($"Could not load game state from '{GAMESTATE_FILE_PATH}' [JSON is null]");
                 return;
@@ -122,7 +120,7 @@ public class GameStateManager: MonoBehaviour
 
         // Restore Player Health
         LifeController playerLifeController = GameObject.FindGameObjectWithTag("Player").GetComponent<LifeController>();
-        if(playerLifeController)
+        if (playerLifeController)
         {
             playerLifeController.UpdateLife(gameState.PlayerHealth);
         }
@@ -158,11 +156,11 @@ public class GameStateManager: MonoBehaviour
     {
         // If the current level is LEVEL_1, we need to check the saved game state
         // to seif the player has already completed a level, because it is the default value
-        if(_currentLevel == Levels.LEVEL_1)
+        if (_currentLevel == Levels.LEVEL_1)
         {
             GameState gameState = GetGameState();
 
-            if(gameState != null && gameState.CurrentLevel != Levels.LEVEL_1)
+            if (gameState != null && gameState.CurrentLevel != Levels.LEVEL_1)
             {
                 _currentLevel = gameState.CurrentLevel;
             }

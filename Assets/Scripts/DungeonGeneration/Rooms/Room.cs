@@ -1,6 +1,5 @@
 using Assets.Scripts.DungeonGeneration;
 using Managers;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,7 +33,7 @@ public class Room : MonoBehaviour
 
     protected virtual void Start()
     {
-        if(RoomController.instance == null)
+        if (RoomController.instance == null)
         {
             Debug.LogError("RoomController instance does not exist.");
             return;
@@ -49,7 +48,7 @@ public class Room : MonoBehaviour
         }
 
         _roomEnemiesSpawner = GetComponent<RoomEnemiesSpawner>();
-        if(_roomEnemiesSpawner == null)
+        if (_roomEnemiesSpawner == null)
         {
             Debug.LogError("RoomEnemiesSpawner is not set.");
             return;
@@ -59,7 +58,7 @@ public class Room : MonoBehaviour
         {
             _roomLights.Add(light.gameObject);
         }
-        
+
 
         RoomController.instance.RegisterRoom(this);
     }
@@ -105,8 +104,9 @@ public class Room : MonoBehaviour
     }
 
     // If exists, returns the adjacent room at (x + deltaX, z + deltaZ)
-    private Room GetAdjacentRoomAt(int deltaX, int DeltaZ) {
-        if(RoomController.instance.DoesRoomExist(_x + deltaX, _z + DeltaZ))
+    private Room GetAdjacentRoomAt(int deltaX, int DeltaZ)
+    {
+        if (RoomController.instance.DoesRoomExist(_x + deltaX, _z + DeltaZ))
         {
             return RoomController.instance.FindRoom(_x + deltaX, _z + DeltaZ);
         }
@@ -133,14 +133,15 @@ public class Room : MonoBehaviour
         return GetAdjacentRoomAt(0, -1);
     }
 
-    public void RemoveUnconnectedDoors() {
-        if(GetTopRightRoom() == null)
+    public void RemoveUnconnectedDoors()
+    {
+        if (GetTopRightRoom() == null)
         {
             _topRightDoorway.gameObject.SetActive(false);
             _topRightDoorway.ReplacementWall.SetActive(true);
         }
 
-        if(GetTopLeftRoom() == null)
+        if (GetTopLeftRoom() == null)
         {
             _topLeftDoorway.gameObject.SetActive(false);
             _topLeftDoorway.ReplacementWall.SetActive(true);
@@ -152,7 +153,7 @@ public class Room : MonoBehaviour
             _bottomRightDoorway.ReplacementWall.SetActive(true);
         }
 
-        if(GetBottomLeftRoom() == null)
+        if (GetBottomLeftRoom() == null)
         {
             _bottomLeftDoorway.gameObject.SetActive(false);
             _bottomLeftDoorway.ReplacementWall.SetActive(true);
@@ -161,7 +162,7 @@ public class Room : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             ActionManager.instance.ActionPlayerEnterRoom(this);
         }
@@ -175,7 +176,8 @@ public class Room : MonoBehaviour
         }
     }
 
-    public void SetVisible() {
+    public void SetVisible()
+    {
         SetChildrenVisibility(true);
     }
 
@@ -203,7 +205,7 @@ public class Room : MonoBehaviour
         return $"Room '{name}' at ({_x}, {_z})";
     }
 
-    public void OpenDoors() 
+    public void OpenDoors()
     {
         foreach (Doorway d in _doorways)
         {
@@ -211,7 +213,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    public void CloseDoors() 
+    public void CloseDoors()
     {
         foreach (Doorway d in _doorways)
         {
@@ -219,7 +221,8 @@ public class Room : MonoBehaviour
         }
     }
 
-    public void PauseEnemies() {
+    public void PauseEnemies()
+    {
         if (_roomEnemiesSpawner == null)
         {
             return;
@@ -230,7 +233,7 @@ public class Room : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             //TODO: enemy.Pause();  <-- Implement this method in the Enemy class
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.SetActive(false);
             }
@@ -239,7 +242,7 @@ public class Room : MonoBehaviour
 
     public void UnpauseEnemies()
     {
-        if(_roomEnemiesSpawner == null)
+        if (_roomEnemiesSpawner == null)
         {
             return;
         }

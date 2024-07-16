@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Assets.Scripts.UI;
+﻿using Assets.Scripts.UI;
 using Assets.Scripts.Upgrades;
 using Managers;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,11 +83,11 @@ namespace Menu
                 _lifeBar.color = LIFEBAR_RED; // Dark red
             }
 
-            _lifeBarText.text = $"{(int)(_currentLife/maxLife * 100) }%";
+            _lifeBarText.text = $"{(int)(_currentLife / maxLife * 100)}%";
         }
 
         private void OnCharacterMaxLifeChange(float oldMaxLife, float newMaxLife)
-        {   
+        {
             float sizeMultiplier = newMaxLife / oldMaxLife;
 
             _lifeBar.fillAmount = _currentLife / newMaxLife; // I believe this is unnecessary
@@ -116,7 +115,8 @@ namespace Menu
             return _upgradePicker.activeSelf;
         }
 
-        private void GenerateUpgradeCards() {
+        private void GenerateUpgradeCards()
+        {
             IAppliableUpgrade[] randomUpgrades = UpgradeManager.instance.GetRandomPickableUpgrades();
 
             for (int i = 0; i < _cards.Length; i++)

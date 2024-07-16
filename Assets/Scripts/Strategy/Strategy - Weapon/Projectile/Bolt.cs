@@ -1,69 +1,67 @@
-﻿using System;
+﻿using Sound;
 using System.Collections;
 using System.Collections.Generic;
-using Managers;
-using Sound;
 using UnityEngine;
 
 
-    public class Bolt : MonoBehaviour, IProjectile
+public class Bolt : MonoBehaviour, IProjectile
+{
+
+    [SerializeField] private int _damage = 20;
+    [SerializeField] private float _speed = 10;
+    [SerializeField] private float _lifetime = 5;
+    [SerializeField] protected List<int> _layerMasks;
+
+    protected FixedSoundPlayer _soundPlayer;
+
+    public int Damage { get => _damage; set => _damage = value; }
+    public float Speed => _speed;
+    public float LifeTime => _lifetime;
+
+    private Vector3 _direction;
+
+    protected void Awake()
     {
+        transform.position += transform.forward * 3.5f;
+        _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();
+    }
 
-        [SerializeField] private int _damage = 20;
-        [SerializeField] private float _speed = 10;
-        [SerializeField] private float _lifetime = 5;
-        [SerializeField] protected List<int> _layerMasks;
+    private void Update()
+    {
+        //transform.position +=  Time.deltaTime * Speed * _direction ;
+        Travel();
 
-        protected FixedSoundPlayer _soundPlayer;
+        _lifetime -= Time.deltaTime;
+        if (_lifetime <= 0) Destroy(this.gameObject);
+    }
 
-        public int Damage { get => _damage; set => _damage = value; }
-        public float Speed => _speed;
-        public float LifeTime => _lifetime;
 
-        private Vector3 _direction;
+    public void Travel()
+    {
+        transform.position += transform.forward * Time.deltaTime * Speed;
+    }
 
-        protected void Awake()
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (_layerMasks.Contains(collision.gameObject.layer))
         {
-            transform.position += transform.forward * 3.5f;
-            _soundPlayer = gameObject.GetComponent<FixedSoundPlayer>();
-        }
-
-        private void Update()
-        {
-            //transform.position +=  Time.deltaTime * Speed * _direction ;
-            Travel();
-
-            _lifetime -= Time.deltaTime;
-            if (_lifetime <= 0) Destroy(this.gameObject);
-        }
-
-
-        public void Travel()
-        {
-            transform.position += transform.forward * Time.deltaTime * Speed;
-        }
-
-        public void OnCollisionEnter(Collision collision)
-        {
-            if (_layerMasks.Contains(collision.gameObject.layer))
-            {
-                IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
-                damageable?.TakeDamage(Damage);
-                _soundPlayer.Play();
-                StartCoroutine(WaitForSound());
-            }
-        }
-        
-
-        IEnumerator WaitForSound()
-        {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<Collider>().enabled = false;
-            while (_soundPlayer.IsPlaying())
-            {
-                yield return null;
-            }
-            
-            Destroy(gameObject);
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            damageable?.TakeDamage(Damage);
+            _soundPlayer.Play();
+            StartCoroutine(WaitForSound());
         }
     }
+
+
+    IEnumerator WaitForSound()
+    {
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
+        while (_soundPlayer.IsPlaying())
+        {
+            yield return null;
+        }
+
+        Destroy(gameObject);
+    }
+}

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Upgrades
 {
@@ -30,14 +29,14 @@ namespace Assets.Scripts.Upgrades
 
         public void applyUpgrade()
         {
-            if(_distanceWeapon == null)
+            if (_distanceWeapon == null)
             {
                 Debug.LogError("Player DistanceWeapon not found");
                 return;
             }
 
             IProjectile projectile = _distanceWeapon.ProjectilePrefab.GetComponent<IProjectile>();
-            if(projectile == null)
+            if (projectile == null)
             {
                 Debug.LogError("Projectile does not implement IProjectile interface");
                 return;
@@ -48,7 +47,7 @@ namespace Assets.Scripts.Upgrades
 
         public string GetDescription()
         {
-            return $"Increases the damage of the projectile by {(DAMAGE_MULTIPLIER-1)*100}%";
+            return $"Increases the damage of the projectile by {(DAMAGE_MULTIPLIER - 1) * 100}%";
         }
 
         public Sprite GetSprite()

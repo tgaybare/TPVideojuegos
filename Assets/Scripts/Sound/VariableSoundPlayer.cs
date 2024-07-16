@@ -2,20 +2,20 @@
 
 namespace Sound
 {
-    public class VariableSoundPlayer: MonoBehaviour
+    public class VariableSoundPlayer : MonoBehaviour
     {
         private AudioSource AudioSource { get; set; }
 
         void Start()
         {
-            AudioSource = gameObject.GetComponent<AudioSource>();   
+            AudioSource = gameObject.GetComponent<AudioSource>();
         }
 
         public void PlayOneShot(AudioClip clip)
         {
             AudioSource.PlayOneShot(clip);
         }
-        
+
         public bool IsPlaying()
         {
             return AudioSource.isPlaying;

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Animations;
+﻿using Animations;
 using Commands;
 using JetBrains.Annotations;
 using Strategy.Strategy___Movement;
@@ -12,23 +10,23 @@ namespace Enemy
     public class EnemyAIManager : MonoBehaviour
     {
         [SerializeField] private IWeapon _weapon;
-        
+
         public EnemyStats Stats => stats;
         [SerializeField] private EnemyStats stats;
-        
-        [SerializeField] [CanBeNull] private GameObject player;
+
+        [SerializeField][CanBeNull] private GameObject player;
         private float AttackRange => stats.AttackRange;
         private float AttackCooldown => stats.AttackCooldown;
         private float RestAfterAttack => stats.RestAfterAttack;
-    
+
         private CmdMovement _cmdMoveDirection;
         private CmdAttack _cmdAttack;
-        
+
         private IAnimController _animController;
-        
+
         private double timeSinceLastAttack = 0;
         private double waitTime = 0;
-        
+
         private void Awake()
         {
             // Movement directions
@@ -38,17 +36,17 @@ namespace Enemy
 
             // Movement Commands
             _cmdMoveDirection = new CmdMovement(forward, GetComponent<IMoveable>());
-        
+
             // Attack
             _cmdAttack = new CmdAttack(_weapon);
 
             player = GameObject.FindGameObjectWithTag("Player");
-            
+
             _animController = GetComponent<IAnimController>();
         }
 
-      
-        
+
+
         void Update()
         {
             if (player == null)
@@ -64,10 +62,10 @@ namespace Enemy
             IMoveable enemy = GetComponent<IMoveable>();
             Ray playerDirection = new Ray(transform.position, player.transform.position - transform.position);
             enemy.RotateTowards(playerDirection);
-        
+
             //Attack
             if (Vector3.Distance(transform.position, player.transform.position) < AttackRange)
-            { 
+            {
                 _animController?.StopWalking();
                 if (timeSinceLastAttack > AttackCooldown)
                 {
@@ -89,6 +87,6 @@ namespace Enemy
                 timeSinceLastAttack += Time.deltaTime;
             }
         }
-       
+
     }
 }

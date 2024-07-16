@@ -1,5 +1,4 @@
 using Assets.Scripts.Utils;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +22,8 @@ public class DungeonCrawlerController
         { Direction.Right, Vector2Int.right }
     };
 
-    public static LastAddedHashSet<Vector2Int> GenerateDungeon(DungeonGenerationData data) {
+    public static LastAddedHashSet<Vector2Int> GenerateDungeon(DungeonGenerationData data)
+    {
         List<DungeonCrawler> crawlers = new List<DungeonCrawler>();
 
         for (int i = 0; i < data.NumberOfCrawlers; i++)

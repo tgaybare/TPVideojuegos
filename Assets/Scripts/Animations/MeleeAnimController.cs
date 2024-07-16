@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Animations
 {
@@ -11,7 +10,7 @@ namespace Animations
         {
             _animator = GetComponent<Animator>();
         }
-        
+
         public void Attack()
         {
             _animator.SetTrigger("MeleeAttack");
@@ -21,7 +20,7 @@ namespace Animations
         {
             _animator.SetBool("Walking", true);
         }
-        
+
         public void StopWalking()
         {
             _animator.SetBool("Walking", false);

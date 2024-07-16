@@ -175,11 +175,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9063260292471273265, guid: 2b8d780b63ff8da45a7eb9a1981c84a1, type: 3}
+      propertyPath: _roomEnemiesSpawner
+      value: 
+      objectReference: {fileID: 1763146806}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b8d780b63ff8da45a7eb9a1981c84a1, type: 3}
+--- !u!114 &1763146806 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5512481820219159656, guid: 2b8d780b63ff8da45a7eb9a1981c84a1, type: 3}
+  m_PrefabInstance: {fileID: 1763146805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef812943619a9c48915d3f6710f19e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
