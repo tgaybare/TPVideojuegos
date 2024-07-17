@@ -149,34 +149,6 @@ public class CharacterInputManager : MonoBehaviour
             _shotCooldownTimer += (int)(Time.deltaTime * 1000);
         }
 
-
-
-        if (Input.GetKeyDown(KeyCode.H)) // For testing purposes
-        {
-            if (UIManager.instance.IsUpgradePickerActive())
-                UIManager.instance.HideUpgradePicker();
-            else
-                UIManager.instance.ShowUpgradePicker();
-        }
-
-        if (Input.GetKeyDown(KeyCode.K)) // For testing purposes
-        {
-            Debug.Log("Saving game state...");
-            GameStateManager.instance.SaveGameState(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L)) // For testing purposes
-        {
-            Debug.Log("Loading game state...");
-            GameStateManager.instance.TryLoadGameState();
-        }
-
-        if (Input.GetKeyDown(KeyCode.C)) // For testing purposes
-        {
-            Debug.Log("Clearing game state...");
-            GameStateManager.instance.ClearGameState();
-        }
-
     }
 
     // We use FixedUpdate for movement because it's physics related

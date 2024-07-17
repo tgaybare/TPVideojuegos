@@ -20,7 +20,7 @@ public class Room : MonoBehaviour
     private List<Doorway> _doorways = new List<Doorway>();
     private List<GameObject> _roomLights = new List<GameObject>();
 
-    //[SerializeField] private RoomGameObjectsSpawner _roomObjectSpawner;
+    public RoomEnemiesSpawner RoomEnemiesSpawner { get => _roomEnemiesSpawner; }
     [SerializeField] private RoomEnemiesSpawner _roomEnemiesSpawner;
     public int EnemyCount { get => _roomEnemiesSpawner.EnemiesInRoom.Count; }
 
@@ -66,7 +66,8 @@ public class Room : MonoBehaviour
 
     public Vector3 GetRoomCenter()
     {
-        return new Vector3(_x * _width, _y * _height, _z * _depth);
+        Debug.Log($"Room center: {new Vector3(_x * _width / 2, _y * _height / 2, _z * _depth / 2)}");
+        return new Vector3(_x * _width, 0.1f, _z * _depth);
     }
 
     public void OnDrawGizmos()
