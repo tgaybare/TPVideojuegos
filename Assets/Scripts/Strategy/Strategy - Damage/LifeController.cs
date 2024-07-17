@@ -4,8 +4,6 @@ using Sound;
 using System.Collections;
 using UnityEngine;
 
-namespace Strategy.Strategy___Weapon
-{
     public class LifeController : MonoBehaviour, IDamageable
     {
         public ActorStats Stats => _stats;
@@ -21,6 +19,7 @@ namespace Strategy.Strategy___Weapon
         [SerializeField] private float life;
 
         private MainCharacterAnimController _animatorController;
+        private MeleeAnimController _alternateAnimatorController;
 
         private void Awake()
         {
@@ -28,6 +27,10 @@ namespace Strategy.Strategy___Weapon
             _maxLifeWithUpgrades = _stats.MaxLife;
             _soundPlayer = gameObject.GetComponent<VariableSoundPlayer>();
             _animatorController = gameObject.GetComponent<MainCharacterAnimController>();
+            if (_animatorController == null)
+            {
+                _alternateAnimatorController = gameObject.GetComponent<MeleeAnimController>();
+            }
         }
 
         public void TakeDamage(int damage)
@@ -57,6 +60,7 @@ namespace Strategy.Strategy___Weapon
                 }
                 else if (gameObject.CompareTag("Enemy"))
                 {
+                    _alternateAnimatorController?.Die();
                     KillEnemy(gameObject);
                 }
             }
@@ -105,4 +109,3 @@ namespace Strategy.Strategy___Weapon
             ActionManager.instance.CharacterMaxLifeChange(_stats.MaxLife, _maxLifeWithUpgrades);
         }
     }
-}

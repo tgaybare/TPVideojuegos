@@ -28,6 +28,7 @@ public class MeleeWeapon : MonoBehaviour, IWeapon
     public virtual void Attack()
     {
         _animController.Attack();
+        _animController.SetAttacking(true);
     }
 
     #endregion

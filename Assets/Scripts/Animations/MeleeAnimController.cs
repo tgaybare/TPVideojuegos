@@ -15,6 +15,11 @@ namespace Animations
         {
             _animator.SetTrigger("MeleeAttack");
         }
+        
+        public void SetAttacking(bool attacking)
+        {
+            _animator.SetBool("Attacking", attacking);
+        }
 
         public void Walk()
         {
@@ -29,6 +34,11 @@ namespace Animations
         public bool IsAttacking()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack");
+        }
+
+        public void Die()
+        {
+            _animator.SetBool("Death", true);
         }
     }
 }
