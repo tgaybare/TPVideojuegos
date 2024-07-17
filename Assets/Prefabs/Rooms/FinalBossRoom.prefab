@@ -4929,7 +4929,7 @@ MonoBehaviour:
   _gridController: {fileID: 0}
   _randomSpawners:
   - name: Boss Spawner
-    spawnerData: {fileID: 11400000, guid: d5e6ffd758b100645a81a274353b32ff, type: 2}
+    spawnerData: {fileID: 11400000, guid: 86adf2aecd2a0604580620e2b4e39765, type: 2}
   _enemiesInRoom: []
 --- !u!1 &5722123537689189155
 GameObject:

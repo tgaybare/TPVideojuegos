@@ -149,6 +149,13 @@ public class CharacterInputManager : MonoBehaviour
             _shotCooldownTimer += (int)(Time.deltaTime * 1000);
         }
 
+        /*if (Input.GetKeyDown(KeyCode.H)) // For testing purposes
+        {
+            if (UIManager.instance.IsUpgradePickerActive())
+                UIManager.instance.HideUpgradePicker();
+            else
+                UIManager.instance.ShowUpgradePicker();
+        }*/
     }
 
     // We use FixedUpdate for movement because it's physics related

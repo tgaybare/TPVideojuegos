@@ -178,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 7430210938344422145, guid: 6948e45df6461044f8053f4e2359c898, type: 3}
       propertyPath: _randomSpawners.Array.data[0].spawnerData
       value: 
-      objectReference: {fileID: 11400000, guid: cf37cb31ee76f0547b7974eef1d16036, type: 2}
+      objectReference: {fileID: 11400000, guid: 86adf2aecd2a0604580620e2b4e39765, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4870600615402585109, guid: 6948e45df6461044f8053f4e2359c898, type: 3}

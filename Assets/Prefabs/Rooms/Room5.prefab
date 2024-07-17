@@ -7446,6 +7446,8 @@ MonoBehaviour:
     spawnerData: {fileID: 11400000, guid: d38458314cd131442a5f43376f2399f1, type: 2}
   - name: Plague Doctor Spawner
     spawnerData: {fileID: 11400000, guid: 4002a5543d12aec439f7301d83634837, type: 2}
+  - name: Zombie Spawner
+    spawnerData: {fileID: 11400000, guid: 59db26e31d4ef0b49a0fd3ab73155c83, type: 2}
   _enemiesInRoom: []
 --- !u!1 &8945460972671879964
 GameObject:
