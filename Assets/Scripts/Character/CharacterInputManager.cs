@@ -22,7 +22,7 @@ public class CharacterInputManager : MonoBehaviour
     private KeyCode _moveLeft = KeyCode.A;
     private KeyCode _moveRight = KeyCode.D;
     private KeyCode _attack = KeyCode.Mouse0;
-    private KeyCode _dodge = KeyCode.LeftShift;
+    // private KeyCode _dodge = KeyCode.LeftShift;
 
     private KeyCode _chooseMelee = KeyCode.Alpha1;
     private KeyCode _chooseDistance = KeyCode.Alpha2;
@@ -41,10 +41,10 @@ public class CharacterInputManager : MonoBehaviour
     private CmdAttack _cmdSecondAttack;
     private CmdDodge _cmdDodge;
 
-    [SerializeField] private int dodgeDuration = 200; // in ms
-    [SerializeField] private int dodgeCooldown = 2000; // in ms
-    private int _dodgeCooldownTimer = 0;
-    private Vector3 lastCharacterDirection;
+    // [SerializeField] private int dodgeDuration = 200; // in ms
+    // [SerializeField] private int dodgeCooldown = 2000; // in ms
+    // private int _dodgeCooldownTimer = 0;
+    // private Vector3 lastCharacterDirection;
 
     [SerializeField] private int shotCooldown = 500; // in ms
     private int _shotCooldownTimer = 0;
@@ -89,23 +89,23 @@ public class CharacterInputManager : MonoBehaviour
         _cmdSecondAttack = new CmdAttack(_meleeWeapon);
 
         // Dodge
-        _cmdDodge = new CmdDodge(GetComponent<IMoveable>(), dodgeDuration);
+        // _cmdDodge = new CmdDodge(GetComponent<IMoveable>(), dodgeDuration);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        // Dodge
-        if (Input.GetKeyDown(_dodge) && _dodgeCooldownTimer >= dodgeCooldown)
-        {
-            EventQueueManager.instance.AddEventToQueue(_cmdDodge);
-            _dodgeCooldownTimer = 0;
-        }
-        else
-        {
-            _dodgeCooldownTimer += (int)(Time.deltaTime * 1000);
-        }
+        // // Dodge
+        // if (Input.GetKeyDown(_dodge) && _dodgeCooldownTimer >= dodgeCooldown)
+        // {
+        //     EventQueueManager.instance.AddEventToQueue(_cmdDodge);
+        //     _dodgeCooldownTimer = 0;
+        // }
+        // else
+        // {
+        //     _dodgeCooldownTimer += (int)(Time.deltaTime * 1000);
+        // }
 
 
         // Change weapon
