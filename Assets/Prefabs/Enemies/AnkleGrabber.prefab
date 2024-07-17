@@ -2235,6 +2235,7 @@ GameObject:
   - component: {fileID: 6702145626581770392}
   - component: {fileID: 1362969957571282363}
   - component: {fileID: 9183260691152459700}
+  - component: {fileID: 1072702245338113673}
   m_Layer: 3
   m_Name: AnkleGrabber
   m_TagString: Enemy
@@ -2326,8 +2327,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.39085, y: 2.0636892, z: 2.4218333}
-  m_Center: {x: -0.07341476, y: 0.5318437, z: -0.48790768}
+  m_Size: {x: 1.7096438, y: 1.5433736, z: 1.7807144}
+  m_Center: {x: -0.027015457, y: 0.7920016, z: -0.16734599}
 --- !u!114 &2640125381479322196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2527,6 +2528,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 62b5656047c099c459c28d858b673e1d, type: 3}
+--- !u!114 &1072702245338113673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363024495875198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac50a53f692420198d71f73c03011bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1366782657650506
 GameObject:
   m_ObjectHideFlags: 0

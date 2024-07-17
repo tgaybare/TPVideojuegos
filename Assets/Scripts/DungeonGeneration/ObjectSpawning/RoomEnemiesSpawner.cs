@@ -8,10 +8,10 @@ namespace Assets.Scripts.DungeonGeneration
         public List<GameObject> EnemiesInRoom => _enemiesInRoom;
         [SerializeField] private List<GameObject> _enemiesInRoom = new List<GameObject>();
 
-        protected override void Awake()
+        protected override void Start()
         {
             VerifyEnemyTags();
-            base.Awake();
+            base.Start();
         }
 
         protected override void SpawnObjects(RandomSpawner data)
@@ -21,6 +21,7 @@ namespace Assets.Scripts.DungeonGeneration
             for (int i = 0; i < randomAmount; i++)
             {
                 Vector3 spawnPosition = _gridController.AllocateRandomTile();
+                Debug.Log($"Spawning {data.spawnerData.ToSpawn.name} at {spawnPosition}");
                 GameObject enemy = Instantiate(data.spawnerData.ToSpawn, spawnPosition, Quaternion.identity, transform);
                 _enemiesInRoom.Add(enemy);
                 enemy.SetActive(false);

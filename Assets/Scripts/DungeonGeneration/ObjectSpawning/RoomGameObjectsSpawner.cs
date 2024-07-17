@@ -15,6 +15,10 @@ public class RoomGameObjectsSpawner : MonoBehaviour
     protected virtual void Awake()
     {
         _gridController = GetComponentInChildren<GridController>();
+    }
+
+    protected virtual void Start()
+    {
         InitializeObjectSpawning();
     }
 
